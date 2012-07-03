@@ -1,0 +1,4 @@
+<launch>
+  <param name="magnitude" value="80" />
+  <node name="pan_image_unwrap" pkg="pan_image_unwrap" type="pan_image_unwrap" />
+</launch>

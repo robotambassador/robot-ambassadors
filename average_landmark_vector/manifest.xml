@@ -1,0 +1,17 @@
+<package>
+  <description brief="average_landmark_vector">
+
+     average_landmark_vector
+
+  </description>
+  <author>ros</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/average_landmark_vector</url>
+  <depend package="roscpp"/>
+  <depend package="cv_bridge"/>
+  <depend package="opencv2"/>
+
+</package>
+
+

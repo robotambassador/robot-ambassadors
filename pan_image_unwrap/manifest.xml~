@@ -1,0 +1,16 @@
+<package>
+  <description brief="pan_image_unwrap">
+
+     pan_image_unwrap
+
+  </description>
+  <author>ros</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/pan_image_unwrap</url>
+  <depend package="roscpp"/>
+  <depend package="cv_bridge"/>
+  <depend package="image_transport"/>
+</package>
+
+

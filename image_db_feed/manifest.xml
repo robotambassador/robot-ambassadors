@@ -1,0 +1,19 @@
+<package>
+  <description brief="image_db_feed">
+
+     image_db_feed
+
+  </description>
+  <author>ros</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/image_db_feed</url>
+  <depend package="roscpp"/>
+  <depend package="cv_bridge"/>
+  <depend package="image_transport"/>
+  <depend package="opencv2"/>
+  <depend package="sensor_msgs"/>
+  <depend package="geometry_msgs"/>
+</package>
+
+
