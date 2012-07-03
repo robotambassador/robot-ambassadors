@@ -1,0 +1,14 @@
+<launch>
+  <!-- record_all.xml
+  
+  Runs rosbag record on all topics (but downlink topics are automatically excluded)
+   -->
+
+  <arg name="machine" default="local"/>
+  <arg name="tag" default=""/> <!-- string to include in bagfile prefix -->
+
+  <node pkg="rosbag" type="rosbag" name="record_bag" 
+    args="record -b 64 -a -o $(arg machine)_$(arg tag) -x '(.*)/downlink/(.*)'" 
+    machine="$(arg machine)"/>
+
+</launch>

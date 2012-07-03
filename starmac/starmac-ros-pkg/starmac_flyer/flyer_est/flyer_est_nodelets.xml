@@ -1,0 +1,8 @@
+<library path="lib/libflyer_est">
+  <class name="flyer_est/Estimator" type="flyer_est::Estimator" base_class_type="nodelet::Nodelet">
+    <description>
+      Estimator nodelet.
+    </description>
+  </class>
+
+</library>

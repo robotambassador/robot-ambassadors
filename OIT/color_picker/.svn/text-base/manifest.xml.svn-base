@@ -1,0 +1,18 @@
+<package>
+  <description brief="color_picker">
+
+     color_picker
+
+  </description>
+  <author>David Feil-Seifer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/color_picker</url>
+  <depend package="roscpp"/>
+  <depend package="sensor_msgs"/>
+  <depend package="cv_bridge"/>
+  <depend package="opencv2"/>
+
+</package>
+
+

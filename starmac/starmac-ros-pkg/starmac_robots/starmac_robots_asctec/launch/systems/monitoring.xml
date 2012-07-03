@@ -1,0 +1,9 @@
+<launch>
+
+  <!-- ASCTEC-SPECIFIC MONITORING -->
+  <node pkg="asctec_mon" name="monitor" type="monitor.py" respawn="false" required="false" launch-prefix="xterm -title 'AscTec Monitor' -e" machine="local">
+    <remap from="autopilot/CTRL_INPUT" to="downlink/autopilot/CTRL_INPUT"/>
+    <remap from="autopilot/LL_STATUS" to="downlink/autopilot/LL_STATUS"/>
+  </node>
+  
+</launch>

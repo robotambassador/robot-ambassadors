@@ -1,0 +1,6 @@
+<launch>
+	<node pkg="checkerboard" type="checkerboard" name="checkerboard">
+		<remap from="image" to="/overhead_cam/image_raw" />
+		<remap from="camera_info" to="/overhead_cam/camera_info" />
+	</node>
+</launch>

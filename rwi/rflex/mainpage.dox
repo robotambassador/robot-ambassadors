@@ -1,0 +1,28 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\b rflex is a package which contains drivers for RFlex based robots. This includes 
+ - ATRV
+ - ATRV-Jr.
+ - ATRV-Mini
+ - B21r
+ - B14r
+ - Magellan
+
+Currently, only the B21 driver is implemented and can be run in ROS with the B21Node, but the others can be made in a similar
+fashion by extending the RFLEX class and reading the protected variables. 
+
+<!-- \section codeapi Code API
+Provide links to specific auto-generated API documentation within your
+package that is of particular interest to a reader. Doxygen will
+document pretty much every part of your code, so do your best here to
+point the reader to the actual API.
+
+If your codebase is fairly large or has different sets of APIs, you
+should use the doxygen 'group' tag to keep these APIs together. For
+example, the roscpp documentation has 'libros' group.
+-->
+
+
+*/

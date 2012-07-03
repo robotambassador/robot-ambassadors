@@ -1,0 +1,19 @@
+<package>
+  <description brief="flyer_common">
+
+     Libraries and scripts specific to starmac_flyer. Launch files.
+
+  </description>
+  <author>Patrick Bouffard</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/flyer_common</url>
+  <depend package="tf"/>
+  <depend package="rospy"/>
+  <depend package="visualization_msgs"/>
+  <depend package="starmac_roshlib"/>
+  <depend package="rosh"/>
+
+</package>
+
+

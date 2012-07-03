@@ -1,0 +1,16 @@
+<stack>
+  <description brief="starmac_flyer">
+
+  Operation of an autonomous quadrotor vehicle: manual and autonomous control, interfaces to hardware, etc.
+  
+  Packages in this stack should be intended primarily for on-board use. Packages that will not be used on board
+  (e.g. ground stations, post processing, etc.) should go in the starmac_ground stack instead.
+
+  </description>
+  <author>Maintained by Patrick Bouffard</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/flyer</url>
+  <depend stack="common_msgs"/>
+  <depend stack="ros_comm" />
+</stack>

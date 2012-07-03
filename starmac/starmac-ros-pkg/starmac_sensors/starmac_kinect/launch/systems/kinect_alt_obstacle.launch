@@ -1,0 +1,49 @@
+<launch>
+  <arg name="flyer_machine" default="local"/>
+  <arg name="kinect_dir" default="$(find kinect_camera)"/>
+
+  <node pkg="nodelet" type="nodelet" name="kinect_manager" args="manager" output="screen" machine="$(arg flyer_machine)">
+    <rosparam>
+      # Rule of thumb: at least one worker thread per nodelet loaded into the manager
+      num_worker_threads: 10
+      </rosparam>
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="kinect" args="load kinect_camera/KinectDriverNodelet kinect_manager" output="screen" machine="$(arg flyer_machine)">
+    <remap from="camera" to="kinect"/>
+    <param name="rgb/camera_info_url" value="file://$(arg kinect_dir)/info/calibration_rgb.yaml"/>
+    <param name="depth/camera_info_url" value="file://$(arg kinect_dir)/info/calibration_depth.yaml"/>
+    <param name="kinect_depth_frame" value="/$(arg flyer_machine)/kinect_depth"/>
+    <rosparam>
+      device_id: 0
+      enable_rgb_stream: false
+      depth_roi_horiz_start: 128
+      depth_roi_horiz_width: 384
+      depth_roi_vert_start: 120
+      depth_roi_vert_height: 50
+      max_range: 3.0
+        </rosparam>
+  </node>
+
+  <include file="$(find flyer_kinect)/launch/systems/find_plane.launch">
+    <arg name="flyer_machine" value="$(arg flyer_machine)"/>
+  </include>
+
+  <node pkg="nodelet" type="nodelet" name="kinect_estimator" args="load starmac_kinect_estimator/KinectEstimator kinect_manager" machine="$(arg flyer_machine)">
+    <remap from="~model" to="find_plane/model"/>
+    <remap from="~input" to="kinect/points2"/>
+    <remap from="~indices" to="kinect/plane_indices"/>
+    <remap from="mask_indices" to="kinect/mask_indices"/>
+    <rosparam>
+      imu_to_kinect_offset: 0.0
+      obstacle_height_threshold: 0.20 # m
+      obstacle_distance_threshold: 1.0 # m
+      z_vel_filt_a: 0.2
+      z_vel_filt_b: 0.8
+      #debug_throttle_rate: 1.0
+      use_backup_estimator_alt: true
+        </rosparam>
+  </node>
+
+
+</launch>

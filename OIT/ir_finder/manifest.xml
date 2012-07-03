@@ -1,0 +1,19 @@
+<package>
+  <description brief="ir_finder">
+
+     ir_finder
+
+  </description>
+  <author>David Feil-Seifer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ir_finder</url>
+  <depend package="tf"/>
+  <depend package="cv_bridge"/>
+  <depend package="oit_msgs"/>
+  <depend package="nav_msgs"/>
+  <depend package="image_geometry"/>
+
+</package>
+
+

@@ -1,0 +1,23 @@
+<package>
+  <description brief="flyer_sim">
+
+     This package provides tools to simulate a quadrotor's actuators and sensors to allow for offline
+     development and make unit testing possible.
+
+  </description>
+  <author>bouffard</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/flyer_sim</url>
+  
+  <depend package="rospy"/>
+  <depend package="nav_msgs"/>
+  <depend package="flyer_controller"/>
+  <depend package="starmac_roslib"/>
+  <depend package="tf"/>
+  
+  <rosdep name="python-numpy"/>
+  <rosdep name="python-scipy"/>
+</package>
+
+

@@ -1,0 +1,19 @@
+<launch>
+  <arg name="odom_topic" default="estimator/output"/>
+  <arg name="topic_prefix" default=""/>
+  
+  <!-- PLOTTING -->
+  <node pkg="rxtools" type="rxplot" name="plots_controller_mux" args="
+      $(arg topic_prefix)controller_mux/output/roll_cmd:pitch_cmd:yaw_cmd
+      $(arg topic_prefix)controller_mux/output/motors_on:alt_cmd
+      -p 30 -b 90 -m ."/>
+  <node pkg="rxtools" type="rxplot" name="plots_joy" args="
+      joy/axes[0]:axes[1]:axes[2]:axes[3]
+      joy/buttons[0]:buttons[2]:buttons[6]:buttons[8]
+      -p 30 -b 90 -m ."/>
+  <node pkg="rxtools" type="rxplot" name="plots_est" args="
+      $(arg topic_prefix)$(arg odom_topic)/pose/pose/position/x:y:z
+      $(arg topic_prefix)$(arg odom_topic)/twist/twist/linear/x:y:z
+      -p 30 -b 90 -m ."/>
+
+</launch>

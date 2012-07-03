@@ -1,0 +1,39 @@
+<library path="lib/libflyer_controller">
+  <class name="flyer_controller/Controller" type="flyer_controller::Controller" base_class_type="nodelet::Nodelet">
+    <description>
+      Controller nodelet.
+    </description>
+  </class>
+
+  <class name="flyer_controller/TeleopFlyer" type="flyer_controller::TeleopFlyer" base_class_type="nodelet::Nodelet">
+    <description>
+      TeleopFlyer nodelet.
+    </description>
+  </class>
+
+  <class name="flyer_controller/ControlModeIdle" type="flyer_controller::ControlModeIdle" base_class_type="nodelet::Nodelet">
+    <description>
+      Control Mode "Idle".
+    </description>
+  </class>
+
+  <class name="flyer_controller/ControlModeAttitude" type="flyer_controller::ControlModeAttitude" base_class_type="nodelet::Nodelet">
+    <description>
+      Control Mode "Attitude".
+    </description>
+  </class>
+
+  <class name="flyer_controller/ControlModeHover" type="flyer_controller::ControlModeHover" base_class_type="nodelet::Nodelet">
+    <description>
+      Control Mode "Hover".
+    </description>
+  </class>
+
+  <class name="flyer_controller/ControlModeAutosequence" type="flyer_controller::ControlModeAutosequence" base_class_type="nodelet::Nodelet">
+    <description>
+      Control Mode "Autosequence".
+    </description>
+  </class>
+
+
+</library>

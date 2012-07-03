@@ -1,0 +1,19 @@
+<launch>
+  <!-- state_and_inputs.xml
+  
+  Records state and inputs..
+  
+   -->
+
+  <arg name="machine" default="local"/>
+  <arg name="tag" default=""/> <!-- string to include in bagfile prefix -->
+  
+    <node pkg="rosbag" type="rosbag" name="record_bag" 
+    args="record -b 64 -o $(arg machine)_$(arg tag) 
+            odom 
+            asctec_proc/imu 
+            controller_mux/output
+            autopilot/CTRL_INPUT"
+    machine="$(arg machine)"/>
+  
+</launch>

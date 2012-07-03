@@ -1,0 +1,3 @@
+<launch>
+    <param name="robot_description" command="cat $(find flyer_common)/viz/starmac_urdf.xml" />
+</launch>

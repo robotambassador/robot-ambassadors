@@ -1,0 +1,17 @@
+<package>
+  <description brief="overhead_planner">
+
+     overhead_planner
+
+  </description>
+  <author>David Feil-Seifer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/overhead_planner</url>
+  <depend package="navfn"/>
+  <depend package="costmap_2d"/>
+  <depend package="sensor_msgs"/>
+	<depend package="geometry_msgs"/>
+</package>
+
+

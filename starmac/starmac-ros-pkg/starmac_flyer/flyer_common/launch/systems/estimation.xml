@@ -1,0 +1,16 @@
+<launch>
+  <arg name="machine" default="local"/>
+  <arg name="flyer_name" default="pelican1"/>
+
+  <!-- ESTIMATOR -->
+  <node name="estimator" pkg="nodelet" type="nodelet" args="load flyer_est/Estimator manager" machine="$(arg machine)">
+    <rosparam>
+      freq: 30
+      xy_vel_filt_a: 0.2
+      xy_vel_filt_b: 0.8
+      z_vel_filt_a: 0.2
+      z_vel_filt_b: 0.8
+    </rosparam>
+  </node>
+  
+</launch>

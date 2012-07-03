@@ -1,0 +1,13 @@
+<stack>
+  <description brief="starmac_ground">starmac_ground</description>
+  Packages that are not intended for use onboard a vehicle. These are kept in a separate stack to help keep the
+  dependencies of the starmac_flyer stack to a minimum.
+  <author>Maintained by bouffard</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/starmac_ground</url>
+  <depend stack="ros" />
+  <depend stack="geometry" />
+  <depend stack="starmac_common" />
+
+</stack>

@@ -1,0 +1,33 @@
+<package>
+  <description brief="starmac_kinect">
+
+    State estimation and obstacle detection using 3D sensor output.
+
+  </description>
+  <author>bouffard</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/flyer_kinect</url>
+  <depend package="pcl"/>
+  <depend package="tf"/>
+  <depend package="nodelet"/>
+  <depend package="pluginlib"/>
+  <depend package="message_filters"/>
+  <depend package="geometry_msgs"/>
+  <depend package="nav_msgs"/>
+  <depend package="visualization_msgs"/>
+  <depend package="kinect_camera"/>
+  <depend package="sensor_msgs"/>
+  <depend package="opencv2"/>
+  <depend package="cv_bridge"/>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+  <depend package="image_transport"/>
+
+  <export>
+    <nodelet plugin="${prefix}/nodelets.xml"/>
+  </export>
+
+</package>
+
+

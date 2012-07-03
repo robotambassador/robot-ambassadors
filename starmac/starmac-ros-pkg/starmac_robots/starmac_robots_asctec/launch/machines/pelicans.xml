@@ -1,0 +1,42 @@
+<launch>
+    <!-- 
+    pelicans.xml
+    
+    Machine definitions for AscTec Pelicans in Hybrid Systems Lab
+    -->
+     
+    <!-- distros: -->
+    <arg name="ros_cturtle" value="/opt/ros/cturtle"/>
+    <arg name="ros_diamondback" value="/opt/ros/diamondback"/>
+    <arg name="ros_unstable" value="/opt/ros/unstable"/>
+    <arg name="ros_distro" value="$(arg ros_unstable)"/> <!-- pick one... -->
+    <!-- useful paths -->
+    <arg name="ros_root" value="$(arg ros_distro)/ros"/>
+    <arg name="ros_stacks" value="$(arg ros_distro)/stacks"/>
+    <arg name="pcl_trunk" value="/home/starmac/pcl-trunk"/>
+    <arg name="pcl_0_9_0" value="/home/starmac/pcl-0.9.0"/>
+    <arg name="starmac_ros_pkg" value="/home/starmac/ros/starmac-ros-pkg"/>
+    <arg name="ccny_ros_pkg" value="/home/starmac/ros/ccny-ros-pkg"/>
+    <arg name="kinect_devel" value="/home/starmac/ros/kinect"/>
+    <!-- assemble ros-package-path for pelicans: -->
+    <arg name="pelican_ros_package_path" 
+         value="$(arg pcl_0_9_0):$(arg kinect_devel):$(arg ccny_ros_pkg):$(arg starmac_ros_pkg):$(arg ros_stacks)"/>
+    
+    <!-- PELICAN1 -->
+    <machine name="pelican1" address="pelican1" 
+             user="starmac" ros-package-path="$(arg pelican_ros_package_path)" 
+             ros-root="$(arg ros_root)">
+    </machine>
+    <param name="/pelican1/asctec_adapter/nominal_thrust" value="2200"/>
+    <param name="/pelican1/asctec_adapter/max_thrust" value="2500"/>
+    
+    
+    <!-- PELICAN2 -->
+    <machine name="pelican2" address="pelican2" 
+             user="starmac" ros-package-path="$(arg pelican_ros_package_path)" 
+             ros-root="$(arg ros_root)">
+    </machine>
+    <param name="/pelican2/asctec_adapter/nominal_thrust" value="1600"/>
+    <param name="/pelican2/asctec_adapter/max_thrust" value="1800"/>
+
+</launch>

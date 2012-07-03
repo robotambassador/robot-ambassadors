@@ -1,0 +1,14 @@
+<stack>
+  <description brief="starmac_common">
+  starmac_common contains general-purpose libraries, scripts, etc. These should be general
+  in the sense that they might be found in ros-pkg (and in some cases maybe we'll propose
+  including them there).
+  </description>
+  <author>Maintained by Patrick Bouffard</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/starmac_common</url>
+  <depend stack="ros" />
+  <depend stack="roshpit" />
+
+</stack>

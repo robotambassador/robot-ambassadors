@@ -1,0 +1,11 @@
+<launch>
+  <node pkg="rxtools" type="rxplot" name="plots_kinect" args="
+            kinect_estimator/output/pose/pose/position/z
+            kinect_estimator/debug/est_z:kinect_z:out_z:using_est
+            kinect_estimator/output/twist/twist/linear/x:y:z
+            -p 30 -b 90 -m ."/>
+  <node pkg="rxtools" type="rxplot" name="plots_kinect2" args="
+            kinect_estimator/obstacle/location/z
+            -p 30 -b 90 -m ."/>
+
+</launch>

@@ -1,0 +1,18 @@
+<package>
+  <description brief="starmac_tools">
+
+    Various tools, e.g. for loading bagfile data into Python or converting to MATLAB.
+
+  </description>
+  <author>bouffard</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/starmac_tools</url>
+  <depend package="rosbag"/>
+  <depend package="tf"/>
+  <rosdep name="python-numpy"/>
+  <rosdep name="python-scipy"/>
+  
+</package>
+
+

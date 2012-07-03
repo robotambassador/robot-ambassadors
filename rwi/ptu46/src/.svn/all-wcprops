@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/wu-ros-pkg/!svn/ver/25/stacks/rwi/trunk/ptu46/src
+END
+ptu46_driver.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/wu-ros-pkg/!svn/ver/20/stacks/rwi/trunk/ptu46/src/ptu46_driver.cc
+END
+ptu46_node.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/wu-ros-pkg/!svn/ver/25/stacks/rwi/trunk/ptu46/src/ptu46_node.cc
+END

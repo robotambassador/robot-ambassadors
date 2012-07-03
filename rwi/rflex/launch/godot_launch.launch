@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="rflex" name="godot_node" type="magellan"/>
+	<param name="robot_description" textfile="/home/ros/urdfStuff/godot.urdf" />
+</launch>

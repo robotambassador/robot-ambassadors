@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find flyer_common)/launch/bringup_pelican.launch"/>
+  <group ns="pelican1">
+    <param name="control_mode_attitude/external_command_frame" value="false"/>
+  </group>
+</launch>

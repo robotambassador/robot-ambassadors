@@ -1,0 +1,5 @@
+<launch>
+	<node pkg="overhead_planner" type="overhead_planner" name="overhead_planner" output="screen">
+		<rosparam file="costmap_params.yaml" command="load" ns="ovh_costmap" />
+	</node>
+</launch>

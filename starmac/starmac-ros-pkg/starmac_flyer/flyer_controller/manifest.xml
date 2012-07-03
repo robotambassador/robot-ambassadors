@@ -1,0 +1,30 @@
+<package>
+  <description brief="flyer_controller">
+
+    Control and teleoperation. High-level control manager and individual control modes.
+
+  </description>
+  <author>Patrick Bouffard</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/flyer_controller</url>
+  <depend package="dynamic_reconfigure"/>
+  <depend package="driver_base"/>
+  <depend package="flyer_common"/>
+  <depend package="topic_tools"/>
+  <depend package="control_toolbox"/>
+  <depend package="nav_msgs"/>
+  <depend package="nodelet"/>
+  <depend package="pluginlib"/>
+  <depend package="visualization_msgs"/>
+  <depend package="joy"/>
+  <depend package="rospy"/>
+
+  <export>
+    <nodelet plugin="${prefix}/flyer_controller_nodelets.xml"/>
+    <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -Wl,-rpath,-L${prefix}/lib -lros"/>
+  </export>
+
+</package>
+
+

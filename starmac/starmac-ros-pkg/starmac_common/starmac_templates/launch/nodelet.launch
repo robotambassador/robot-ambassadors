@@ -1,0 +1,7 @@
+<launch>
+
+  <node pkg="nodelet" type="nodelet" name="manager" args="manager"/>
+
+  <node pkg="nodelet" type="nodelet" name="my_nodelet" args="load some_namespace/MyNodelet manager"/>
+
+</launch>

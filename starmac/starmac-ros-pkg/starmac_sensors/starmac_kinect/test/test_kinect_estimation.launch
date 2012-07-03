@@ -1,0 +1,106 @@
+<launch>
+  <!-- To debug a node (running locally) in GDB in an xterm, add the attribute: -->
+  <!-- launch-prefix="xterm -rv -e gdb -ex run -args" -->
+
+  <arg name="real_pelican" default="true"/>
+  <arg if="$(arg real_pelican)" name="flyer_machine" default="pelican1"/>
+  <arg unless="$(arg real_pelican)" name="flyer_machine" value="local"/>
+  <arg name="use_vicon_backup" default="false"/>
+  <arg name="show_plots" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg if="$(arg debug)" name="launch_prefix" value="xterm -rv -e gdb -ex run -args"/>
+  <arg unless="$(arg debug)" name="launch_prefix" value=""/>
+  <arg if="$(arg real_pelican)" name="kinect_dir" value="/home/starmac/kinect-devel/kinect/kinect_camera"/>
+  <arg unless="$(arg real_pelican)" name="kinect_dir" value="$(find kinect_camera)"/>
+
+  <group ns="pelican1">
+    <node pkg="nodelet" type="nodelet" name="kinect_manager" args="manager" output="screen" machine="$(arg flyer_machine)">
+      <rosparam>
+        # Rule of thumb: at least one worker thread per nodelet loaded into the manager
+        num_worker_threads: 6
+      </rosparam>
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="kinect" args="standalone kinect_camera/KinectDriverNodelet" output="screen" machine="$(arg flyer_machine)">
+      <remap from="camera" to="kinect"/>
+      <param name="rgb/camera_info_url" value="file://$(arg kinect_dir)/info/calibration_rgb.yaml"/>
+      <param name="depth/camera_info_url" value="file://$(arg kinect_dir)/info/calibration_depth.yaml"/>
+      <rosparam>
+        device_id: 0
+        enable_rgb_stream: false
+        #depth_roi_horiz_start: 128
+        #depth_roi_horiz_width: 384
+        #depth_roi_vert_start: 120
+        #depth_roi_vert_height: 50
+        max_range: 3.0
+        </rosparam>
+    </node>
+    
+    <!-- Run a SACSegmentation filter to find the points lying on the floor -->
+    <node launch-prefix="$(arg launch_prefix)" pkg="nodelet" type="nodelet" name="find_plane" args="standalone pcl/SACSegmentation" output="screen" machine="$(arg flyer_machine)">
+      <remap from="~input" to="kinect/points2"/>
+      <remap from="~inliers" to="kinect/plane_indices"/>
+      <rosparam>
+        model_type: 9 # SACMODEL_ORIENTED_PLANE
+        method_type: 0
+        # SAC_RANSAC = 0; (Random Sample Consensus)
+        # SAC_LMEDS = 1; (Least Median Squares)
+        # SAC_MSAC = 2; (M Estimator Sample Consensus)
+        # SAC_RRANSAC = 3; (Randomized RANSAC)
+        # SAC_RMSAC = 4; (Randomize M Estimator Sample Consensus)
+        # SAC_MLESAC = 5; (Maximum Likelihood Sample Consensus)
+        distance_threshold: 0.02
+        max_iterations: 500
+        optimize_coefficients: true
+        axis: [0.0, -0.906, -0.423] # look only for planes with roughly upward normals
+        eps_angle: 0.7 # generous threshold
+        </rosparam>
+    </node>
+
+
+    <node launch-prefix="$(arg launch_prefix)" pkg="nodelet" type="nodelet" name="kinect_estimator" args="standalone starmac_kinect_estimator/KinectEstimator" machine="$(arg flyer_machine)">
+      <remap from="~model" to="find_plane/model"/>
+      <remap from="~input" to="kinect/points2"/>
+      <remap from="~indices" to="kinect/plane_indices"/>
+      <remap from="mask_indices" to="kinect/mask_indices"/>
+      <rosparam>
+        imu_to_kinect_offset: 0.0
+        obstacle_height_threshold: 0.20 # m
+        obstacle_distance_threshold: 1.0 # m
+        z_vel_filt_a: 0.2
+        z_vel_filt_b: 0.8
+        #debug_throttle_rate: 1.0
+        </rosparam>
+      <param name="use_backup_estimator_alt" value="$(arg use_vicon_backup)"/>
+    </node>
+
+    <group if="$(arg use_vicon_backup)">
+      <machine if="$(arg real_pelican)" name="$(arg flyer_machine)" address="$(arg flyer_machine)" user="starmac" ros-package-path="/opt/ros/unstable/stacks:/home/starmac/ros:/home/starmac/kinect-devel" ros-root="/opt/ros/unstable/ros">
+      </machine>
+      <machine name="local" address="localhost"/>
+
+      <node pkg="nodelet" type="nodelet" name="manager" args="manager" machine="$(arg flyer_machine)">
+        <rosparam>
+          # Rule of thumb: at least one worker thread per nodelet loaded into the manager
+          num_worker_threads: 5
+        </rosparam>
+      </node>
+
+      <include file="$(find flyer_common)/launch/systems/estimation.launch">
+        <arg name="machine" value="$(arg flyer_machine)"/>
+        <arg name="flyer_name" value="pelican1"/>
+      </include>
+
+      <include file="$(find flyer_common)/launch/systems/vicon.launch">
+        <arg name="machine" value="$(arg flyer_machine)"/>
+        <arg name="flyer_name" value="pelican1"/>
+        <arg name="have_vicon" value="true"/>
+      </include>
+
+    </group>
+
+    <include if="$(arg show_plots)" file="$(find flyer_kinect)/launch/plotting.launch"/>
+    
+  </group>
+
+</launch>

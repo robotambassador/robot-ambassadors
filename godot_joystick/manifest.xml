@@ -1,0 +1,17 @@
+<package>
+  <description brief="godot_joystick">
+
+     godot_joystick
+
+  </description>
+  <author>ros</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/godot_joystick</url>
+  <depend package="roscpp"/>
+  <depend package="godot_2dnav"/>
+  <depend package="joy"/>
+  <depend package="geometry_msgs" />
+</package>
+
+

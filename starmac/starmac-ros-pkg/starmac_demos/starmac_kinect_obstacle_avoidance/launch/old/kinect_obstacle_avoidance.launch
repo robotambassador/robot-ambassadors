@@ -1,0 +1,132 @@
+<launch>
+
+  <arg name="real_pelican" default="true"/>
+  <arg if="$(arg real_pelican)" name="flyer_machine" default="pelican1"/>
+  <arg unless="$(arg real_pelican)" name="flyer_machine" value="local"/>
+  <arg name="record_kinect" default="false"/>
+  <arg name="kinect_dir" if="$(arg real_pelican)" value="/home/starmac/kinect-devel/kinect/kinect_camera"/>
+  <arg name="kinect_dir" unless="$(arg real_pelican)" value="$(find kinect_camera)"/>
+  <arg name="odom_topic" value="kinect_obstacle_sensor/output"/>
+  <arg name="record_kinect_altitude" default="false"/>
+  <arg name="patrol" default="false"/>
+  <arg name="show_plots" default="true"/>
+
+  <include file="$(find flyer_common)/launch/bringup_pelican.launch">
+    <arg name="odom_topic" value="$(arg odom_topic)"/>
+    <arg name="real_pelican" value="$(arg real_pelican)"/>
+    <arg name="show_plots" value="$(arg show_plots)"/>
+  </include>
+
+  <group ns="pelican1">
+
+    <remap from="odom" to="kinect_obstacle_sensor/output"/>
+    
+    <!--  PATROL DEMO -->
+    <group if="$(arg patrol)">
+      <node pkg="rosh" type="rosh" name="patrol" args="starmac_kinect_obstacle_avoidance/patrol.py --plugins=rosh_base,rosh_common,rosh_geometry"/>
+    </group>
+
+    <!-- KINECT GOES HERE -->
+    <group>
+      <node pkg="nodelet" type="nodelet" name="kinect_manager" args="manager" output="screen" machine="$(arg flyer_machine)"/>
+
+      <node pkg="nodelet" type="nodelet" name="kinect_obstacle_sensor" args="load starmac_kinect_obstacle_avoidance/KinectObstacleSensor kinect_manager" machine="$(arg flyer_machine)">
+        <remap from="~model" to="find_plane/model"/>
+        <remap from="~input" to="kinect/points2"/>
+        <remap from="~indices" to="kinect/plane_indices"/>
+        <remap from="~autosequence_cmd" to="control_mode_autosequence/cmd"/>
+        <remap from="mask_indices" to="kinect/mask_indices"/>
+        <rosparam>
+          imu_to_kinect_offset: 0.0
+          obstacle_height_threshold: 0.20 # m
+          obstacle_distance_threshold: 1.0 # m
+          #debug_throttle_rate: 1.0
+        </rosparam>
+      </node>
+
+      <node pkg="nodelet" type="nodelet" name="kinect" args="load kinect_camera/KinectDriverNodelet kinect_manager" output="screen" machine="$(arg flyer_machine)">
+        <remap from="camera" to="kinect"/>
+        <param name="rgb/camera_info_url" value="file://$(arg kinect_dir)/info/calibration_rgb.yaml"/>
+        <param name="depth/camera_info_url" value="file://$(arg kinect_dir)/info/calibration_depth.yaml"/>
+        <rosparam>
+          device_id: 0
+          enable_rgb_stream: false
+          depth_roi_horiz_start: 128
+          depth_roi_horiz_width: 384
+          depth_roi_vert_start: 120
+          depth_roi_vert_height: 50
+          max_range: 5.0
+        </rosparam>
+      </node>
+
+      <!-- Run a SACSegmentation filter to find the points lying on the floor -->
+      <node pkg="nodelet" type="nodelet" name="find_plane" args="load pcl/SACSegmentation kinect_manager" output="screen" machine="$(arg flyer_machine)">
+        <remap from="~input" to="kinect/points2"/>
+        <remap from="~inliers" to="kinect/plane_indices"/>
+        <rosparam>
+          model_type: 9 # SACMODEL_ORIENTED_PLANE
+          method_type: 0
+          # SAC_RANSAC = 0; (Random Sample Consensus)
+          # SAC_LMEDS = 1; (Least Median Squares)
+          # SAC_MSAC = 2; (M Estimator Sample Consensus)
+          # SAC_RRANSAC = 3; (Randomized RANSAC)
+          # SAC_RMSAC = 4; (Randomize M Estimator Sample Consensus)
+          # SAC_MLESAC = 5; (Maximum Likelihood Sample Consensus)
+          distance_threshold: 0.02
+          max_iterations: 5
+          optimize_coefficients: true
+          axis: [0.0, -0.906, -0.423] # look only for planes with roughly upward normals
+          eps_angle: 0.7 # generous threshold
+        </rosparam>
+      </node>
+
+      <!-- Run an ExtractIndices filter to highlight those points in RViz (not needed for flight) -->
+      <node unless="$(arg real_pelican)" pkg="nodelet" type="nodelet" name="extract" args="load pcl/ExtractIndices 
+    kinect_manager" output="screen">
+        <remap from="~indices" to="kinect/plane_indices"/>
+        <remap from="~input" to="kinect/points2"/>
+        <remap from="~output" to="kinect/plane_points"/>
+      </node>
+
+    </group>
+
+
+    <group if="$(arg show_plots)">
+    <!-- PLOTTING -->
+      <node pkg="rxtools" type="rxplot" name="plots_kinect" args="
+            kinect_obstacle_sensor/debug_alt/est_z:kinect_z:out_z:using_est
+            asctec_proc/pressure_height_filtered/height
+            -p 30 -b 90 -m ."/>
+    </group>
+
+
+    <group>
+    <!-- RECORDING -->
+      <node if="$(arg record_kinect)" pkg="rosbag" type="rosbag" name="record_bag" args="record 
+    kinect/points2
+    estimator_cpp/output
+    autopilot/LL_STATUS
+    kinect/imu" machine="$(arg flyer_machine)"/>
+      <node if="$(arg record_kinect_altitude)" pkg="rosbag" type="rosbag" name="record_bag" args="record 
+          -o kinect_altitude
+          estimator/output
+          kinect_obstacle_sensor/debug_alt
+          autopilot/CTRL_INPUT
+          autopilot/LL_STATUS
+          autopilot/IMU_CALCDATA
+          asctec_proc/pressure_height_filtered
+          asctec_proc/pressure_height
+          asctec_proc/imu
+          " machine="local">
+        <remap if="$(arg real_pelican)" from="autopilot/CTRL_INPUT" to="downlink/autopilot/CTRL_INPUT"/>
+        <remap if="$(arg real_pelican)" from="autopilot/LL_STATUS" to="downlink/autopilot/LL_STATUS"/>
+        <remap if="$(arg real_pelican)" from="estimator/output" to="downlink/estimator/output"/>
+        <remap if="$(arg real_pelican)" from="asctec_proc/pressure_height_filtered" to="downlink/asctec_proc/pressure_height_filtered"/>
+        <remap if="$(arg real_pelican)" from="asctec_proc/pressure_height" to="downlink/asctec_proc/pressure_height"/>
+        <remap if="$(arg real_pelican)" from="asctec_proc/imu" to="downlink/asctec_proc/imu"/>
+        <remap if="$(arg real_pelican)" from="autopilot/IMU_CALCDATA" to="downlink/autopilot/IMU_CALCDATA"/>
+      </node>
+    </group>
+  </group>
+
+</launch>

@@ -1,0 +1,10 @@
+<launch>
+<!-- ASCTEC-SPECIFIC PLOTS -->
+  <remap from="autopilot/CTRL_INPUT" to="downlink/autopilot/CTRL_INPUT"/>
+  <remap from="autopilot/LL_STATUS" to="downlink/autopilot/LL_STATUS"/>
+
+  <node pkg="rxtools" type="rxplot" name="plots_autopilot_input" args="
+      autopilot/CTRL_INPUT/roll:pitch:yaw:thrust
+      -p 30 -b 90 -m ."/>
+      
+</launch>

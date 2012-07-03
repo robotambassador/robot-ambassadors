@@ -1,0 +1,64 @@
+<launch>
+  <arg name="machine" default="local"/>
+  
+  <!-- CONTROLLER -->
+
+  <group>
+    <node pkg="nodelet" type="nodelet" name="manager" args="manager" machine="$(arg machine)">
+      <rosparam>
+        # Rule of thumb: at least one worker thread per nodelet loaded into the manager
+        num_worker_threads: 20
+        </rosparam>
+    </node>
+    
+    <node pkg="nodelet" type="nodelet" name="controller" args="load flyer_controller/Controller manager" machine="$(arg machine)"/>
+    <remap from="teleop_flyer/estop" to="autopilot/ESTOP"/>
+    <remap from="teleop_flyer/controller_cmd" to="controller/cmd"/>
+    
+    <node name="teleop_flyer" pkg="nodelet" type="nodelet" args="load flyer_controller/TeleopFlyer manager" machine="$(arg machine)"/>
+    <group>
+
+      <!-- CONTROL MODES -->
+      <node name="control_mode_idle" pkg="nodelet" type="nodelet" args="load flyer_controller/ControlModeIdle manager" machine="$(arg machine)">
+      </node>
+      <node name="control_mode_attitude" pkg="nodelet" type="nodelet" args="load flyer_controller/ControlModeAttitude manager" machine="$(arg machine)">
+        <rosparam>
+          external_command_frame: true
+          external_frame_heading: 180.0
+          max_roll_cmd: 20
+          max_pitch_cmd: 20
+          max_yaw_rate_cmd: 50
+          control_output_rate: 40
+          yaw_deadband: 0.25
+          </rosparam>
+      </node>
+      <node name="control_mode_hover" pkg="nodelet" type="nodelet" args="load flyer_controller/ControlModeHover manager" machine="$(arg machine)">
+        <rosparam>
+          KP: 30.0
+          KI: 5.0
+          KD: 30.0
+          Ilimit: 2.0
+          control_output_rate: 40
+          waypoint_speed: 0.25
+          external_command_frame: true
+          external_frame_heading: 180.0
+          </rosparam>
+      </node>
+      <node name="control_mode_autosequence" pkg="nodelet" type="nodelet" args="load flyer_controller/ControlModeAutosequence manager" machine="$(arg machine)">
+        <rosparam>
+          KP: 30.0
+          KI: 5.0
+          KD: 30.0
+          Ilimit: 2.0
+          control_output_rate: 40
+          waypoint_speed: 0.20
+          reached_tolerance: 0.15
+          reached_tolerance_yaw: 10.0
+          </rosparam>
+      </node>
+    </group>
+      
+    <!-- CONTROL MODE MUX -->
+    <node pkg="topic_tools" type="mux" name="controller_mux" args="mux:=controller_mux controller_mux/output dummy" machine="$(arg machine)"/>
+  </group>
+</launch>

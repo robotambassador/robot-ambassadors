@@ -1,0 +1,27 @@
+<launch>   <!-- Run a SACSegmentation filter to find the points lying on the floor -->
+  <arg name="flyer_machine" default="local"/>
+  <machine name="local" address="localhost"/>
+  <!-- gdb + screen: launch-prefix="screen -d -m gdb -ex run -args" -->
+  <node pkg="nodelet" type="nodelet" name="find_plane" args="standalone pcl/SACSegmentation" output="screen" machine="$(arg flyer_machine)">
+    <remap from="~input" to="kinect/points2"/>
+    <remap from="~inliers" to="kinect/plane_indices"/>
+    <remap from="~indices" to="findplane_indices"/>
+    <rosparam>
+      model_type: 9 # SACMODEL_ORIENTED_PLANE
+      method_type: 0
+      # SAC_RANSAC = 0; (Random Sample Consensus)
+      # SAC_LMEDS = 1; (Least Median Squares)
+      # SAC_MSAC = 2; (M Estimator Sample Consensus)
+      # SAC_RRANSAC = 3; (Randomized RANSAC)
+      # SAC_RMSAC = 4; (Randomize M Estimator Sample Consensus)
+      # SAC_MLESAC = 5; (Maximum Likelihood Sample Consensus)
+      distance_threshold: 0.02
+      max_iterations: 500
+      optimize_coefficients: true
+      axis: [0.0, -0.906, -0.423] # look only for planes with roughly upward normals
+      eps_angle: 0.7 # generous threshold
+      use_indices: false
+      latched_indices: true
+     </rosparam>
+  </node>
+</launch>

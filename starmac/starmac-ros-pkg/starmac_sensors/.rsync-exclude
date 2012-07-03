@@ -1,0 +1,9 @@
+bin
+build
+docs
+msg_gen
+srv_gen
+.git
+lib
+.bzr
+*.pyc

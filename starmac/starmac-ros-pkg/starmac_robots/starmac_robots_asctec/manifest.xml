@@ -1,0 +1,25 @@
+<package>
+  <description brief="starmac_asctec_adapter">
+
+    Bridge between starmac_flyer vehicle-agnostic code and the asctec_autopilot driver package
+
+  </description>
+  <author>Patrick Bouffard</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/asctec_adapter</url>
+  <depend package="std_srvs"/>
+  <depend package="control_toolbox"/>
+  <depend package="angles"/>
+  <depend package="sensor_msgs"/>
+  <depend package="dynamic_reconfigure"/>
+  <depend package="driver_base"/>
+
+  <depend package="asctec_msgs"/>
+
+  <depend package="flyer_common"/>
+  <depend package="flyer_controller"/>
+
+</package>
+
+

@@ -1,0 +1,24 @@
+<package>
+  <description brief="starmac_templates">
+
+     Templates/examples for various things, e.g. a C++ nodelet.
+
+  </description>
+  <author>bouffard</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/starmac_templates</url>
+  <depend package="nodelet"/>
+  <depend package="pluginlib"/>
+  <depend package="std_msgs"/>
+  <depend package="rospy"/>
+  <depend package="starmac_roslib"/>
+  <depend package="std_msgs"/>
+  
+  <export>
+    <nodelet plugin="${prefix}/nodelets.xml"/>
+  </export>
+
+</package>
+
+

@@ -1,0 +1,14 @@
+<library path="lib/libstarmac_kinect">
+  <class name="starmac_kinect_estimator/KinectEstimator" type="starmac_kinect_estimator::KinectEstimator" base_class_type="nodelet::Nodelet">
+    <description>
+      Magical obstacle sensing nodelet!
+    </description>
+  </class>
+  
+    <class name="starmac_kinect/KinectLKDemo" type="starmac_kinect::KinectLKDemo" base_class_type="nodelet::Nodelet">
+    <description>
+      Demo/test of optical flow (Lucas-Kanade) using Bayer data from Kinect
+    </description>
+  </class>
+  
+</library>

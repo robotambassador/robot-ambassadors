@@ -1,0 +1,6 @@
+<launch>
+  <arg name="model" default="simple_nonlinear"/>
+  <node pkg="flyer_sim" type="sim_adapter.py" name="sim_adapter" output="screen">
+    <param name="model" value="$(arg model)"/>
+  </node>
+</launch>

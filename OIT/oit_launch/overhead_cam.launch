@@ -1,0 +1,34 @@
+<launch>
+	<param name="calibration_file" type="str" value="$(find edward_demo)/ost.txt"/>
+  <node pkg="usc_cameradc1394" type="cameradc1394" name="overhead_cam">
+    <param name="brightness" type="int" value="340"/>
+    <param name="exposure" type="int" value="239"/>
+    <param name="saturation" type="int" value="85"/>
+    <param name="blue_u" type="int" value="173"/>
+    <param name="red_v" type="int" value="62"/>
+    <param name="gamma" type="int" value="1"/>
+    <param name="shutter" type="int" value="6"/>
+    <param name="gain" type="int" value="92"/>
+    <param name="mode" type="str" value="MODE_640x480_RGB"/>
+    <param name="fps" type="double" value="15.0"/>
+    <param name="display" type="int" value="0"/>
+    <param name="KK_fx" type="double" value="331.035758"/>
+    <param name="KK_fy" type="double" value="316.746215"/>
+    <param name="KK_cx" type="double" value="329.918917"/>
+    <param name="KK_cy" type="double" value="227.752431"/>
+    <param name="kc_k1" type="double" value="-0.277970"/>
+    <param name="kc_k2" type="double" value="0.059324"/>
+    <param name="kc_p1" type="double" value="0.000022"/>
+    <param name="kc_p2" type="double" value="-0.000768"/>
+    <param name="frame_id" type="string" value="ovh_height"/>
+  </node>
+  <group ns="overhead_cam">
+    <node pkg="image_letterboxer" type="image_letterboxer" name="image_letterboxer">
+      <param name="border" type="int" value="75"/>
+    </node>
+
+      <group ns="letterbox">
+      <node pkg="image_proc" type="image_proc" name="image_proc"/>
+    </group>
+  </group>
+</launch>

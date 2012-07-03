@@ -1,0 +1,8 @@
+<launch>
+
+    <node if="false" pkg="flyer_controller" type="topic_monitors.bsh" name="topic_monitors"/>
+
+    <node pkg="runtime_monitor" type="monitor" name="runtime_monitor" machine="local">
+    </node>
+
+</launch>

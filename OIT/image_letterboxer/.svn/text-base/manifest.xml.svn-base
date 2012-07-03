@@ -1,0 +1,19 @@
+<package>
+  <description brief="image_letterboxer">
+     enlarges an image by adding black bars around image
+  </description>
+  <author>dfseifer@usc.edu</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://pr.willowgarage.com/wiki/ros</url>
+  <depend package="roscpp"/>
+  <depend package="sensor_msgs"/>
+  <depend package="opencv2"/>
+  <depend package="image_transport"/>
+  <depend package="cv_bridge"/>
+<!--  <export>
+    <cpp cflags="-I${prefix}/include -I${prefix}/msg/cpp"/>
+  </export>-->
+</package>
+
+

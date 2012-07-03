@@ -1,0 +1,17 @@
+<stack>
+  <description brief="starmac_demos">
+  
+  Various demonstrations/experimental setups
+  
+  </description>
+  <author>Maintained by Patrick Bouffard</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/starmac_demos</url>
+  <depend stack="common" /> <!-- nodelet, pluginlib -->
+  <depend stack="ros" />
+  <depend stack="ros_comm" /> <!-- rospy -->
+  <depend stack="starmac_common" /> <!-- starmac_roshlib -->
+  <depend stack="starmac_flyer" /> <!-- flyer_controller, flyer_kinect, flyer_common -->
+
+</stack>

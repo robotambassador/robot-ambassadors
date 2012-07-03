@@ -1,0 +1,39 @@
+<launch>
+  <!-- To debug a node (running locally) in GDB in an xterm, add the attribute: -->
+  <!-- launch-prefix="xterm -rv -e gdb -ex run -args" -->
+
+  <arg name="kinect_dir" default="$(find kinect_camera)"/>
+
+  <node launch-prefix="xterm -rv -e gdb -ex run -args" pkg="nodelet" type="nodelet" name="kinect_manager" args="manager" output="screen">
+    <rosparam>
+      # Rule of thumb: at least one worker thread per nodelet loaded into the manager
+      num_worker_threads: 6
+      </rosparam>
+  </node>
+  
+  <node pkg="nodelet" type="nodelet" name="kinect" args="load kinect_camera/KinectDriverNodelet kinect_manager" output="screen">
+    <remap from="camera" to="kinect"/>
+    <param name="rgb/camera_info_url" value="file://$(arg kinect_dir)/info/calibration_rgb.yaml"/>
+    <param name="depth/camera_info_url" value="file://$(arg kinect_dir)/info/calibration_depth.yaml"/>
+    <rosparam>
+      device_id: 0
+      enable_rgb_stream: true
+      color_format: 1
+      #depth_roi_horiz_start: 128
+      #depth_roi_horiz_width: 384
+      #depth_roi_vert_start: 120
+      #depth_roi_vert_height: 50
+      max_range: 10.0
+    </rosparam>
+  </node>
+  
+  <node pkg="nodelet" type="nodelet" name="kinectlkdemo" args="load flyer_kinect/KinectLKDemo kinect_manager">
+    <remap from="~image" to="kinect/rgb/image_raw"/>
+    <remap from="~cloud" to="kinect/points2"/>
+    <param name="bail_early" value="false"/>
+    <param name="debug_window" value="true"/>
+  </node>
+  
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find flyer_kinect)/rviz/test_kinect.vcg">
+  </node>
+</launch>

@@ -1,0 +1,20 @@
+<launch>
+  <master auto="start"/>
+
+  <!-- Run the map server -->
+  <node name="gmapping" pkg="gmapping" type="slam_gmapping" args="odom:=/godot_node/odom"/>
+
+  <!-- Run AMCL -->
+  <include file="$(find amcl)/examples/amcl_omni.launch" />
+
+  <!--<node name="fake_localization" pkg="fake_localization" type="fake_localization" />-->
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <remap from="move_base_simple/goal" to="/goal"/>
+    <rosparam file="$(find godot_2dnav)/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find godot_2dnav)/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find godot_2dnav)/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find godot_2dnav)/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find godot_2dnav)/base_local_planner_params.yaml" command="load" />
+  </node>
+</launch>

@@ -1,0 +1,13 @@
+<?xml verison="1.0"?>
+<robot name="starmac">
+  <link name="link1">
+    <visual>
+        <geometry>
+            <mesh filename="file:///tmp/yellow.dae">
+            <origin rpy="180 90 90"/>
+            <!-- cylinder radius="1" length="40"/-->
+        </geometry>
+    </visual>
+  </link>
+</robot>
+

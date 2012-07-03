@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/usc-ros-pkg/!svn/ver/194/trunk/OIT/obstacle_avoidance/src
+END
+point.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/usc-ros-pkg/!svn/ver/116/trunk/OIT/obstacle_avoidance/src/point.hpp
+END
+raytrace.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/usc-ros-pkg/!svn/ver/116/trunk/OIT/obstacle_avoidance/src/raytrace.hpp
+END
+ray.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/usc-ros-pkg/!svn/ver/116/trunk/OIT/obstacle_avoidance/src/ray.hpp
+END
+obs.cc
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/usc-ros-pkg/!svn/ver/194/trunk/OIT/obstacle_avoidance/src/obs.cc
+END
+raytrace.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/usc-ros-pkg/!svn/ver/116/trunk/OIT/obstacle_avoidance/src/raytrace.cpp
+END
+object.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/usc-ros-pkg/!svn/ver/116/trunk/OIT/obstacle_avoidance/src/object.hpp
+END
+line.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/usc-ros-pkg/!svn/ver/116/trunk/OIT/obstacle_avoidance/src/line.hpp
+END

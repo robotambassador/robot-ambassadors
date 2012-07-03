@@ -1,0 +1,17 @@
+<package>
+  <description brief="godot_setup_tf">
+
+     godot_setup_tf
+
+  </description>
+  <author>Godot</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/godot_setup_tf</url>
+  <depend package="roscpp"/>
+  <depend package="tf"/>
+  <depend package="geometry_msgs"/>
+
+</package>
+
+

@@ -1,0 +1,3 @@
+Header header
+bool obstacle_found
+geometry_msgs/Point location

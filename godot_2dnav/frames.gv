@@ -1,0 +1,9 @@
+digraph G {
+"/base_link" -> "/base_laser"[label="Broadcaster: /base_link\nAverage rate: 100.204 Hz\nMost recent transform: 0.010 sec old \nBuffer length: 4.900 sec\n"];
+"/odom" -> "/base_link"[label="Broadcaster: /magellan_pro\nAverage rate: 10.208 Hz\nMost recent transform: 0.031 sec old \nBuffer length: 4.800 sec\n"];
+"/map" -> "/odom"[label="Broadcaster: /gmapping\nAverage rate: 20.206 Hz\nMost recent transform: 0.017 sec old \nBuffer length: 4.850 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1298651101.484"[ shape=plaintext ] ;
+ }->"/map";
+}

@@ -1,0 +1,7 @@
+<launch>
+	<node pkg="flyer_common" name="test_static_transforms" type="static_transforms.py">
+        <param name="mode" value="both" type="str" />
+        <param name="flyer" value="yellow" type="str" />
+	</node>
+	<node pkg="tf" name="tf_monitor" type="tf_monitor" output="screen"/>
+</launch>

@@ -1,0 +1,37 @@
+Background\ ColorR=0.301961
+Background\ ColorG=0.301961
+Background\ ColorB=0.301961
+Fixed\ Frame=/ned
+Target\ Frame=/ned
+Grid.Alpha=0.5
+Grid.Cell\ Size=1
+Grid.ColorR=0.5
+Grid.ColorG=0.5
+Grid.ColorB=0.5
+Grid.Enabled=1
+Grid.Line\ Style=0
+Grid.Line\ Width=0.03
+Grid.Normal\ Cell\ Count=0
+Grid.OffsetX=0
+Grid.OffsetY=0
+Grid.OffsetZ=0
+Grid.Plane=0
+Grid.Plane\ Cell\ Count=10
+Grid.Reference\ Frame=<Fixed Frame>
+Markers.Enabled=1
+Markers.Marker\ Topic=/markers
+Markers.tm=1
+Markers.vlm=1
+Tool\ 2D\ Nav\ GoalTopic=goal
+Tool\ 2D\ Pose\ EstimateTopic=initialpose
+Camera\ Type=rviz::OrbitViewController
+Camera\ Config=1.32401 5.34995 4.11034 -0.200452 0.120698 0.65493
+Property\ Grid\ State=selection=Background Color;expanded=.Global Options,Markers.Enabled,Markers.Enabled.Markers.Namespaces,Grid.Enabled;scrollpos=0,0;splitterpos=188,378;ispageselected=1
+[Display0]
+Name=Markers
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display1]
+Name=Grid
+Package=rviz
+ClassName=rviz::GridDisplay

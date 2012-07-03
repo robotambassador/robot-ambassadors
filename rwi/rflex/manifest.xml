@@ -1,0 +1,18 @@
+<package>
+  <description brief="rflex">
+    ROS adaptations of the RFLEX driver. 
+  </description>
+  <author>David V. Lu!!</author>
+  <license>GPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/rflex</url>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+  <depend package="sensor_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="nav_msgs" />
+  <depend package="tf" />
+  <depend package="angles" />
+
+</package>
+

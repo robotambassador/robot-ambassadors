@@ -1,0 +1,7 @@
+<library path="lib/libstarmac_templates">
+  <class name="some_namespace/MyNodelet" type="some_namespace::MyNodelet" base_class_type="nodelet::Nodelet">
+    <description>
+      Example nodelet
+    </description>
+  </class>
+</library>

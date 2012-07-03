@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svnroot/usc-ros-pkg/!svn/ver/206/trunk/OIT
+END
+stack.xml
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svnroot/usc-ros-pkg/!svn/ver/37/trunk/OIT/stack.xml
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/usc-ros-pkg/!svn/ver/116/trunk/OIT/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svnroot/usc-ros-pkg/!svn/ver/116/trunk/OIT/Makefile
+END

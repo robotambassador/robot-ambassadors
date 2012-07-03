@@ -1,0 +1,18 @@
+<package>
+  <description brief="checkerboard_detector">
+
+     checkerboard_detector node that finds a NxM checkerboard in an image, and uses a corresponding camera_info message to return a transform to that checkerboard from the camera frame
+
+  </description>
+  <author>David Feil-Seifer (dfseifer@usc.edu)</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/checkerboard_detector</url>
+
+  <depend package="image_transport"/>
+  <depend package="image_geometry"/>
+  <depend package="opencv2"/>
+  <depend package="cv_bridge"/>
+  <depend package="tf"/>
+</package>
+

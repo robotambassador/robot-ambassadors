@@ -1,0 +1,17 @@
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/ROSBUILD_genmsg_cpp.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/ROSBUILD_genmsg_lisp.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/ROSBUILD_gensrv_cpp.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/ROSBUILD_gensrv_lisp.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/clean-test-results.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/rosbuild_precompile.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/rosbuild_premsgsrvgen.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/rospack_genmsg.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/rospack_genmsg_libexe.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/rospack_gensrv.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/test.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/test-future.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/test-results.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/test-results-run.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/tests.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/tf_broadcaster.dir
+/home/godot/rosStuff/godot_setup_tf/CMakeFiles/tf_listener.dir

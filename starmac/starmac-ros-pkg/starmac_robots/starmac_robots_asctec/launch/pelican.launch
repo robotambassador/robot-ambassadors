@@ -1,0 +1,131 @@
+<launch>
+  <!-- 
+  pelican.launch 
+  
+  This launch file starts the flyer software for the AscTec Pelican.
+  
+  Usage:
+  First, start a roscore on the Pelican, and an rxconsole on the ground station.
+  Then, on the ground station:
+  $ roslaunch flyer_common bringup_pelican.launch
+  
+  The defaults assume that you are running the software on the actual vehicle, with
+  Vicon state etimation. By default plots of various key quantities are launched on the
+  ground station, as well as a runtime_monitor to check on diagnostics.
+  
+  The 'hover' control mode is brought to standby automatically.
+  -->
+
+  <!-- To debug a node (running locally) in GDB in an xterm, add the attribute: -->
+  <!-- launch-prefix="xterm -rv -e gdb -ex run -args" -->
+
+  <!-- ARGUMENTS -->
+  <arg name="real_pelican" default="true"/>
+  <arg name="have_vicon" default="$(arg real_pelican)"/>
+  <arg name="fake_vicon" default="true"/>
+  <arg name="machine" default="local"/>
+  <arg name="flyer_name" default="pelican1"/>
+  <arg if="$(arg real_pelican)" name="flyer_machine" default="$(arg flyer_name)"/>
+  <arg unless="$(arg real_pelican)" name="flyer_machine" value="local"/>
+  <!-- ground station: -->
+  <arg name="show_plots" default="true"/>
+  <arg name="monitoring" default="true"/>
+  <arg name="odom_topic" default="estimator/output"/>
+  <arg name="dummy_joystick" default="false"/>
+  <arg name="start_estimator" default="true"/>
+  <arg name="standby_modes" default="hover"/>
+  <!-- logging: -->
+  <arg name="record_all" default="false"/>
+  <arg name="record_state_and_inputs" default="false"/>
+  <arg name="tag" default=""/>
+
+  <!-- MACHINE DEFINITIONS -->
+  <group>
+    <include file="$(find flyer_common)/launch/machines/local.xml"/>
+    <include file="$(find starmac_robots_asctec)/launch/machines/pelicans.xml"/>
+  </group>
+  
+  <group ns="$(arg flyer_name)">
+    <machine name="local" address="localhost"/>
+
+    <remap from="odom" to="$(arg odom_topic)"/>
+    
+    <!-- JOYSTICK -->
+    <include file="$(find flyer_common)/launch/systems/joystick.xml">
+      <arg name="dummy_joystick" value="$(arg dummy_joystick)"/>
+    </include>
+        
+    <!-- CONTROL -->
+    <include file="$(find flyer_common)/launch/systems/control.xml">
+      <arg name="machine" value="$(arg flyer_machine)"/>
+    </include>
+    
+    <!--  BRING HOVER MODE TO STANDBY -->
+    <node if="$(arg have_vicon)" pkg="rosh" type="rosh" name="standby_rosh" args="flyer_common/modes_to_standby.py" machine="$(arg flyer_machine)">
+      <param name="modes" value="$(arg standby_modes)"/>
+    </node>
+    
+    <!-- VICON -->
+    <include file="$(find flyer_common)/launch/systems/vicon.xml">
+      <arg name="machine" value="$(arg flyer_machine)"/>
+      <arg name="flyer_name" value="$(arg flyer_name)"/>
+      <arg name="have_vicon" value="$(arg have_vicon)"/>
+      <arg name="fake_vicon" value="$(arg fake_vicon)"/>
+    </include>
+
+    <!-- ESTIMATOR -->
+    <include if="$(arg start_estimator)" file="$(find flyer_common)/launch/systems/estimation.xml">
+      <arg name="machine" value="$(arg flyer_machine)"/>
+      <arg name="flyer_name" value="$(arg flyer_name)"/>
+    </include>
+    
+    <!-- STATIC TRANSFORMS -->
+    <node pkg="flyer_common" type="static_transforms.py" name="static_transforms" machine="$(arg flyer_machine)">
+      <param name="mode" value="both" type="str"/>
+      <param name="flyer" value="$(arg flyer_name)" type="str"/>
+      <param name="period" value="500"/>
+    </node>
+    
+    <!-- RELAYS -->
+    <include file="$(find flyer_common)/launch/systems/downlink_relays.xml"/>
+    <include file="$(find starmac_robots_asctec)/launch/systems/downlink_relays.xml"/>
+
+    <!-- MONITORING -->
+    <include if="$(arg monitoring)" file="$(find flyer_common)/launch/systems/monitoring.xml"/>
+
+    <!-- PLOTTING -->
+    <include if="$(arg show_plots)" file="$(find flyer_common)/launch/systems/plotting.xml">
+      <arg name="odom_topic" value="$(arg odom_topic)"/>
+      <arg name="topic_prefix" value="downlink/"/>
+    </include>
+
+    <!-- RECORDING -->
+    <group>
+      <include if="$(arg record_all)" file="$(find flyer_common)/launch/logging/all.xml">
+        <arg name="machine" value="$(arg flyer_machine)"/>
+        <arg name="tag" value="$(arg tag)"/>
+      </include>
+
+      <include if="$(arg record_state_and_inputs)" file="$(find flyer_common)/launch/logging/state_and_inputs.xml">
+        <arg name="machine" value="$(arg flyer_machine)"/>
+        <arg name="tag" value="$(arg tag)"/>
+      </include>
+    </group>
+    
+    <!-- ASCTEC -->
+    <include file="$(find starmac_robots_asctec)/launch/systems/asctec.xml">
+      <arg name="machine" value="$(arg flyer_machine)"/>
+      <arg name="real_pelican" value="$(arg real_pelican)"/>
+    </include>
+    <include if="$(arg monitoring)" file="$(find starmac_robots_asctec)/launch/systems/monitoring.xml"/>
+    <include if="$(arg show_plots)" file="$(find starmac_robots_asctec)/launch/systems/plotting.xml"/>
+    
+    <!-- VIZ -->
+    <include if="false" file="$(find flyer_common)/launch/systems/visualization.xml">
+      <arg name="subscriber_topic_prefix" value="downlink/"/>
+    </include>
+    
+
+  </group>
+
+</launch>

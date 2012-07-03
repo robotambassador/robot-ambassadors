@@ -1,0 +1,23 @@
+<launch>
+  <arg name="machine" default="local"/>
+  <arg name="flyer_name" default="pelican1"/>
+  <arg name="have_vicon" default="true"/>
+  <arg name="fake_vicon" default="true"/>
+  
+  <!-- VICON -->
+  <node if="$(arg have_vicon)" pkg="vicon_mocap" type="vicon_recv_direct" name="vicon_recv_direct" machine="$(arg machine)">
+    <rosparam>
+      stream_mode: ServerPush
+      datastream_hostport: 10.32.43.33:801
+      update_rate: 75
+    </rosparam>
+    <param name="subject_name" value="$(arg flyer_name)" type="str"/>
+    <param name="segment_name" value="$(arg flyer_name)" type="str"/>
+    <param name="tf_ref_frame_id" value="/enu" type="str"/>
+    <param name="tf_tracked_frame_id" value="$(arg flyer_name)/flyer_vicon" type="str"/>
+  </node>
+
+  <group unless="$(arg have_vicon)">
+    <node if="$(arg fake_vicon)" pkg="rosh" type="rosh" name="fake_vicon" args="flyer_common/fake_vicon_output.py --plugins=rosh_base,rosh_common,rosh_geometry"/>
+  </group>
+</launch>

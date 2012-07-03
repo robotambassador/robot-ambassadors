@@ -1,0 +1,85 @@
+<launch>
+  <node pkg="tf" type="static_transform_publisher" name="world_to_kinect_rgb" args="0 0 0.30 -1.57 0 -2.00 /ned /kinect_rgb 200"/>
+  <!--  node pkg="tf" type="static_transform_publisher" name="kinect_depth_to_cam" 
+    args="0 0 0 0 0 0 /cam /kinect_depth 200" /-->
+  <node pkg="tf" type="static_transform_publisher" name="kinect_rgb_to_kinect_depth" args="-0.03 0.0 0.0 0.0 0.0 0.0 /kinect_rgb /kinect_depth 200"/>
+  <node pkg="tf" type="static_transform_publisher" name="ned_to_imu" args="0 0 -1.0 0.0 0.0 0.0 /ned /imu 200"/>
+
+  <node pkg="nodelet" type="nodelet" name="kinect_manager" args="manager" output="screen"/>
+
+  <node pkg="nodelet" type="nodelet" name="kinect" args="load kinect_camera/KinectDriverNodelet kinect_manager" output="screen">
+    <remap from="camera" to="kinect"/>
+    <param name="rgb/camera_info_url" value="file://$(find kinect_camera)/info/calibration_rgb.yaml"/>
+    <param name="depth/camera_info_url" value="file://$(find kinect_camera)/info/calibration_depth.yaml"/>
+    <rosparam>
+      device_id: 0
+      enable_rgb_stream: false
+      depth_roi_horiz_start: 128
+      depth_roi_horiz_width: 384
+      depth_roi_vert_start: 120
+      depth_roi_vert_height: 50
+      max_range: 5.0
+    </rosparam>
+  </node>
+
+  <!-- Run a SACSegmentation filter to find the points lying on the floor -->
+  <node pkg="nodelet" type="nodelet" name="find_plane" args="load pcl/SACSegmentation kinect_manager" output="screen">
+    <remap from="~input" to="/kinect/points2"/>
+    <remap from="~inliers" to="/kinect/plane_indices"/>
+    <rosparam>
+      model_type: 0 # SACMODEL_ORIENTED_PLANE
+      method_type: 0
+      # SAC_RANSAC = 0; (Random Sample Consensus)
+      # SAC_LMEDS = 1; (Least Median Squares)
+      # SAC_MSAC = 2; (M Estimator Sample Consensus)
+      # SAC_RRANSAC = 3; (Randomized RANSAC)
+      # SAC_RMSAC = 4; (Randomize M Estimator Sample Consensus)
+      # SAC_MLESAC = 5; (Maximum Likelihood Sample Consensus)
+      distance_threshold: 0.02
+      max_iterations: 5
+      optimize_coefficients: true
+      axis: [0.0, -1.0, 0.0] # look only for planes with roughly upward normals
+      eps_angle: 1.57 # generous threshold
+    </rosparam>
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="extract" args="load pcl/ExtractIndices 
+    kinect_manager" output="screen">
+    <remap from="~indices" to="/kinect/plane_indices"/>
+    <remap from="~input" to="/kinect/points2"/>
+    <remap from="~output" to="/kinect/plane_points"/>
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="extract_outliers" args="load pcl/ExtractIndices 
+    kinect_manager" output="screen">
+    <remap from="~indices" to="/kinect/plane_indices"/>
+    <remap from="~input" to="/kinect/points2"/>
+    <remap from="~output" to="/kinect/plane_outliers"/>
+    <rosparam>
+      negative: true
+    </rosparam>
+  </node>
+  
+  <!-- Project the inliers onto the found plane -->
+  <node pkg="nodelet" type="nodelet" name="project_plane_inliers" args="load pcl/ProjectInliers kinect_manager" output="screen">
+    <remap from="~input" to="/kinect/points2"/>
+    <remap from="~indices" to="/kinect/plane_indices"/>
+    <remap from="~model" to="/find_plane/model"/>
+    <rosparam>
+      model_type: 0
+      copy_all_data: false
+      copy_all_fields: true
+   </rosparam>
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="kinect_obstacle_sensor" args="load starmac_kinect_obstacle_avoidance/KinectObstacleSensor kinect_manager">
+    <remap from="~model" to="/find_plane/model"/>
+    <remap from="~input" to="/kinect/points2"/>
+    <remap from="~indices" to="/kinect/plane_indices"/>
+    <rosparam>
+      imu_to_kinect_offset: 0.0
+      obstacle_height_threshold: 0.20
+    </rosparam>
+  </node>
+</launch>
+

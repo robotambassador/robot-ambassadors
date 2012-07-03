@@ -1,0 +1,12 @@
+<launch>
+  <arg name="flyer_name" default="pelican1"/>
+  <arg name="machine" default="local"/>
+  
+  <param name="camera/compressed_image_transport_jpeg_quality" value="30" type="int"/>
+  <param name="camera/compressed_image_transport_format" value="jpeg"/>
+  <param name="camera/frame_rate" value="10" type="double"/>
+  <param name="camera/frame_id" value="/$(arg flyer_name)/camera" type="str"/>
+
+  <node pkg="pgr_camera" name="camera" type="pgr_camera_node" machine="$(arg machine)"/>
+
+</launch>

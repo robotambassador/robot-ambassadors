@@ -1,0 +1,12 @@
+<stack>
+  <description brief="starmac_robots">
+  </description>
+  <author>Maintained by Patrick Bouffard</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/starmac_robots</url>
+
+  <!-- Note - no dependencies are specified here because we don't want to require
+  the user to install all dependencies of all robots just to use one robot. This shouldn't
+  matter until unless/until we formally 'release' starmac-ros-pkg -->
+</stack>

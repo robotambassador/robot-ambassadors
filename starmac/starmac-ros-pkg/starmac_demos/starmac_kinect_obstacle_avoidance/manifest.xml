@@ -1,0 +1,36 @@
+<package>
+  <description brief="starmac_kinect_obstacle_avoidance">
+
+    starmac_kinect_obstacle_avoidance
+
+  </description>
+  <author>bouffard</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/starmac_kinect_obstacle_avoidance</url>
+  <depend package="rospy"/>
+  <depend package="starmac_kinect"/>
+  <depend package="flyer_controller"/>
+  <depend package="starmac_roshlib"/>
+  <depend package="flyer_common"/>
+  <depend package="joy"/>
+  
+  
+  <!-- depend package="pcl"/>
+  <depend package="pcl_tf"/>
+  <depend package="pcl_ros"/>
+  <depend package="tf"/>
+  <depend package="angles"/>
+  <depend package="asctec_msgs"/>
+  <depend package="nav_msgs"/>
+  <depend package="kinect_camera"/>
+  <depend package="nodelet"/>
+  <depend package="pluginlib"/>
+  <depend package="message_filters"/>
+  <depend package="sensor_msgs"/>
+  <depend package="visualization_msgs"/>
+  <depend package="flyer_controller"/> -->
+
+</package>
+
+

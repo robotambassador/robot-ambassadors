@@ -1,0 +1,16 @@
+<package>
+  <description brief="starmac_roshlib">
+
+     starmac_roshlib is intended to house any generic rosh-related code bits used by rosh
+     scripts.
+
+  </description>
+  <author>bouffard</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/starmac_roshlib</url>
+  <depend package="rosh"/>
+  
+</package>
+
+

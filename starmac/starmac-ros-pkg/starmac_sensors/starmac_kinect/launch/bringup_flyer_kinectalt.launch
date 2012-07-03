@@ -1,0 +1,65 @@
+<launch>
+  <!-- 
+  bringup_flyer_kinectalt.launch 
+  
+  This launch file brings up the Pelican, with Kinect data used for altitude estimation.
+  Vicon is *not* used as a backup (by default); this means that only attitude mode is available but that
+  the flyer can be used outside the lab.
+  
+  Parameters are set such that 'forward' commands (i.e. negative pitch) cause the flyer
+  to move in the direction that the Kinect is pointing (assuming it is mounted 45 deg CCW
+  from the '+X' rotor arm).
+  
+  Yaw is open-loop rate control.
+  -->
+  
+  <arg name="real_pelican" default="true"/>
+  <arg if="$(arg real_pelican)" name="flyer_machine" default="pelican1"/>
+  <arg unless="$(arg real_pelican)" name="flyer_machine" default="local"/>
+  <arg name="record_kinect" default="false"/>
+  <arg name="kinect_dir" if="$(arg real_pelican)" value="/home/starmac/kinect-devel/kinect/kinect_camera"/>
+  <arg name="kinect_dir" unless="$(arg real_pelican)" value="$(find kinect_camera)"/>
+  <arg name="odom_topic" value="kinect_estimator/output"/>
+  <arg name="record_kinect_altitude" default="false"/>
+  <arg name="patrol" default="false"/>
+  <arg name="show_plots" default="true"/>
+  <arg name="dummy_joystick" default="false"/>
+  <arg name="fake_vicon" default="false"/>
+  <arg name="have_vicon" default="false"/>
+  <arg name="start_estimator" default="false"/>
+  <arg name="standby_modes" default="hover"/>
+
+  <!-- CORE FLYER NODES -->
+  <include file="$(find flyer_common)/launch/bringup_pelican.launch">
+    <arg name="odom_topic" value="$(arg odom_topic)"/>
+    <arg name="real_pelican" value="$(arg real_pelican)"/>
+    <arg name="show_plots" value="$(arg show_plots)"/>
+    <arg name="dummy_joystick" value="$(arg dummy_joystick)"/>
+    <arg name="have_vicon" default="$(arg have_vicon)"/>
+    <arg name="fake_vicon" default="$(arg fake_vicon)"/>
+    <arg name="start_estimator" default="$(arg start_estimator)"/>
+    <arg name="standby_modes" default="$(arg standby_modes)"/>
+  </include>
+
+  <group ns="pelican1">
+    <remap from="odom" to="$(arg odom_topic)"/>
+
+    <!-- KINECT ALTITUDE & OBSTACLE AVOIDANCE -->
+    <include file="$(find flyer_kinect)/launch/systems/kinect_alt_obstacle.launch">
+      <arg name="flyer_machine" value="$(arg flyer_machine)"/>
+      <arg name="kinect_dir" value="$(arg kinect_dir)"/>
+    </include>
+ 
+    <!-- PLOTS -->   
+    <include if="$(arg show_plots)" file="$(find flyer_kinect)/launch/systems/plotting.launch"/>
+
+    <!-- PARAMETER OVERRIDES -->
+    <param name="kinect_estimator/use_backup_estimator_alt" value="false"/>
+    <param name="control_mode_attitude/external_command_frame" value="false"/>
+    <param name="control_mode_attitude/direct_yaw_rate_control" value="true"/>
+    <param name="asctec_adapter/yaw_offset" value="-45.0"/>
+    <param name="asctec_adapter/deadman_timeout" value="5.0"/>
+    <param name="kinect/enable_rgb_stream" value="false"/>
+  </group>
+
+</launch>

@@ -1,0 +1,29 @@
+<launch>
+    <!-- 
+    downlink_relays.xml
+    
+    The idea here is that there may be several nodes on the ground station PC that are interested in the
+    onboard data, and we don't want that data to be sent over the wireless multiple times as a result.
+    
+    This is accomplished by running relay nodes. Unfortunately we need to run one for every single topic that
+    we want relayed. Ideally we'd rather use something like the proxy node from umd-ros-pkg, however currently there
+    is a bug (https://bugs.launchpad.net/umd-ros-pkg/+bug/669782) that prevents this from working. But at least the
+    extra processes are being added on the ground PC, not on the flyer.
+    
+    Thus, nodes running on the ground station PC should subscribe to downlink/<topic> rather than just <topic>.
+     -->
+     
+    <node pkg="topic_tools" type="relay" name="relay_autopilot_CTRL_INPUT" machine="local" args="autopilot/CTRL_INPUT downlink/autopilot/CTRL_INPUT">
+    </node>
+    <node pkg="topic_tools" type="relay" name="relay_autopilot_LL_STATUS" machine="local" args="autopilot/LL_STATUS downlink/autopilot/LL_STATUS">
+    </node>
+    <node pkg="topic_tools" type="relay" name="relay_autopilot_IMU_CALCDATA" machine="local" args="autopilot/IMU_CALCDATA downlink/autopilot/IMU_CALCDATA">
+    </node>
+    <node pkg="topic_tools" type="relay" name="relay_asctec_proc1" machine="local" args="asctec_proc/pressure_height_filtered downlink/asctec_proc/pressure_height_filtered">
+    </node>
+    <node pkg="topic_tools" type="relay" name="relay_asctec_proc2" machine="local" args="asctec_proc/pressure_height downlink/asctec_proc/pressure_height">
+    </node>
+    <node pkg="topic_tools" type="relay" name="relay_asctec_proc3" machine="local" args="asctec_proc/imu downlink/asctec_proc/imu">
+    </node>
+
+</launch>

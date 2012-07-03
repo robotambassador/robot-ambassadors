@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/usc-ros-pkg/!svn/ver/206/trunk/OIT/color_blob_finder
+END
+2011-03-18-13-52-31-dump.txt
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/usc-ros-pkg/!svn/ver/172/trunk/OIT/color_blob_finder/2011-03-18-13-52-31-dump.txt
+END
+2011-03-18-15-06-22-dump.txt
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/usc-ros-pkg/!svn/ver/172/trunk/OIT/color_blob_finder/2011-03-18-15-06-22-dump.txt
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/usc-ros-pkg/!svn/ver/78/trunk/OIT/color_blob_finder/manifest.xml
+END
+biggest_blob.cc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/usc-ros-pkg/!svn/ver/206/trunk/OIT/color_blob_finder/biggest_blob.cc
+END
+color_blob_finder.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/usc-ros-pkg/!svn/ver/206/trunk/OIT/color_blob_finder/color_blob_finder.cc
+END
+color_finder.cc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/usc-ros-pkg/!svn/ver/171/trunk/OIT/color_blob_finder/color_finder.cc
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/usc-ros-pkg/!svn/ver/78/trunk/OIT/color_blob_finder/mainpage.dox
+END
+color_finder.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/usc-ros-pkg/!svn/ver/171/trunk/OIT/color_blob_finder/color_finder.h
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/usc-ros-pkg/!svn/ver/78/trunk/OIT/color_blob_finder/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/usc-ros-pkg/!svn/ver/78/trunk/OIT/color_blob_finder/Makefile
+END

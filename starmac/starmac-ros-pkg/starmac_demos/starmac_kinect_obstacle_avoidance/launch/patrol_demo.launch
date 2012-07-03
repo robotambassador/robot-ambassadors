@@ -1,0 +1,38 @@
+<launch>
+
+  <arg name="real_pelican" default="true"/>
+  <arg name="dummy_joystick" default="false"/>
+  <arg name="start_rviz" default="true"/>
+  <arg name="show_plots" default="true"/>
+  <arg if="$(arg real_pelican)" name="flyer_machine" default="pelican1"/>
+  <arg unless="$(arg real_pelican)" name="flyer_machine" value="local"/>
+
+  <!-- CORE FLYER NODES w/ KINECT ALTITUDE & OBSTACLE -->
+  <include file="$(find starmac_kinect)/launch/bringup_flyer_kinectalt.launch">
+    <arg name="real_pelican" value="$(arg real_pelican)"/>
+    <arg name="flyer_machine" value="$(arg flyer_machine)"/>
+    <arg name="dummy_joystick" value="$(arg dummy_joystick)"/>
+    <arg name="have_vicon" value="true"/>
+    <arg name="show_plots" default="$(arg show_plots)"/>
+    <arg name="standby_modes" value="hover autosequence"/>
+    <arg name="start_estimator" value="true"/>
+  </include>
+
+  <group ns="pelican1">
+    <!--  PATROL SCRIPT -->
+    <node pkg="rosh" type="rosh" name="patrol" args="starmac_kinect_obstacle_avoidance/patrol.py --plugins=rosh_base,rosh_common,rosh_geometry" machine="$(arg flyer_machine)"/>
+    
+    <!-- DEMO NODE -->
+    <node pkg="starmac_kinect_obstacle_avoidance" type="demo.py" name="demo" machine="$(arg flyer_machine)">
+    </node>
+  
+    <!-- RVIZ -->
+    <node if="$(arg start_rviz)" pkg="rviz" type="rviz" name="rviz" args="-d $(find starmac_kinect_obstacle_avoidance)/rviz/config.vcg"/>
+
+    <!-- PARAMETER OVERRIDES -->
+    <param name="kinect_estimator/use_backup_estimator_alt" value="true"/>
+    <param name="asctec_adapter/yaw_offset" value="0.0"/>
+    <param name="control_mode_attitude/external_command_frame" value="true"/>
+    <param name="control_mode_attitude/direct_yaw_rate_control" value="false"/>
+  </group>
+</launch>

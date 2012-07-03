@@ -1,0 +1,24 @@
+<package>
+  <description brief="starmac_viz">
+
+    Visualization of quadrotor operations.
+
+  </description>
+  <author>bouffard</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/starmac_viz</url>
+
+  <depend package="tf"/>
+  <depend package="nav_msgs"/>
+
+  <!--  depend package="asctec_msgs"/-->
+
+  <depend package="starmac_roslib"/>
+  <depend package="flyer_controller"/>
+
+  <rosdep name="python-numpy"/>
+
+</package>
+
+
