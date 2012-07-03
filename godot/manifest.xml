@@ -8,6 +8,9 @@
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/godot</url>
+  
+  <depends package="godot_joystick" />
+  <depends package="rflex" />
 
 </package>
 

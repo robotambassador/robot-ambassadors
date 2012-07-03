@@ -10,7 +10,7 @@
   <url>http://ros.org/wiki/godot_2dnav</url>
   <depend package="godot_setup_tf"/>
   <depend package="rflex"/>
-  <depend package="hokuyo_node"/>
+  <depend package="hoyuko_node"/>
 
 </package>
 
