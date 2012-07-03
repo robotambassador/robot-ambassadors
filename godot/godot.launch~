@@ -1,5 +1,0 @@
-<!-- Launches basic godot nodes with joystick control -->
-<launch>
-	<include file="$(find godot_2dnav)/godot_configuration.launch" />
-	<include file="$(find godot_joystick)/godot_joystick.launch" />
-</launch>
