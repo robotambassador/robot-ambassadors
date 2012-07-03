@@ -1,6 +1,6 @@
 <!-- Launches basic godot nodes with joystick control -->
 <launch>
- <param name="robot_description" command="cat /home/ros/urdfStuff/godot.urdf" />
+ <param name="robot_description" command="cat $(find godot)/godot.urdf" />
 
   <node pkg="tf" type="static_transform_publisher" name="tf_top_plate" args="0 0 0.15 0 0 0 1 base_link top_plate 100" />
   <node pkg="tf" type="static_transform_publisher" name="tf_left_wheel" args="0 -0.15 -0.15 0 0 0 1 base_link left_wheel 100" />

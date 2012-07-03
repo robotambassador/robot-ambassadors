@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<robot name="godot">
+  <link name="base_link">
+    <visual>
+      <geometry>
+	<cylinder length="0.3" radius="0.2"/>
+      </geometry>
+      <origin rpy="0 0 -1.57075" xyz="0 0 0"/>
+      <material name="red">
+	<color rgba=".8 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="top_plate">
+    <visual>
+      <geometry>
+	<cylinder length="0.004" radius="0.2"/>
+      </geometry>
+      <material name="black">
+	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="base_to_top_plate" type="fixed">
+    <parent link="base_link"/>
+    <child link="top_plate"/>
+    <origin xyz="0 0 0.15"/>
+  </joint>
+
+  <link name="left_wheel">
+    <visual>
+      <geometry>
+	<cylinder length="0.05" radius="0.07"/>
+      </geometry>
+      <origin rpy="1.57075 1.57075 0" xyz="0 0 0"/>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_left_wheel" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_wheel"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 -0.15 -0.15"/>
+  </joint>
+
+  <link name="right_wheel">
+    <visual>
+      <geometry>
+	<cylinder length="0.05" radius="0.07"/>
+      </geometry>
+      <origin rpy="1.57075 1.57075 0" xyz="0 0 0"/>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_right_wheel" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_wheel"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 0.15 -0.15"/>
+  </joint>
+
+</robot>

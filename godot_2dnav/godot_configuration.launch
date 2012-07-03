@@ -1,6 +1,6 @@
 <launch>
   
-  <param name="robot_description" command="cat /home/ros/urdfStuff/godot.urdf" />
+  <param name="robot_description" command="cat $(find godot_joystick)/godot.urdf" />
 
   <node pkg="tf" type="static_transform_publisher" name="tf_laser" args="0.18 0.03 0.175 0 0 0 1 base_link base_laser 100" />
   <node pkg="tf" type="static_transform_publisher" name="tf_top_plate" args="0 0 0.15 0 0 0 1 base_link top_plate 100" />
