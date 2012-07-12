@@ -13,11 +13,11 @@ class ImageFeed
   public:
   ros::NodeHandle nh_;
   image_transport::ImageTransport it_;
-  image_transport::Publisher pub_;
+  image_transport::Publisher image_pub_;
+  image_transport::Publisher goal_pub_;
   ros::Subscriber sub_;
   
   ImageFeed(std::string path);
-  //~ImageFeed();
   
   private:
   void commandCallback(const geometry_msgs::Twist& cmd);
@@ -31,7 +31,8 @@ class ImageFeed
 
 ImageFeed::ImageFeed(std::string path) : it_(nh_)
 {
-  pub_ = it_.advertise("gscam/image_raw", 1);
+  image_pub_ = it_.advertise("gscam/image_raw", 1);
+  goal_pub_ = it_.advertise("goal_image", 1);
   sub_ = nh_.subscribe("cmd_vel", 1, &ImageFeed::commandCallback, this);
   
   msg_ptr_.reset (new cv_bridge::CvImage);
@@ -44,8 +45,12 @@ ImageFeed::ImageFeed(std::string path) : it_(nh_)
   y = 0;
   angle = 0;  
   
-  if(nh_.ok()) publishImage();
-  
+  if (nh_.ok())
+  {
+    publishImage();
+    goal_pub_.publish(msg_ptr_->toImageMsg());
+  }
+    
   //Republish command if no command recieved after 10s
   /*ros::Rate loop_rate(0.1);
   while (nh_.ok()) {
@@ -85,12 +90,11 @@ void ImageFeed::publishImage()
   std::stringstream sstm;
   sstm << path_ << x << "_" << y << ".ppm";
   std::string next_image = sstm.str();
-  msg_ptr_->image = cv::imread(next_image);
-  
-  cv::imshow(WINDOW, msg_ptr_->image);   
-  cv::waitKey(30);
+  msg_ptr_->image = cv::imread(next_image, 0);
   ROS_INFO("path: %s", next_image.c_str());
-  pub_.publish(msg_ptr_->toImageMsg());
+  image_pub_.publish(msg_ptr_->toImageMsg());
+  cv::imshow(WINDOW, msg_ptr_->image);   
+  cv::waitKey(50);
 }
 
 int main(int argc, char** argv)
