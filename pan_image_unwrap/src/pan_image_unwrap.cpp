@@ -10,8 +10,6 @@
 namespace enc = sensor_msgs::image_encodings;
 using namespace cv;
 
-static const char WINDOW[] = "Image window";
-
 class ImageUnwrapper
 {
   ros::NodeHandle nh_;
@@ -27,18 +25,19 @@ class ImageUnwrapper
   {
     image_sub_ = it_.subscribe("gscam/image_raw", 1, &ImageUnwrapper::imageCallback, this);
     image_pub_ = it_.advertise("image_unwrapped", 1);
-    cv::namedWindow(WINDOW);
+    cv::namedWindow("Unwrapped Image");
     nh_.param("rotate", rotate_, 90);
     nh_.param("magnitude", magnitude_, 80);
   }
   
   ~ImageUnwrapper() 
   {
-    cv::destroyWindow(WINDOW);
+    cv::destroyWindow("Image");
   }
   
   void imageCallback(const sensor_msgs::ImageConstPtr& msg)
   {
+    ROS_INFO("Received image");
     cv_bridge::CvImagePtr cv_image;
     try
     {
@@ -73,7 +72,7 @@ class ImageUnwrapper
     //Point a cv::Mat header at it (no allocation is done)
     Mat image_roi = imgMat(roi);
       
-    imshow(WINDOW, image_roi);
+    imshow("Unwrapped Image", image_roi);
     cv::waitKey(30);
     
     

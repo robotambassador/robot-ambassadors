@@ -5,9 +5,6 @@
 #include <geometry_msgs/Twist.h>
 #include <string>
 
-
-static const char WINDOW[] = "Image";
-
 class ImageFeed
 {
   public:
@@ -35,11 +32,9 @@ ImageFeed::ImageFeed(std::string path) : it_(nh_)
   goal_pub_ = it_.advertise("goal_image", 1);
   sub_ = nh_.subscribe("cmd_vel", 1, &ImageFeed::commandCallback, this);
   
-  msg_ptr_.reset (new cv_bridge::CvImage);
-  
   path_ = path;
   
-  cv::namedWindow(WINDOW,CV_WINDOW_AUTOSIZE);
+  cv::namedWindow("Image",CV_WINDOW_AUTOSIZE);
   
   x = 0;
   y = 0;
@@ -90,11 +85,18 @@ void ImageFeed::publishImage()
   std::stringstream sstm;
   sstm << path_ << x << "_" << y << ".ppm";
   std::string next_image = sstm.str();
-  msg_ptr_->image = cv::imread(next_image, 0);
-  
-  cv::imshow(WINDOW, msg_ptr_->image);   
-  cv::waitKey(50);
+  cv::Mat im = cv::imread(next_image, 0);
   ROS_INFO("path: %s", next_image.c_str());
+  if (!im.data)
+  {
+    ROS_ERROR("Couldn't load image");
+    return;
+  }
+  msg_ptr_.reset (new cv_bridge::CvImage);
+  msg_ptr_->image = im;
+  
+  cv::imshow("Image", msg_ptr_->image);   
+  cv::waitKey(100);
   image_pub_.publish(msg_ptr_->toImageMsg());
 }
 
