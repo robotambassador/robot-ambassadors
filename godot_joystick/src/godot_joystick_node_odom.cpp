@@ -2,6 +2,8 @@
 #include <sensor_msgs/Joy.h>
 #include <geometry_msgs/Twist.h>
 #include <std_msgs/Bool.h>
+#include <nav_msgs/Odometry.h>
+#include <tf/transform_listener.h>
 
 static const double MAX_ANGULAR = 0.5; // rad/s
 static const double MAX_LINEAR = 0.5; // m/s
@@ -14,9 +16,12 @@ public:
 
 private:
   void joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
+  void odomCallback(const nav_msgs::Odometry::ConstPtr& odom);
+  bool turnOdom(bool clockwise, double radians);
   
   ros::NodeHandle nh_;
-  
+  tf::TransformListener listener_;
+
   int l_linear_, l_angular_, r_linear_, r_angular_, l_trigger_, r_trigger_;
 
   int button_a_, button_b_, button_x_, button_y_, button_start_, button_back_, button_l_bumper_, button_r_bumper_;
@@ -27,13 +32,14 @@ private:
   ros::Publisher vel_pub_;
 	ros::Publisher brake_pub_;
   ros::Subscriber joy_sub_;
+  ros::Subscriber odom_sub_;
   
   
   double next_linear_;
   double next_angular_;
   int turn_angle_;
   int count_, loop_rate_, turn_time_;
-  double angular_goal_, turn_speed_;
+  double angular_goal_;
   bool turning_;
 };
 
@@ -69,14 +75,14 @@ GodotJoystick::GodotJoystick()
 	brake_pub_ = nh_.advertise<std_msgs::Bool>("/magellan_pro/cmd_brake_power", 1);
 
   joy_sub_ = nh_.subscribe<sensor_msgs::Joy>("joy", 1, &GodotJoystick::joyCallback, this);
+  odom_sub_ = nh_.subscribe<nav_msgs::Odometry>("odom", 1, &GodotJoystick::odomCallback, this);
 
   next_linear_ = 0;
   next_angular_ = 0;
   count_ = 0;
   loop_rate_ = 100;
-  turn_time_ = 100;
+  turn_time_ = 1;
   angular_goal_ = 0;
-  turn_speed_= 0.25;
   
   turning_ = false;
   
@@ -84,16 +90,6 @@ GodotJoystick::GodotJoystick()
 
   while(ros::ok())
   {
-    if (turning_ == true)
-    {
-      count_++;
-      if (count_ >= turn_time_)
-	    {
-	      next_angular_ = 0;
-	      count_ = 0;
-	      turning_ = false;	
-	    }
-    }
     //safety for bad maths
     if (next_angular_ > MAX_ANGULAR)
     {
@@ -110,6 +106,7 @@ GodotJoystick::GodotJoystick()
   	cmd.angular.z = next_angular_;
   	vel_pub_.publish(cmd);
   	ROS_DEBUG("published linear = %f,  angular = %f", next_linear_, next_angular_);
+    count_++;
     ros::spinOnce(); 
     loop_rate.sleep();
   }
@@ -126,7 +123,7 @@ void GodotJoystick::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 		brake.data = true;
 		brake_pub_.publish(brake);
 	}
-			
+		
 	if (joy->axes[l_trigger_] <= 0 && joy->axes[r_trigger_] <= 0) 
 	{
     /* Use start button to turn off breaks */
@@ -139,15 +136,11 @@ void GodotJoystick::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 		
 		if (joy->buttons[button_x_] == 1)
 	  {
-	    next_angular_ = turn_speed_;
-	    count_ = 0;
-	    turning_ = true;
+	    turnOdom(true, 1.57);
 	  }
 	  else if (joy->buttons[button_a_] == 1)
 	  {
-	    next_angular_ = -turn_speed_;
-	    count_ = 0;
-	    turning_ = true;
+	    turnOdom(false, 1.57);
 	  }
 	  else if (turning_ == false)
 	  {
@@ -165,16 +158,93 @@ void GodotJoystick::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 	  //next_angular_ = 0;
   }
 	
-  if (joy->buttons[button_l_bumper_] == 1)
+  /* Testing settings */
+   /* if (joy->buttons[button_a_] == 1)
+    {
+			publish_rate += 1;
+			ROS_INFO("Current publish rate is %d", publish_rate);
+		} 
+		else if (joy->buttons[button_x_] == 1)
+    {
+      publish_rate -= 1;
+      ROS_INFO("Current publish rate is %d", publish_rate);
+    }*/
+}
+
+void GodotJoystick::odomCallback(const nav_msgs::Odometry::ConstPtr& odom)
+{
+  if (turning_ == true)
   {
-		turn_speed_ += 0.01;
-		ROS_INFO("Current turn speed is %f", turn_speed_);
-	} 
-	else if (joy->buttons[button_r_bumper_] == 1)
-  {
-    turn_speed_ -= 0.01;
-    ROS_INFO("Current turn speed is %f", turn_speed_);
+    double angle = odom->pose.pose.orientation.z;
+    next_angular_ = MAX_ANGULAR - (MAX_ANGULAR/(angular_goal_ - angle));
+    
+    ROS_INFO("Angle: %f, next_angular_: %f", angle, next_angular_);
+    
+    if (angle <= angular_goal_ + ANGULAR_THRESH && angle >= angular_goal_ - ANGULAR_THRESH) //almost certainly never true
+      turning_ = false;
   }
+}
+
+bool GodotJoystick::turnOdom(bool clockwise, double radians)
+{
+  while(radians < 0) radians += 2*M_PI;
+  while(radians > 2*M_PI) radians -= 2*M_PI;
+
+  //wait for the listener to get the first message
+  listener_.waitForTransform("base_link", "odom", 
+                             ros::Time(0), ros::Duration(1.0));
+  
+  //we will record transforms here
+  tf::StampedTransform start_transform;
+  tf::StampedTransform current_transform;
+
+  //record the starting transform from the odometry to the base frame
+  listener_.lookupTransform("base_link", "odom", 
+                            ros::Time(0), start_transform);
+  
+  //we will be sending commands of type "twist"
+  geometry_msgs::Twist base_cmd;
+  //the command will be to turn at 0.25 rad/s
+  base_cmd.linear.x = base_cmd.linear.y = 0.0;
+  base_cmd.angular.z = 0.25;
+  if (clockwise) base_cmd.angular.z = -base_cmd.angular.z;
+  
+  //the axis we want to be rotating by
+  tf::Vector3 desired_turn_axis(0,0,1);
+  if (!clockwise) desired_turn_axis = -desired_turn_axis;
+  
+  ros::Rate rate(10.0);
+  bool done = false;
+  while (!done && nh_.ok())
+  {
+    //send the drive command
+    vel_pub_.publish(base_cmd);
+    rate.sleep();
+    //get the current transform
+    try
+    {
+      listener_.lookupTransform("base_link", "odom", 
+                                ros::Time(0), current_transform);
+    }
+    catch (tf::TransformException ex)
+    {
+      ROS_ERROR("%s",ex.what());
+      break;
+    }
+    tf::Transform relative_transform = 
+      start_transform.inverse() * current_transform;
+    tf::Vector3 actual_turn_axis = 
+      relative_transform.getRotation().getAxis();
+    double angle_turned = relative_transform.getRotation().getAngle();
+    if ( fabs(angle_turned) < 1.0e-2) continue;
+
+    if ( actual_turn_axis.dot( desired_turn_axis ) < 0 ) 
+      angle_turned = 2 * M_PI - angle_turned;
+
+    if (angle_turned > radians) done = true;
+  }
+  if (done) return true;
+  return false;
 }
 
 int main(int argc, char** argv)
@@ -184,4 +254,3 @@ int main(int argc, char** argv)
 
   //ros::spin();
 }
-
