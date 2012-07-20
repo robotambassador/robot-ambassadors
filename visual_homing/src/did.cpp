@@ -18,13 +18,16 @@ class DescentImageDistance
   
   ros::Publisher rms_pub_;
   ros::Publisher cmd_pub_;
+  ros::ServiceServer home_srv_;
   
   Mat home_;
+  cv_bridge::CvImagePtr cv_image_;
   
   public:
   DescentImageDistance();  
   void imageCallback(const sensor_msgs::ImageConstPtr& msg);
   void goalImageCallback(const sensor_msgs::ImageConstPtr& msg);
+  bool saveHome();
 };
 
 DescentImageDistance::DescentImageDistance()
@@ -35,6 +38,7 @@ DescentImageDistance::DescentImageDistance()
   
   rms_pub_ = nh_.advertise<std_msgs::Float32>("rms_error", 1, true);
   cmd_pub_ = nh_.advertise<geometry_msgs::Twist>("cmd_vel", 1, true);
+  home_srv_ = nh_.advertiseService("save_home", saveHome);
 }
 
 void DescentImageDistance::imageCallback(const sensor_msgs::ImageConstPtr& msg)
@@ -44,10 +48,9 @@ void DescentImageDistance::imageCallback(const sensor_msgs::ImageConstPtr& msg)
     ROS_ERROR("No home image found");
     return;
   }
-  cv_bridge::CvImagePtr cv_image;
   try
   {
-    cv_image = cv_bridge::toCvCopy(msg, enc::MONO8);
+    cv_image_ = cv_bridge::toCvCopy(msg, enc::MONO8);
   }
   catch (cv_bridge::Exception& e)
   {
@@ -55,7 +58,7 @@ void DescentImageDistance::imageCallback(const sensor_msgs::ImageConstPtr& msg)
     return;
   }
   
-  float rms_error = HomingTools::rms(cv_image->image, home_);
+  float rms_error = HomingTools::rms(cv_image_->image, home_);
   std_msgs::Float32 rms_msg;
   rms_msg.data = rms_error;
   
@@ -75,9 +78,15 @@ void DescentImageDistance::goalImageCallback(const sensor_msgs::ImageConstPtr& m
     ROS_ERROR("cv_bridge exception: %s", e.what());
     return;
   }
-  home_ = cv_image->image;
+  home_ = cv_image_->image;
   ROS_INFO("Copied home image");  
 }  
+
+bool DescentImageDistance::saveHome()
+{
+  home_ = cv_image_->image;
+  return true;
+}
 
 int main(int argc, char** argv)
 {
