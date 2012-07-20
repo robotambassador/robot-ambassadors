@@ -12,6 +12,8 @@
   <depend package="godot_2dnav"/>
   <depend package="joy"/>
   <depend package="geometry_msgs" />
+  <depend package="nav_msgs" />
+  <depend package="tf" />
 </package>
 
 
