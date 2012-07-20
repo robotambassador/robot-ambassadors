@@ -1,0 +1,11 @@
+<launch>
+
+  <node pkg="image_db_feed" type="image_db_feed" name="image_db_feed" args="/home/michael/workspace/pan-images/original/" />
+
+  <node pkg="image_db_feed" type="goal_image_pub" name="goal_image_pub" args="/home/michael/workspace/pan-images/original/5_8.ppm" />
+  
+  <node pkg="visual_homing" type="did_homing" name="did_homing" />
+  
+  <node pkg="image_db_feed" type="make_grid" name="make_grid" />
+
+</launch>

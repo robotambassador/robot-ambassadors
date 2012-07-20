@@ -30,3 +30,6 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #target_link_libraries(example ${PROJECT_NAME})
 
 rosbuild_add_executable(image_db_feed src/image_db_feed.cpp)
+rosbuild_add_executable(command_listener src/command_listener.cpp)
+rosbuild_add_executable(goal_image_pub src/goal_image_pub.cpp)
+rosbuild_add_executable(make_grid src/make_grid.cpp)

@@ -9,12 +9,12 @@ int main(int argc, char** argv)
   ros::init(argc, argv, "single_image_publisher");
   ros::NodeHandle nh;
   image_transport::ImageTransport it(nh);
-  image_transport::Publisher pub = it.advertise("goal_image", 1);
+  image_transport::Publisher pub = it.advertise("gscam/image_raw", 1);
 
   cv::WImageBuffer3_b image( cvLoadImage(argv[1], CV_LOAD_IMAGE_COLOR) );
   sensor_msgs::ImagePtr msg = sensor_msgs::CvBridge::cvToImgMsg(image.Ipl(), "bgr8");
   
-  ros::Rate loop_rate(5);
+  ros::Rate loop_rate(0.1);
   while (nh.ok()) {
     pub.publish(msg);
     ros::spinOnce();
