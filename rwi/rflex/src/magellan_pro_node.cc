@@ -91,8 +91,8 @@ MagellanProNode::MagellanProNode() : n ("~") {
     subs[1] = n.subscribe<std_msgs::Float32>("cmd_accel", 1,     &MagellanProNode::SetAcceleration, this);
     subs[2] = n.subscribe<std_msgs::Bool>("cmd_sonar_power", 1, &MagellanProNode::ToggleSonarPower, this);
     subs[3] = n.subscribe<std_msgs::Bool>("cmd_brake_power", 1, &MagellanProNode::ToggleBrakePower, this);
-    //acceleration = 0.7;
-    acceleration = 30000;
+    acceleration = 0.7;
+    //acceleration = 30000;
 
     sonar_pub = n.advertise<sensor_msgs::PointCloud>("sonar_cloud", 50);
     sonar_power_pub = n.advertise<std_msgs::Bool>("sonar_power", 1);

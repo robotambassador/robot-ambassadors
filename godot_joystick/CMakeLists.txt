@@ -30,3 +30,4 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #target_link_libraries(example ${PROJECT_NAME})
 
 rosbuild_add_executable(godot_joystick_node src/godot_joystick_node.cpp)
+rosbuild_add_executable(godot_joystick_node_odom src/godot_joystick_node_odom.cpp)

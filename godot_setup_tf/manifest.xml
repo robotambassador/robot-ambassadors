@@ -8,6 +8,8 @@
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/godot_setup_tf</url>
+  <depend package="rflex"/>
+  <depend package="nav_msgs"/>
   <depend package="roscpp"/>
   <depend package="tf"/>
   <depend package="geometry_msgs"/>

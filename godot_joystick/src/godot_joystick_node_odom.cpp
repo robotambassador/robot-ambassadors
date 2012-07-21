@@ -13,6 +13,7 @@ class GodotJoystick
 {
 public:
   GodotJoystick();
+  void Execute();
 
 private:
   void joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
@@ -80,36 +81,11 @@ GodotJoystick::GodotJoystick()
   next_linear_ = 0;
   next_angular_ = 0;
   count_ = 0;
-  loop_rate_ = 100;
+  loop_rate_ = 5;
   turn_time_ = 1;
   angular_goal_ = 0;
   
   turning_ = false;
-  
-  ros::Rate loop_rate(loop_rate_);
-
-  while(ros::ok())
-  {
-    //safety for bad maths
-    if (next_angular_ > MAX_ANGULAR)
-    {
-      next_angular_ = MAX_ANGULAR;
-      ROS_WARN("Max angular speed exceeded");
-    }
-    if (next_linear_ > MAX_LINEAR)
-    {
-      next_linear_ = MAX_LINEAR;
-      ROS_WARN("Max linear speed exceeded");
-    } 
-    geometry_msgs::Twist cmd;
-  	cmd.linear.x = next_linear_;
-  	cmd.angular.z = next_angular_;
-  	vel_pub_.publish(cmd);
-  	ROS_DEBUG("published linear = %f,  angular = %f", next_linear_, next_angular_);
-    count_++;
-    ros::spinOnce(); 
-    loop_rate.sleep();
-  }
 
 }
 
@@ -173,7 +149,7 @@ void GodotJoystick::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 
 void GodotJoystick::odomCallback(const nav_msgs::Odometry::ConstPtr& odom)
 {
-  if (turning_ == true)
+  /*if (turning_ == true)
   {
     double angle = odom->pose.pose.orientation.z;
     next_angular_ = MAX_ANGULAR - (MAX_ANGULAR/(angular_goal_ - angle));
@@ -182,16 +158,18 @@ void GodotJoystick::odomCallback(const nav_msgs::Odometry::ConstPtr& odom)
     
     if (angle <= angular_goal_ + ANGULAR_THRESH && angle >= angular_goal_ - ANGULAR_THRESH) //almost certainly never true
       turning_ = false;
-  }
+  }*/
 }
 
 bool GodotJoystick::turnOdom(bool clockwise, double radians)
 {
+  turning_ = true;
+
   while(radians < 0) radians += 2*M_PI;
   while(radians > 2*M_PI) radians -= 2*M_PI;
 
   //wait for the listener to get the first message
-  listener_.waitForTransform("base_link", "odom", 
+  listener_.waitForTransform("/base_link", "/odom", 
                              ros::Time(0), ros::Duration(1.0));
   
   //we will record transforms here
@@ -199,7 +177,7 @@ bool GodotJoystick::turnOdom(bool clockwise, double radians)
   tf::StampedTransform current_transform;
 
   //record the starting transform from the odometry to the base frame
-  listener_.lookupTransform("base_link", "odom", 
+  listener_.lookupTransform("/base_link", "/odom", 
                             ros::Time(0), start_transform);
   
   //we will be sending commands of type "twist"
@@ -207,13 +185,14 @@ bool GodotJoystick::turnOdom(bool clockwise, double radians)
   //the command will be to turn at 0.25 rad/s
   base_cmd.linear.x = base_cmd.linear.y = 0.0;
   base_cmd.angular.z = 0.25;
+  
   if (clockwise) base_cmd.angular.z = -base_cmd.angular.z;
   
   //the axis we want to be rotating by
   tf::Vector3 desired_turn_axis(0,0,1);
   if (!clockwise) desired_turn_axis = -desired_turn_axis;
   
-  ros::Rate rate(10.0);
+  ros::Rate rate(2.0);
   bool done = false;
   while (!done && nh_.ok())
   {
@@ -223,7 +202,7 @@ bool GodotJoystick::turnOdom(bool clockwise, double radians)
     //get the current transform
     try
     {
-      listener_.lookupTransform("base_link", "odom", 
+      listener_.lookupTransform("/base_link", "/odom", 
                                 ros::Time(0), current_transform);
     }
     catch (tf::TransformException ex)
@@ -243,8 +222,48 @@ bool GodotJoystick::turnOdom(bool clockwise, double radians)
 
     if (angle_turned > radians) done = true;
   }
-  if (done) return true;
+  if (done) {
+    turning_ = false;
+    base_cmd.angular.z = 0.0;
+    vel_pub_.publish(base_cmd);
+    return true;
+  }
+  
   return false;
+}
+
+void GodotJoystick::Execute() {
+  
+  ros::Rate loop_rate(loop_rate_);
+
+  geometry_msgs::Twist cmd;
+
+  while(ros::ok())
+  {
+    //safety for bad maths
+    if (next_angular_ > MAX_ANGULAR)
+    {
+      next_angular_ = MAX_ANGULAR;
+      ROS_WARN("Max angular speed exceeded");
+    }
+    if (next_linear_ > MAX_LINEAR)
+    {
+      next_linear_ = MAX_LINEAR;
+      ROS_WARN("Max linear speed exceeded");
+    } 
+    
+    if (!turning_) {
+  	  cmd.linear.x = next_linear_;
+  	  cmd.angular.z = next_angular_;
+  	  vel_pub_.publish(cmd);
+  	}
+  	
+  	ROS_DEBUG("published linear = %f,  angular = %f", next_linear_, next_angular_);
+    
+    count_++;
+    ros::spinOnce(); 
+    loop_rate.sleep();
+    }
 }
 
 int main(int argc, char** argv)
@@ -252,5 +271,8 @@ int main(int argc, char** argv)
   ros::init(argc, argv, "godot_joystick_node");
   GodotJoystick godot_joystick_node;
 
+  godot_joystick_node.Execute();
+
+  return 0;
   //ros::spin();
 }

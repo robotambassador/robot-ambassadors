@@ -16,6 +16,6 @@
   <param name="scale_linear" value="-0.4" type="double"/>
   <param name="scale_angular" value="0.1" type="double"/>
 
-  <node pkg="godot_joystick" type="godot_joystick_node" name="godot_joystick_node"/>
+  <node pkg="godot_joystick" type="godot_joystick_node_odom" name="godot_joystick_node" output="screen"/>
 
 </launch>
