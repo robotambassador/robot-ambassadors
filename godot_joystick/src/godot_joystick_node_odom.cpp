@@ -36,6 +36,7 @@ private:
 	ros::Publisher brake_pub_;
   ros::Subscriber joy_sub_;
   ros::Subscriber odom_sub_;
+  ros::ServiceClient save_home_;
   
   int turn_angle_;
   int count_, turn_time_;
@@ -83,6 +84,9 @@ GodotJoystick::GodotJoystick()
 
   joy_sub_ = nh_.subscribe<sensor_msgs::Joy>("joy", 1, &GodotJoystick::joyCallback, this);
   odom_sub_ = nh_.subscribe<nav_msgs::Odometry>("odom", 1, &GodotJoystick::odomCallback, this);
+  
+  save_home_ = nh_.serviceClient<std_srvs::Empty>("save_home");
+  
 
   next_cmd_.linear.x = 0;
   next_cmd_.angular.z = 0;
