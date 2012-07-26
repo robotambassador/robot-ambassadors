@@ -20,6 +20,8 @@ class DescentImageDistance
   ros::Publisher cmd_pub_;
   ros::ServiceServer home_srv_;
   
+  float last_rms_;
+  
   Mat home_;
   cv_bridge::CvImagePtr cv_image_;
   
@@ -64,6 +66,22 @@ void DescentImageDistance::imageCallback(const sensor_msgs::ImageConstPtr& msg)
   
   rms_pub_.publish(rms_msg);
   ROS_DEBUG("Published rms as %f", rms_error);
+  
+  if (last_rms_ == NULL) {
+    last_rms_ = rms_error;
+  }
+  
+  geometry_msgs::Twist cmd;
+  cmd.linear.x = 0.5;
+  
+  if (rms_error > last_rms) {
+    cmd.angular.z = 1;
+  } else {
+    cmd.angular.z = 0;
+  }  
+  
+  last_rms_ = rms_error;
+  cmd_pub_.publish(cmd);
 }
 
 void DescentImageDistance::goalImageCallback(const sensor_msgs::ImageConstPtr& msg)
@@ -84,6 +102,10 @@ void DescentImageDistance::goalImageCallback(const sensor_msgs::ImageConstPtr& m
 
 bool DescentImageDistance::saveHome()
 {
+  if (cv_image_->image == NULL) {
+    ROS_ERROR("No image to save as home");
+    return false;
+  }
   home_ = cv_image_->image;
   return true;
 }
