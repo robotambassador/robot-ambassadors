@@ -26,7 +26,7 @@
 // Arbitrary units per meter
 // Left is -ive and Right is +ive if going "forwards"
 #define ODO_TRANS_DISTANCE_CONVERSION 39800
-#define ODO_ROT_DISTANCE_CONVERSION 35000
+#define ODO_ROT_DISTANCE_CONVERSION 6000 // old value 35000 //should be 2750?
 
 // Sonar Constants
 // ===============

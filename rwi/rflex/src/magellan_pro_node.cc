@@ -109,7 +109,7 @@ int MagellanProNode::initialize(const char* port) {
     if (ret < 0)
         return ret;
 
-    driver.setOdometryPeriod(1000);
+    driver.setOdometryPeriod(100); // in ms
     driver.setDigitalIoPeriod(1000);
     driver.motionSetDefaults();
 

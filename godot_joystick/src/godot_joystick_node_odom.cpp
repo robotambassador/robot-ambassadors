@@ -5,7 +5,7 @@
 #include <nav_msgs/Odometry.h>
 #include <tf/transform_listener.h>
 
-static const double MAX_ANGULAR = 0.5; // rad/s
+static const double MAX_ANGULAR = 3; // rad/s
 static const double MAX_LINEAR = 0.5; // m/s
 static const double ANGULAR_THRESH = 5; 
 const int LOOP_RATE = 50; //hz
@@ -104,34 +104,40 @@ void GodotJoystick::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 		brake.data = true;
 		brake_pub_.publish(brake);
 	}
-	if (!turning_) {	
-	  if (joy->axes[l_trigger_] <= 0 && joy->axes[r_trigger_] <= 0) {
-      /* Use start button to turn off breaks */
-		  if (joy->buttons[button_start_] == 1) {
-			  std_msgs::Bool brake;
-			  brake.data = false;
-			  brake_pub_.publish(brake);
-		  }
-		
-		  if (joy->buttons[button_x_] == 1) {
-	      turnOdom(true, 1.57);
-	    } else if (joy->buttons[button_a_] == 1) {
-	      turnOdom(false, 1.57);
-	    } else {
-	      ROS_DEBUG("linear scale: %f, angular scale: %f", l_scale_, a_scale_);    
-
-      	next_cmd_.linear.x = l_scale_*joy->axes[l_linear_];
-		    next_cmd_.angular.z = a_scale_*joy->axes[l_angular_];
-		
-		    ROS_DEBUG("linear = %f,  angular = %f", next_cmd_.linear.x, next_cmd_.angular.z);
-      }
-      
-    } else {
-	    //Todo: make sure it stops if you release triggers while giving a command
-	    //next_linear_ = 0;
-	    //next_angular_ = 0;
+	 	
+  if (joy->axes[l_trigger_] <= 0 && joy->axes[r_trigger_] <= 0) {
+    /* Use start button to turn off breaks */
+	  if (joy->buttons[button_start_] == 1) {
+		  std_msgs::Bool brake;
+		  brake.data = false;
+		  brake_pub_.publish(brake);
+	  }
+	  
+	  if (joy->buttons[button_y_] == 1) {
+      turning_ = false;  
+	  }
+	  
+	  if (joy->buttons[button_x_] == 1) {
+      turnOdom(true, 1.57);
+    } else if (joy->buttons[button_a_] == 1) {
+      turnOdom(false, 1.57);
     }
-	}
+    
+    if (!turning_) {
+      ROS_DEBUG("linear scale: %f, angular scale: %f", l_scale_, a_scale_);    
+
+    	next_cmd_.linear.x = l_scale_*joy->axes[l_linear_];
+	    next_cmd_.angular.z = a_scale_*joy->axes[l_angular_];
+	
+	    ROS_DEBUG("linear = %f,  angular = %f", next_cmd_.linear.x, next_cmd_.angular.z);
+    }
+    
+  } else {
+    //Todo: make sure it stops if you release triggers while giving a command
+    //next_linear_ = 0;
+    //next_angular_ = 0;
+  }
+	
   /* Testing settings */
    /* if (joy->buttons[button_a_] == 1)
     {
@@ -192,6 +198,7 @@ void GodotJoystick::turnOdom(bool clockwise, double radians)
 // Checks if the turn command has been completed
 bool GodotJoystick::checkTurn()
 {
+  double angle_turned;
   if (turning_ && nh_.ok())
   {
     //get the current transform
@@ -210,16 +217,18 @@ bool GodotJoystick::checkTurn()
       start_transform_.inverse() * current_transform_;
     tf::Vector3 actual_turn_axis = 
       relative_transform.getRotation().getAxis();
-    double angle_turned = relative_transform.getRotation().getAngle();
+    angle_turned = relative_transform.getRotation().getAngle();
     if ( fabs(angle_turned) > 1.0e-2){
-
       if ( actual_turn_axis.dot( desired_turn_axis_ ) < 0 ) 
         angle_turned = 2 * M_PI - angle_turned;
 
       if (angle_turned > turn_radians_) turning_ = false;
     }
+  } else {
+    turning_ = false;
   }
   if (!turning_) {
+    ROS_INFO("angle turned = %f", angle_turned);
     next_cmd_.angular.z = 0.0;
     return true;
   }
@@ -250,7 +259,7 @@ void GodotJoystick::Execute() {
       ROS_WARN("Max linear speed exceeded");
     } 
     
-    if ((next_cmd_.linear.x != prev_cmd.linear.x) && (next_cmd_.angular.z != prev_cmd.angular.z))
+    if ((next_cmd_.linear.x != prev_cmd.linear.x) || (next_cmd_.angular.z != prev_cmd.angular.z))
   	{
   	  vel_pub_.publish(next_cmd_);
       prev_cmd = next_cmd_;
@@ -261,7 +270,7 @@ void GodotJoystick::Execute() {
     count_++;
     ros::spinOnce(); 
     loop_rate.sleep();
-    }
+  }
 }
 
 int main(int argc, char** argv)
