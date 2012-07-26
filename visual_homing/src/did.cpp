@@ -5,6 +5,7 @@
 #include <geometry_msgs/Twist.h>
 #include <cv_bridge/cv_bridge.h>
 #include <visual_homing/homingtools.h>
+#include <std_srvs/Empty.h>
 
 namespace enc = sensor_msgs::image_encodings;
 using namespace cv;
@@ -19,8 +20,10 @@ class DescentImageDistance
   ros::Publisher rms_pub_;
   ros::Publisher cmd_pub_;
   ros::ServiceServer home_srv_;
+  ros::ServiceServer start_srv_;
   
   float last_rms_;
+  bool homing_;
   
   Mat home_;
   cv_bridge::CvImagePtr cv_image_;
@@ -29,7 +32,8 @@ class DescentImageDistance
   DescentImageDistance();  
   void imageCallback(const sensor_msgs::ImageConstPtr& msg);
   void goalImageCallback(const sensor_msgs::ImageConstPtr& msg);
-  bool saveHome();
+  bool saveHome(std_srvs::Empty::Request &req, std_srvs::Empty::Response &res);
+  bool startHoming(std_srvs::Empty::Request &req, std_srvs::Empty::Response &res);
 };
 
 DescentImageDistance::DescentImageDistance()
@@ -40,16 +44,15 @@ DescentImageDistance::DescentImageDistance()
   
   rms_pub_ = nh_.advertise<std_msgs::Float32>("rms_error", 1, true);
   cmd_pub_ = nh_.advertise<geometry_msgs::Twist>("cmd_vel", 1, true);
-  home_srv_ = nh_.advertiseService("save_home", saveHome);
+  home_srv_ = nh_.advertiseService("save_home", &DescentImageDistance::saveHome, this);
+  start_srv_ = nh_.advertiseService("start_homing", &DescentImageDistance::startHoming, this);
+  
+  homing_ = false;
 }
 
 void DescentImageDistance::imageCallback(const sensor_msgs::ImageConstPtr& msg)
 {
-  if (!home_.data) 
-  {
-    ROS_ERROR("No home image found");
-    return;
-  }
+  
   try
   {
     cv_image_ = cv_bridge::toCvCopy(msg, enc::MONO8);
@@ -60,6 +63,16 @@ void DescentImageDistance::imageCallback(const sensor_msgs::ImageConstPtr& msg)
     return;
   }
   
+  // Don't go any further if we aren't homing.
+  // Need to do previous code so we can save home image.
+  if (!homing_) return;
+  
+  if (!home_.data) 
+  {
+    ROS_ERROR("No home image found");
+    return;
+  }
+  
   float rms_error = HomingTools::rms(cv_image_->image, home_);
   std_msgs::Float32 rms_msg;
   rms_msg.data = rms_error;
@@ -67,14 +80,14 @@ void DescentImageDistance::imageCallback(const sensor_msgs::ImageConstPtr& msg)
   rms_pub_.publish(rms_msg);
   ROS_DEBUG("Published rms as %f", rms_error);
   
-  if (last_rms_ == NULL) {
+  if (!last_rms_) {
     last_rms_ = rms_error;
   }
   
   geometry_msgs::Twist cmd;
-  cmd.linear.x = 0.5;
+  cmd.linear.x = -0.25;
   
-  if (rms_error > last_rms) {
+  if (rms_error > last_rms_) {
     cmd.angular.z = 1;
   } else {
     cmd.angular.z = 0;
@@ -100,13 +113,19 @@ void DescentImageDistance::goalImageCallback(const sensor_msgs::ImageConstPtr& m
   ROS_INFO("Copied home image");  
 }  
 
-bool DescentImageDistance::saveHome()
+bool DescentImageDistance::saveHome(std_srvs::Empty::Request &req, std_srvs::Empty::Response &res)
 {
-  if (cv_image_->image == NULL) {
+  if (cv_image_ == NULL) {
     ROS_ERROR("No image to save as home");
     return false;
   }
   home_ = cv_image_->image;
+  return true;
+}
+
+bool DescentImageDistance::startHoming(std_srvs::Empty::Request &req, std_srvs::Empty::Response &res)
+{
+  homing_ = !homing_;
   return true;
 }
 

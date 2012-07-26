@@ -3,6 +3,7 @@
 #include <geometry_msgs/Twist.h>
 #include <std_msgs/Bool.h>
 #include <nav_msgs/Odometry.h>
+#include <std_srvs/Empty.h>
 #include <tf/transform_listener.h>
 
 static const double MAX_ANGULAR = 3; // rad/s
@@ -27,7 +28,7 @@ private:
 
   int l_linear_, l_angular_, r_linear_, r_angular_, l_trigger_, r_trigger_;
 
-  int button_a_, button_b_, button_x_, button_y_, button_start_, button_back_, button_l_bumper_, button_r_bumper_;
+  int button_a_, button_b_, button_x_, button_y_, button_start_, button_back_, button_l_, button_r_;
 
   int d_axis_up_down_, d_axis_left_right_;
 
@@ -37,11 +38,13 @@ private:
   ros::Subscriber joy_sub_;
   ros::Subscriber odom_sub_;
   ros::ServiceClient save_home_;
+  ros::ServiceClient start_homing_;
   
   int turn_angle_;
   int count_, turn_time_;
   double angular_goal_;
   bool turning_;
+  bool joy_control_;
   
   //we will record transforms here for odometry
   tf::StampedTransform current_transform_;
@@ -76,8 +79,8 @@ GodotJoystick::GodotJoystick()
   nh_.param("button_y", button_y_, 3);
 	nh_.param("button_start", button_start_, 7);
   nh_.param("button_back", button_back_, 6);
-	nh_.param("button_l_bumper", button_l_bumper_, 4);
-  nh_.param("button_r_bumper", button_r_bumper_, 5);
+	nh_.param("button_l_bumper", button_l_, 4);
+  nh_.param("button_r_bumper", button_r_, 5);
 
   vel_pub_ = nh_.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
 	brake_pub_ = nh_.advertise<std_msgs::Bool>("/magellan_pro/cmd_brake_power", 1);
@@ -86,7 +89,7 @@ GodotJoystick::GodotJoystick()
   odom_sub_ = nh_.subscribe<nav_msgs::Odometry>("odom", 1, &GodotJoystick::odomCallback, this);
   
   save_home_ = nh_.serviceClient<std_srvs::Empty>("save_home");
-  
+  start_homing_ = nh_.serviceClient<std_srvs::Empty>("start_homing");
 
   next_cmd_.linear.x = 0;
   next_cmd_.angular.z = 0;
@@ -94,7 +97,7 @@ GodotJoystick::GodotJoystick()
   turn_time_ = 1;
   angular_goal_ = 0;
   
-  turning_ = false;
+  joy_control_ = true;
 
 }
 
@@ -118,16 +121,25 @@ void GodotJoystick::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 	  }
 	  
 	  if (joy->buttons[button_y_] == 1) {
+      joy_control_ = true;
       turning_ = false;  
 	  }
+	  
 	  
 	  if (joy->buttons[button_x_] == 1) {
       turnOdom(true, 1.57);
     } else if (joy->buttons[button_a_] == 1) {
       turnOdom(false, 1.57);
+    } else if (joy->buttons[button_r_] == 1) {
+      std_srvs::Empty empty_msg;
+      save_home_.call(empty_msg);
+    } else if (joy->buttons[button_l_] == 1) {
+      joy_control_ = false;
+      std_srvs::Empty empty_msg;
+      start_homing_.call(empty_msg);
     }
     
-    if (!turning_) {
+    if (joy_control_) {
       ROS_DEBUG("linear scale: %f, angular scale: %f", l_scale_, a_scale_);    
 
     	next_cmd_.linear.x = l_scale_*joy->axes[l_linear_];
@@ -137,22 +149,12 @@ void GodotJoystick::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
     }
     
   } else {
-    //Todo: make sure it stops if you release triggers while giving a command
-    //next_linear_ = 0;
-    //next_angular_ = 0;
+    if (joy_control_) {
+      next_linear_ = 0;
+      next_angular_ = 0;
+    }
   }
 	
-  /* Testing settings */
-   /* if (joy->buttons[button_a_] == 1)
-    {
-			publish_rate += 1;
-			ROS_INFO("Current publish rate is %d", publish_rate);
-		} 
-		else if (joy->buttons[button_x_] == 1)
-    {
-      publish_rate -= 1;
-      ROS_INFO("Current publish rate is %d", publish_rate);
-    }*/
 }
 
 void GodotJoystick::odomCallback(const nav_msgs::Odometry::ConstPtr& odom)
@@ -171,6 +173,7 @@ void GodotJoystick::odomCallback(const nav_msgs::Odometry::ConstPtr& odom)
 
 void GodotJoystick::turnOdom(bool clockwise, double radians)
 {
+  joy_control_ = false;
   turning_ = true;
   while(radians < 0) radians += 2*M_PI;
   while(radians > 2*M_PI) radians -= 2*M_PI;
@@ -234,6 +237,7 @@ bool GodotJoystick::checkTurn()
   if (!turning_) {
     ROS_INFO("angle turned = %f", angle_turned);
     next_cmd_.angular.z = 0.0;
+    joy_control_ = true;
     return true;
   }
   return false;
@@ -263,6 +267,7 @@ void GodotJoystick::Execute() {
       ROS_WARN("Max linear speed exceeded");
     } 
     
+    // avoid publishing the same message twice
     if ((next_cmd_.linear.x != prev_cmd.linear.x) || (next_cmd_.angular.z != prev_cmd.angular.z))
   	{
   	  vel_pub_.publish(next_cmd_);

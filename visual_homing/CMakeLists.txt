@@ -29,5 +29,4 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #rosbuild_add_executable(example examples/example.cpp)
 #target_link_libraries(example ${PROJECT_NAME})
 
-rosbuild_add_library(${PROJECT_NAME} src/homingtools.cpp)
-rosbuild_add_executable(did_homing src/did.cpp)
+rosbuild_add_executable(did_homing src/did.cpp src/homingtools.cpp)
