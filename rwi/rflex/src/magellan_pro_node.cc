@@ -221,11 +221,12 @@ void MagellanProNode::publishOdometry() {
 
     	// Update distances (m)
     	float trans = driver.getTransDistance();
-    	float rot = driver.getRotDistance();
+    	// (rads)
+    	float rot = driver.getRotDistance(); //rotation distance since startup
 
     	// Find distance differences (m)
     	float dTrans = trans - lastTrans;
-    	float dRot = rot - lastRot;
+    	float dRot = rot - lastRot;  //difference in rotation from last call
 
 	if (dTrans < -2.0 || dTrans > 2.0) return;
 
@@ -241,10 +242,10 @@ void MagellanProNode::publishOdometry() {
 
     	x += dx;
     	y += dy;
-    	th += dth;
+    	//th += dth; // and back to distance from startup
 
     	//since all odometry is 6DOF we'll need a quaternion created from yaw
-    	geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(th);
+    	geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(rot);
 
     	//first, we'll publish the transform over tf
     	geometry_msgs::TransformStamped odom_trans;
@@ -284,8 +285,8 @@ void MagellanProNode::publishOdometry() {
 
     	//set the velocity
     	odom.child_frame_id = "base_link";
-    	odom.twist.twist.linear.x = dx / dTime;
-    	odom.twist.twist.linear.y = dy / dTime;
+    	odom.twist.twist.linear.x = sqrt(dx*dx + dy*dy) / dTime;
+    	odom.twist.twist.linear.y = 0;
     	odom.twist.twist.angular.z = dth / dTime;
 
     	//publish the message

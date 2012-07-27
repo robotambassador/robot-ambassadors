@@ -50,7 +50,8 @@ float MAGELLAN_PRO::getTransDistance() {
 }
 
 float MAGELLAN_PRO::getRotDistance() {
-
+  // this returns the rotated distance in radians
+  
 	if (!foundRotDistance && isOdomReady()) {
 		firstRotDistance = rotDistance;
 	    foundRotDistance = true;
@@ -102,6 +103,7 @@ void MAGELLAN_PRO::setSonarPower(bool on) {
 
 void MAGELLAN_PRO::setMovement( float tvel, float rvel,
                        float acceleration ) {
+    ROS_DEBUG("Setting raw rotational velocity to: %f", rvel * ODO_ROT_DISTANCE_CONVERSION);
     setVelocity(tvel * ODO_TRANS_DISTANCE_CONVERSION,
                 rvel * ODO_ROT_DISTANCE_CONVERSION,
                 acceleration * ODO_TRANS_DISTANCE_CONVERSION);

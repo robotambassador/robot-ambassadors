@@ -211,7 +211,7 @@ void RFLEX::setVelocity( const long tvel, const long rvel, const long accelerati
     long urvel =labs(rvel);
     unsigned char data[MAX_COMMAND_LENGTH];
     
-    // * workaround for stupid hardware bug, cause unknown, but this works
+    // * workaround for stupid hardware bug, cause unknown, but this works // doesn't seem to do anything?
     // * with minimal detriment to control // ** avoids all values with 1b in highest or 3'rd highest order byte
 
     // 0x1b is part of the packet terminating string // which is most likely what causes the bug
@@ -246,7 +246,7 @@ void RFLEX::sendSystemStatusCommand() {
 }
 
 void RFLEX::parseMotReport( const unsigned char* buffer ) {
-
+    // this is being called roughly 60 times per second
     int rv, timeStamp, acc, trq;
     unsigned char axis;
 
@@ -260,6 +260,7 @@ void RFLEX::parseMotReport( const unsigned char* buffer ) {
             transVelocity = getInt32(&(buffer[19]));
             odomReady = odomReady | 1;
         } else if (axis == 1) {
+            
             rotDistance = getInt32(&(buffer[15]));
             rotVelocity = getInt32(&(buffer[19]));
             odomReady = odomReady | 2;
