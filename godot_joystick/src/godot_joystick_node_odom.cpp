@@ -150,8 +150,8 @@ void GodotJoystick::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
     
   } else {
     if (joy_control_) {
-      next_linear_ = 0;
-      next_angular_ = 0;
+      next_cmd_.linear.x = 0;
+	    next_cmd_.angular.z = 0;
     }
   }
 	
@@ -181,13 +181,13 @@ void GodotJoystick::turnOdom(bool clockwise, double radians)
   turn_radians_ = radians;
 
   //wait for the listener to get the first message
-  listener_.waitForTransform("/base_link", "/odom", 
+  listener_.waitForTransform("base_link", "odom", 
                              ros::Time(0), ros::Duration(1.0));
   
   
 
   //record the starting transform from the odometry to the base frame
-  listener_.lookupTransform("/base_link", "/odom", 
+  listener_.lookupTransform("base_link", "odom", 
                             ros::Time(0), start_transform_);
   
   //the command will be to turn at 0.25 rad/s
@@ -211,7 +211,7 @@ bool GodotJoystick::checkTurn()
     //get the current transform
     try
     {
-      listener_.lookupTransform("/base_link", "/odom", 
+      listener_.lookupTransform("base_link", "odom", 
                                 ros::Time(0), current_transform_);
     }
     catch (tf::TransformException ex)

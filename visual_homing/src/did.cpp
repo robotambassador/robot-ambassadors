@@ -85,12 +85,13 @@ void DescentImageDistance::imageCallback(const sensor_msgs::ImageConstPtr& msg)
   }
   
   geometry_msgs::Twist cmd;
-  cmd.linear.x = -0.25;
   
   if (rms_error > last_rms_) {
     cmd.angular.z = 1;
+    cmd.linear.x = 0;
   } else {
     cmd.angular.z = 0;
+    cmd.linear.x = -0.25;
   }  
   
   last_rms_ = rms_error;

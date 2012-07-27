@@ -235,15 +235,30 @@ void MagellanProNode::publishOdometry() {
     	float dTime = (current_time - last_time).toSec();
 
     	// Find th, x and y (m)
+      /*
+    	float dth = dRot / 0.14; // r = 0.14 (base radius)
+    	
+    	//th += dth; // and back to distance from startup
+    	
+      */
+      
+      /*
+      // attempt to fix it accurately...doesnt work
+      float radius = dTrans/dRot;
+      float th = acos2(x/radius);
+      float alpha = dRot + th;
+      
+      x = radius * cos(alpha);
+      y = radius * sin(alpha);
+      */
 
-    	float dth = dRot / 0.14; // r = 0.14 (wheel base radius)
-    	float dx = dTrans * cos(dth);
-    	float dy = dTrans * sin(dth);
-
+      float dx = dTrans * cos(rot);
+    	float dy = dTrans * sin(rot);
+    	
     	x += dx;
     	y += dy;
-    	//th += dth; // and back to distance from startup
-
+         
+           
     	//since all odometry is 6DOF we'll need a quaternion created from yaw
     	geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(rot);
 
@@ -285,9 +300,9 @@ void MagellanProNode::publishOdometry() {
 
     	//set the velocity
     	odom.child_frame_id = "base_link";
-    	odom.twist.twist.linear.x = sqrt(dx*dx + dy*dy) / dTime;
+    	odom.twist.twist.linear.x = dTrans / dTime;
     	odom.twist.twist.linear.y = 0;
-    	odom.twist.twist.angular.z = dth / dTime;
+    	odom.twist.twist.angular.z = dRot / dTime;
 
     	//publish the message
     	odom_pub.publish(odom);
