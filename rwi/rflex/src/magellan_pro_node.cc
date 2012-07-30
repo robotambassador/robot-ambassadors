@@ -9,6 +9,7 @@
 #include <sensor_msgs/PointCloud.h>
 #include <nav_msgs/Odometry.h>
 #include <angles/angles.h>
+#include <math.h>
 
 /**
  *  \brief B21 Node for ROS
@@ -242,12 +243,12 @@ void MagellanProNode::publishOdometry() {
     	
       */
       
-      /*
+
       // attempt to fix it accurately...doesnt work
       float radius = dTrans/dRot;
-      float th = acos2(x/radius);
+      float th = acos(x/radius);
       float alpha = dRot + th;
-      
+      /*
       x = radius * cos(alpha);
       y = radius * sin(alpha);
       */
@@ -255,8 +256,11 @@ void MagellanProNode::publishOdometry() {
       float dx = dTrans * cos(rot);
     	float dy = dTrans * sin(rot);
     	
-    	x += dx;
-    	y += dy;
+    	//x += dx;
+    	//y += dy;
+
+    	x = x + radius*(cos(rot) - cos(lastRot));
+    	y = y + radius*(cos(rot) - cos(lastRot));
          
            
     	//since all odometry is 6DOF we'll need a quaternion created from yaw
@@ -374,14 +378,14 @@ void MagellanProNode::publishSonar() {
     sensor_msgs::PointCloud cloud;
     cloud.header.stamp = ros::Time::now();
     cloud.header.frame_id = "magellan";
-
+/*
     if (isSonarOn) {
         driver.getSonarPoints(&cloud);
         sonar_pub.publish(cloud);
 
     } else if (sonar_just_on) {
         sonar_pub.publish(cloud);
-    }
+    }*/
 }
 
 /*void B21Node::publishBumps() {

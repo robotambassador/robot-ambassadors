@@ -123,7 +123,7 @@ void MAGELLAN_PRO::getSonarReadings(float* adjusted_ranges) const {
         }
     }
 }
-
+/*
 void MAGELLAN_PRO::getSonarPoints(sensor_msgs::PointCloud* cloud) const {
 
 	float* readings = new float[NUMBER_SONARS];
@@ -148,7 +148,7 @@ void MAGELLAN_PRO::getSonarPoints(sensor_msgs::PointCloud* cloud) const {
         }
     }
 }
-
+*/
 /*int MAGELLAN_PRO::getBumps(sensor_msgs::PointCloud* cloud) const {
     int c = 0;
     double wedge = 2 * M_PI / BUMPER_COUNT;

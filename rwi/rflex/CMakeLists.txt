@@ -14,9 +14,9 @@ rosbuild_init()
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
-rosbuild_add_library(b21 src/rflex_driver.cc)
-rosbuild_add_library(b21 src/b21_driver.cc)
-rosbuild_add_executable(b21 src/b21_node.cc)
+#rosbuild_add_library(b21 src/rflex_driver.cc)
+#rosbuild_add_library(b21 src/b21_driver.cc)
+#rosbuild_add_executable(b21 src/b21_node.cc)
 
 rosbuild_add_library(magellan src/rflex_driver.cc)
 rosbuild_add_library(magellan src/magellan_pro_driver.cc)

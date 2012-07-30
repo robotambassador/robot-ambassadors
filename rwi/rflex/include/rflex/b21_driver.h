@@ -1,6 +1,7 @@
 #ifndef B21_DRIVER_H
 #define B21_DRIVER_H
 
+#include <ros/ros.h>
 #include <rflex/rflex_driver.h>
 #include <sensor_msgs/PointCloud.h>
 
