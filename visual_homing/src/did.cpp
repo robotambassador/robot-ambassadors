@@ -6,6 +6,7 @@
 #include <cv_bridge/cv_bridge.h>
 #include <visual_homing/homingtools.h>
 #include <std_srvs/Empty.h>
+#include <tf/transform_listener.h>
 
 namespace enc = sensor_msgs::image_encodings;
 using namespace cv;
@@ -21,9 +22,11 @@ class DescentImageDistance
   ros::Publisher cmd_pub_;
   ros::ServiceServer home_srv_;
   ros::ServiceServer start_srv_;
+  tf::TransformListener tf_listener_;
   
   float last_rms_;
   bool homing_;
+  tf::StampedTransform transform_;
   
   Mat home_;
   cv_bridge::CvImagePtr cv_image_;
@@ -62,7 +65,17 @@ void DescentImageDistance::imageCallback(const sensor_msgs::ImageConstPtr& msg)
     ROS_ERROR("cv_bridge exception: %s", e.what());
     return;
   }
-  
+  //wait for the listener to get the first message
+    tf_listener_.waitForTransform("base_link", "odom",
+                               ros::Time(0), ros::Duration(1.0));
+
+
+
+    //record the starting transform from the odometry to the base frame
+    tf_listener_.lookupTransform("base_link", "odom",
+                              ros::Time(0), transform_);
+  cv_image_->image = HomingTools::rotateImage(cv_image_->image, transform_.getRotation().getAngle());
+
   // Don't go any further if we aren't homing.
   // Need to do previous code so we can save home image.
   if (!homing_) return;
