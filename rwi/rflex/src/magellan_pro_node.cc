@@ -243,25 +243,23 @@ void MagellanProNode::publishOdometry() {
     	
       */
       
-
-      // attempt to fix it accurately...doesnt work
-      float radius = dTrans/dRot;
-      float th = acos(x/radius);
-      float alpha = dRot + th;
-      /*
-      x = radius * cos(alpha);
-      y = radius * sin(alpha);
-      */
-
-      float dx = dTrans * cos(rot);
-    	float dy = dTrans * sin(rot);
-    	
-    	//x += dx;
-    	//y += dy;
-
-    	x = x + radius*(cos(rot) - cos(lastRot));
-    	y = y + radius*(cos(rot) - cos(lastRot));
-         
+      /*if (rot - lastRot > 0)
+      {
+        float radius = dTrans/dRot;
+        float th = acos(x/radius);
+        float alpha = dRot + th;
+      
+        x = x + radius*(cos(rot) - cos(lastRot));
+      	y = y + radius*(cos(rot) - cos(lastRot));
+      } 
+      else 
+      {*/
+        float dx = dTrans * cos(rot);
+      	float dy = dTrans * sin(rot);
+      	
+      	x += dx;
+      	y += dy;
+      //}
            
     	//since all odometry is 6DOF we'll need a quaternion created from yaw
     	geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(rot);

@@ -7,6 +7,7 @@
 #include <visual_homing/homingtools.h>
 #include <std_srvs/Empty.h>
 #include <tf/transform_listener.h>
+#include <opencv2/highgui/highgui.hpp>
 
 namespace enc = sensor_msgs::image_encodings;
 using namespace cv;
@@ -74,7 +75,10 @@ void DescentImageDistance::imageCallback(const sensor_msgs::ImageConstPtr& msg)
     //record the starting transform from the odometry to the base frame
     tf_listener_.lookupTransform("base_link", "odom",
                               ros::Time(0), transform_);
-  cv_image_->image = HomingTools::rotateImage(cv_image_->image, transform_.getRotation().getAngle());
+  //cv::imshow("image", cv_image_->image);
+  //cv::waitKey(5000);
+  cv::Mat im = HomingTools::rotateImage(cv_image_->image, transform_.getRotation().getAngle());
+  cv_image_->image = im;
 
   // Don't go any further if we aren't homing.
   // Need to do previous code so we can save home image.

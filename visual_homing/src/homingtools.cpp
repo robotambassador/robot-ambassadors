@@ -1,5 +1,6 @@
 #include <visual_homing/homingtools.h>
-
+#include <algorithm>
+#include <ros/ros.h>
 
 using namespace cv;
 
@@ -20,18 +21,22 @@ float HomingTools::rms(Mat& img1, Mat& img2)
 
 Mat HomingTools::rotateImage(Mat& img, float angle)
 {
+  //ROS_INFO("rotating image");
 	angle = (angle/180) * M_PI;
 	Point2f src_center(img.cols/2.0F, img.rows/2.0F);
 	Mat rot_mat = getRotationMatrix2D(src_center, angle, 1.0);
 	Mat dst;
 	warpAffine(img, dst, rot_mat, img.size());
 
-	int a = img.rows/sqrt(2);
-	int x = (img.rows - a)/2;
-	int y = (img.cols - a)/2;
+  int min = std::min(img.rows, dst.cols);
 
-	Rect sub(x, y, a, a);
+	int a = min/sqrt(2);
+	int y = (img.rows - a)/2;
+	int x = (img.cols - a)/2;
 
-	Mat final = dst(sub);
+  //ROS_INFO("cols: %d, rows: %d, x: %d, y: %d, a: %d", img.cols, img.rows, x, y, a);
+	Rect roi(x, y, a, a);
+
+	Mat final = dst(roi);
 	return final;
 }
