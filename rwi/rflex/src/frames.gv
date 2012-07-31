@@ -1,0 +1,10 @@
+digraph G {
+"/odom" -> "/base_link"[label="Broadcaster: /magellan_pro\nAverage rate: 10.204 Hz\nMost recent transform: 0.031 sec old \nBuffer length: 4.900 sec\n"];
+"/base_link" -> "/top_plate"[label="Broadcaster: /tf_top_plate\nAverage rate: 10.192 Hz\nMost recent transform: -0.031 sec old \nBuffer length: 4.808 sec\n"];
+"/base_link" -> "/right_wheel"[label="Broadcaster: /tf_right_wheel\nAverage rate: 10.191 Hz\nMost recent transform: -0.033 sec old \nBuffer length: 4.808 sec\n"];
+"/base_link" -> "/left_wheel"[label="Broadcaster: /tf_left_wheel\nAverage rate: 10.191 Hz\nMost recent transform: -0.034 sec old \nBuffer length: 4.808 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1343135168.223"[ shape=plaintext ] ;
+ }->"/odom";
+}
