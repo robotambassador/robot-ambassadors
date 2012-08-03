@@ -77,12 +77,13 @@ void DescentImageDistance::imageCallback(const sensor_msgs::ImageConstPtr& msg)
                               ros::Time(0), transform_);
   //cv::imshow("image", cv_image_->image);
   //cv::waitKey(5000);
-  cv::Mat im = HomingTools::rotateImage(cv_image_->image, transform_.getRotation().getAngle());
+  ROS_INFO("transform angle: %f, axis: %f", transform_.getRotation().getAngle(), transform_.getRotation().getAxis().getZ());
+  cv::Mat im = HomingTools::rotateImage(cv_image_->image, transform_.getRotation().getAngle()*transform_.getRotation().getAxis().getZ());
   cv_image_->image = im;
 
   // Don't go any further if we aren't homing.
   // Need to do previous code so we can save home image.
-  if (!homing_) return;
+  
   
   if (!home_.data) 
   {
@@ -97,6 +98,7 @@ void DescentImageDistance::imageCallback(const sensor_msgs::ImageConstPtr& msg)
   rms_pub_.publish(rms_msg);
   ROS_DEBUG("Published rms as %f", rms_error);
   
+  if (!homing_) return;
   if (!last_rms_) {
     last_rms_ = rms_error;
   }
