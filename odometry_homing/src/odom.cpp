@@ -77,10 +77,28 @@ void OdometryHoming::execute()
   {
     tf_listener_.lookupTransform("base_link", "odom", ros::Time(0), position_);
     
+    tf::Transform diff = position_.inverse() * home_;
+      double axis = diff.getRotation().getAxis().getZ();
+      double angle = diff.getRotation().getAngle() * axis;
+      
+      ROS_INFO("angle: %f", angle);
+    
     if (homing_)
     {
-      tf::Transform diff = position_.inverse() * home_;
+      geometry_msgs::Twist cmd;
       
+  
+      if (angle > 0.5*axis)
+      {
+        cmd.linear.x = 0;
+        cmd.angular.z = 0.75;
+      } else {
+        cmd.linear.x = -0.4;
+        cmd.angular.z = 0;
+      }   
+      
+      cmd_pub_.publish(cmd);
+               
     }
     
     ros::spinOnce();
