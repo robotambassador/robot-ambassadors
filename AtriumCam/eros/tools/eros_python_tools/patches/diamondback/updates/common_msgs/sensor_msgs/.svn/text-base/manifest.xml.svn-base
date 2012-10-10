@@ -1,0 +1,35 @@
+<package>
+  <description brief="sensor_msgs">
+
+    This package defines messages for commonly used sensors, including
+cameras and scanning laser rangefinders.    
+
+  </description>
+  <author>Maintained by Tully Foote/tfoote@willowgarage.com</author>
+  <license>BSD</license>
+  <review status="doc reviewed" notes="http://www.ros.org/wiki/sensor_msgs/Reviews/2009-09-30_Doc_Review"/>
+  <url>http://ros.org/wiki/sensor_msgs</url>
+
+  <export>
+    <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -lsensor_msgs -Wl,-rpath,${prefix}/lib"/>
+    <rosbagmigration rule_file="migration_rules/sensor_msgs.bmr"/>
+  </export>
+
+  <depend package="std_msgs"/>
+  <depend package="geometry_msgs"/>
+  <!--
+     Commented out by eros as it forces any msg package to try and 
+     build (and often fail) rosbag.
+     Its not actually a strict compilation dependency, but the library component
+     does indirectly bring in roscpp and roscpp_serialization, so we include them here.
+  -->
+  <depend package="roscpp_serialization"/>
+  <depend package="roscpp"/>
+  <!-- <depend package="rosbagmigration"/> -->
+
+  <platform os="ubuntu" version="9.04"/>
+  <platform os="ubuntu" version="9.10"/>
+  <platform os="ubuntu" version="10.04"/>
+</package>
+
+

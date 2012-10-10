@@ -1,0 +1,19 @@
+<package>
+  <description brief="Test utility for benchmarking nodelet latencies">
+
+     Generates statistical data providing a benchmark for nodelet latencies, both internally
+     (via the boost shared pointer mechanism) and externally (via copies).
+
+  </description>
+  <author>Daniel Stonier</author>
+  <license>BSD</license>
+  <review status="experimental" notes=""/>
+  <url>http://ros.org/wiki/eros_nodelet_latency</url>
+  <depend package="nodelet"/>
+  <depend package="std_msgs"/>
+  <export>
+    <nodelet plugin="${prefix}/src/latency_nodelets.xml"/>
+  </export>
+</package>
+
+

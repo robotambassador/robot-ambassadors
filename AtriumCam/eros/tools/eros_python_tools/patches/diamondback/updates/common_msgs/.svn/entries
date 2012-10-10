@@ -1,0 +1,37 @@
+10
+
+dir
+370
+https://code.ros.org/svn/eros/trunk/tools/eros_python_tools/patches/diamondback/updates/common_msgs
+https://code.ros.org/svn/eros
+
+
+
+2011-08-17T07:31:04.902974Z
+363
+snorri
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e06aebad-a61f-4bce-bd80-11f738b071f2
+
+sensor_msgs
+dir
+
+geometry_msgs
+dir
+
+nav_msgs
+dir
+

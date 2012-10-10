@@ -1,0 +1,12 @@
+<library path="lib/liberos_nodelet_latency">
+  <class name="eros_nodelet_latency/Publisher" type="eros_nodelet_latency::Publisher" base_class_type="nodelet::Nodelet">
+    <description>
+       Publishes a big object, along with ros timestamps.
+    </description>
+  </class>
+  <class name="eros_nodelet_latency/Subscriber" type="eros_nodelet_latency::Subscriber" base_class_type="nodelet::Nodelet">
+    <description>
+       Subscribes a big object, along with ros timestamps.
+    </description>
+  </class>
+</library>

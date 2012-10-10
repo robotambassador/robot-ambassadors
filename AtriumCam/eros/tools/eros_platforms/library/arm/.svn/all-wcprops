@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/eros/!svn/ver/317/trunk/tools/eros_platforms/library/arm
+END
+arm1176jzf-s.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/eros/!svn/ver/317/trunk/tools/eros_platforms/library/arm/arm1176jzf-s.cmake
+END
+xscale.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/eros/!svn/ver/147/trunk/tools/eros_platforms/library/arm/xscale.cmake
+END

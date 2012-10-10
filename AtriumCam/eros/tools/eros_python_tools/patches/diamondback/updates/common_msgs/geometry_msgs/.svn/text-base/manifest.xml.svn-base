@@ -1,0 +1,31 @@
+<package>
+  <description brief="Messages for geometric primatives">
+
+    geometry_msgs provides messages for common geometric primatives
+    such as points, vectors, and poses. These primatives are designed
+    to provide a common data type and facilitate interoperability
+    throughout the system. 
+
+  </description>
+  <author>Tully Foote</author>
+  <license>BSD</license>
+  <review status="doc reviewed" notes="http://www.ros.org/wiki/geometry_msgs/Reviews/2009-09-30_Doc_Review"/>
+  <url>http://ros.org/wiki/geometry_msgs</url>
+
+  <!--
+     Commented out by eros as it forces any msg package to try and 
+     build (and often fail) rosbag.
+     Its not actually a strict compilation dependency 
+  -->
+  <!-- <depend package="rosbagmigration"/> -->
+  <export>
+    <cpp cflags=""/>
+    <rosbagmigration rule_file="migration_rules/geometry_msgs.bmr"/>
+  </export>
+
+  <platform os="ubuntu" version="9.04"/>
+  <platform os="ubuntu" version="9.10"/>
+  <platform os="ubuntu" version="10.04"/>
+</package>
+
+

@@ -1,0 +1,34 @@
+#! /bin/bash
+
+# On Mac OSX, every dynamic library (*.dylib) has its own 'install name',
+# and it is used for locating the actual library file at runtime.
+# The install name shows up at the first line of the output of 'otool -L <name.dylib>'.
+# When a program or a library is linked with other libraries, it copies
+# all the install names of the other libraries, so that it can find them in run-time.
+# 
+# For an unknown reason, in our customised OpenCV package,  
+# the dynamic libraries do not have full path information in their install names.
+# This results in the 'image not found' error at runtime.
+# This script (only for Mac OSX) fixes this problem by changing the install names.
+
+if [ "`uname`" == "Darwin" ]; then
+    install_name_tool -id `pwd`/build/fakeroot/lib/libcv.2.1.dylib      build/fakeroot/lib/libcv.2.1.0.dylib 
+    install_name_tool -id `pwd`/build/fakeroot/lib/libcvaux.2.1.dylib   build/fakeroot/lib/libcvaux.2.1.0.dylib 
+    install_name_tool -id `pwd`/build/fakeroot/lib/libcxcore.2.1.dylib  build/fakeroot/lib/libcxcore.2.1.0.dylib 
+    install_name_tool -id `pwd`/build/fakeroot/lib/libhighgui.2.1.dylib build/fakeroot/lib/libhighgui.2.1.0.dylib 
+    install_name_tool -id `pwd`/build/fakeroot/lib/libml.2.1.dylib      build/fakeroot/lib/libml.2.1.0.dylib 
+
+    install_name_tool -change libcxcore.2.1.dylib  `pwd`/build/fakeroot/lib/libcxcore.2.1.dylib  build/fakeroot/lib/libcv.2.1.0.dylib 
+
+    install_name_tool -change libcxcore.2.1.dylib  `pwd`/build/fakeroot/lib/libcxcore.2.1.dylib  build/fakeroot/lib/libcvaux.2.1.0.dylib 
+    install_name_tool -change libcv.2.1.dylib      `pwd`/build/fakeroot/lib/libcv.2.1.dylib      build/fakeroot/lib/libcvaux.2.1.0.dylib 
+    install_name_tool -change libhighgui.2.1.dylib `pwd`/build/fakeroot/lib/libhighgui.2.1.dylib build/fakeroot/lib/libcvaux.2.1.0.dylib 
+    install_name_tool -change libml.2.1.dylib      `pwd`/build/fakeroot/lib/libml.2.1.dylib      build/fakeroot/lib/libcvaux.2.1.0.dylib 
+
+    install_name_tool -change libcxcore.2.1.dylib  `pwd`/build/fakeroot/lib/libcxcore.2.1.dylib  build/fakeroot/lib/libhighgui.2.1.0.dylib 
+    install_name_tool -change libcv.2.1.dylib      `pwd`/build/fakeroot/lib/libcv.2.1.dylib      build/fakeroot/lib/libhighgui.2.1.0.dylib 
+
+    install_name_tool -change libcxcore.2.1.dylib  `pwd`/build/fakeroot/lib/libcxcore.2.1.dylib  build/fakeroot/lib/libml.2.1.0.dylib 
+
+    echo "Install names have been changed in build/fakeroot/lib/*.dylib files"
+fi

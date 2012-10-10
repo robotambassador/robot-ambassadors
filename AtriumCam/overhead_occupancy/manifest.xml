@@ -1,0 +1,22 @@
+<package>
+  <description brief="overhead_occupancy">
+
+     overhead_occupancy
+
+  </description>
+  <author>IPAB</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/overhead_occupancy</url>
+  <depend package="roscpp"/>
+  <depend package="sensor_msgs"/>
+  <depend package="nav_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="cv_bridge"/>
+  <depend package="image_transport"/>
+
+  <rosdep name="opencv2.3"/>
+
+</package>
+
+

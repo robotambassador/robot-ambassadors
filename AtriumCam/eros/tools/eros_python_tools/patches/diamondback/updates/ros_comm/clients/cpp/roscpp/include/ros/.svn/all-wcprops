@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/eros/!svn/ver/239/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/include/ros
+END
+poll_set.h
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/eros/!svn/ver/223/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/include/ros/poll_set.h
+END
+io.h
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/eros/!svn/ver/234/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/include/ros/io.h
+END

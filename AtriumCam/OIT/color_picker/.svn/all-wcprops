@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/usc-ros-pkg/!svn/ver/119/trunk/OIT/color_picker
+END
+color_picker.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/usc-ros-pkg/!svn/ver/119/trunk/OIT/color_picker/color_picker.cc
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/usc-ros-pkg/!svn/ver/119/trunk/OIT/color_picker/manifest.xml
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/usc-ros-pkg/!svn/ver/119/trunk/OIT/color_picker/mainpage.dox
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/usc-ros-pkg/!svn/ver/119/trunk/OIT/color_picker/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/usc-ros-pkg/!svn/ver/119/trunk/OIT/color_picker/Makefile
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/eros/!svn/ver/315/trunk/tools/eros_build/mk
+END
+installer.mk
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/eros/!svn/ver/71/trunk/tools/eros_build/mk/installer.mk
+END
+custom_installer.mk
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/eros/!svn/ver/315/trunk/tools/eros_build/mk/custom_installer.mk
+END

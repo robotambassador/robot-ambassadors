@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/eros/!svn/ver/302/trunk/tools/eros_python_tools/patches/diamondback/readme
+END
+rospack.txt
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/eros/!svn/ver/296/trunk/tools/eros_python_tools/patches/diamondback/readme/rospack.txt
+END
+rosbuild.txt
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/eros/!svn/ver/282/trunk/tools/eros_python_tools/patches/diamondback/readme/rosbuild.txt
+END
+rosconsole.txt
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/eros/!svn/ver/282/trunk/tools/eros_python_tools/patches/diamondback/readme/rosconsole.txt
+END
+roscpp.txt
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/eros/!svn/ver/282/trunk/tools/eros_python_tools/patches/diamondback/readme/roscpp.txt
+END
+rosboost_cfg.txt
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/eros/!svn/ver/282/trunk/tools/eros_python_tools/patches/diamondback/readme/rosboost_cfg.txt
+END
+roslib.txt
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/eros/!svn/ver/294/trunk/tools/eros_python_tools/patches/diamondback/readme/roslib.txt
+END
+rosout.txt
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/eros/!svn/ver/282/trunk/tools/eros_python_tools/patches/diamondback/readme/rosout.txt
+END
+rospy.txt
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/eros/!svn/ver/302/trunk/tools/eros_python_tools/patches/diamondback/readme/rospy.txt
+END
+roslaunch.txt
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/eros/!svn/ver/283/trunk/tools/eros_python_tools/patches/diamondback/readme/roslaunch.txt
+END

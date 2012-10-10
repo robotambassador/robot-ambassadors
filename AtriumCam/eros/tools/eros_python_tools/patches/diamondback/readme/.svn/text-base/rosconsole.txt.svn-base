@@ -1,0 +1,30 @@
+===== Simple fixes for windows =====
+
+Files : CMakeLists.txt, assert.h, console.h, rosconsole.cpp
+Ticket: https://code.ros.org/trac/ros/ticket/3334
+Ticket Status: fixed in trunk
+Last Changed Revision: 12775
+
+Modifications: 
+  
+  These were patched in trunk (not diamondback).
+    
+  - CMakeLists.txt
+    - temporary fix to make example.exe build, had to link by hand ach.
+  - assert.h
+    - ifdef for mingw using DebugBreak instead of msvc's __debugbreak().
+  - console.h
+    - mingw needs to include <cstdarg> in order to find va_list type.
+  - rosconsole.cpp
+    - remove shell colours in windows (probably has a different notation?)
+
+===== Find Static Dependencies =====
+
+Files: CMakeLists.txt, scripts/roslog4cxx-cfg.py, manifest.xml
+Ticket: won't do, will be better in rosbuild2
+Ticket Status: -
+Last Changed Revision: 12775
+
+Modifications:
+    They are simply tools to help find log4cxx's dependencies.
+  

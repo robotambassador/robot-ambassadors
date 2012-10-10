@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/eros/!svn/ver/370/trunk
+END
+eros_cturtle.rosinstall
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/eros/!svn/ver/157/trunk/eros_cturtle.rosinstall
+END
+eros_trunk.rosinstall
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/eros/!svn/ver/223/trunk/eros_trunk.rosinstall
+END
+stack.xml
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/eros/!svn/ver/84/trunk/stack.xml
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/eros/!svn/ver/286/trunk/ChangeLog
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/eros/!svn/ver/2/trunk/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/eros/!svn/ver/22/trunk/Makefile
+END
+eros_diamondback.rosinstall
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/eros/!svn/ver/285/trunk/eros_diamondback.rosinstall
+END
+rosdep.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/eros/!svn/ver/368/trunk/rosdep.yaml
+END
+eros_unstable.rosinstall
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/eros/!svn/ver/157/trunk/eros_unstable.rosinstall
+END

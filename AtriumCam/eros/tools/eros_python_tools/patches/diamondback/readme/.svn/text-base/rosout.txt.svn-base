@@ -1,0 +1,10 @@
+
+===== Rosout.cpp for Mingw =====
+
+File: rosout.cpp
+Ticket: https://code.ros.org/trac/ros/ticket/3410
+Ticket Status: fixed in trunk.
+
+Modification:
+    Just undef'd ERROR so that it doesn't clash with rosgraph_msgs/Log.h's definition
+    on windows.

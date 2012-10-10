@@ -1,0 +1,16 @@
+<package>
+  <description brief="Test utility for benchmarking rpc latencies">
+
+     Generates statistical data providing a benchmark for rpc messaging latencies.
+
+  </description>
+  <author>Daniel Stonier</author>
+  <license>BSD</license>
+  <review status="experimental" notes=""/>
+  <url>http://ros.org/wiki/eros_rpc_latency</url>
+  <depend package="roscpp"/>
+  <depend package="std_srvs"/>
+
+</package>
+
+

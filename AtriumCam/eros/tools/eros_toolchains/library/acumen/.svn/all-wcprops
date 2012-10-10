@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/eros/!svn/ver/144/trunk/tools/eros_toolchains/library/acumen
+END
+arm-softfloat-linux-gnu.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/eros/!svn/ver/144/trunk/tools/eros_toolchains/library/acumen/arm-softfloat-linux-gnu.cmake
+END
+arm-linux.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/eros/!svn/ver/142/trunk/tools/eros_toolchains/library/acumen/arm-linux.cmake
+END

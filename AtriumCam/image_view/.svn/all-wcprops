@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ros-pkg/!svn/ver/37370/stacks/image_pipeline/trunk/image_view
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ros-pkg/!svn/ver/35514/stacks/image_pipeline/trunk/image_view/manifest.xml
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ros-pkg/!svn/ver/26448/stacks/image_pipeline/trunk/image_view/mainpage.dox
+END
+nodelet_plugins.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ros-pkg/!svn/ver/35525/stacks/image_pipeline/trunk/image_view/nodelet_plugins.xml
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ros-pkg/!svn/ver/36419/stacks/image_pipeline/trunk/image_view/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ros-pkg/!svn/ver/26448/stacks/image_pipeline/trunk/image_view/Makefile
+END

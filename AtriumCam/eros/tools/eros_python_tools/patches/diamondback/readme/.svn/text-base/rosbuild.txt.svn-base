@@ -1,0 +1,10 @@
+===== private.cmake =====
+
+Files: private.cmake
+Last Changed Revision: 12704
+Ticket: https://code.ros.org/trac/ros/ticket/2994
+Modification: 
+    Critical fix in a find_file argument that forces find_file with
+    NO_CMAKE_FIND_ROOT_PATH. Without this it won't look outside the toolchain root.
+    
+    Also removes the -fPIC for mingw library builds (not in diamondback, but patched in trunk).

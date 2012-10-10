@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="tf" type="static_transform_publisher" name="floor_to_checkerboard" args="0 0 -0.0254 0 0 0 checkerboard floor 100" />
+	<node pkg="floor_align" type="floor_align" name="floor_align" />
+</launch>

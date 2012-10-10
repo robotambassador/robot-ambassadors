@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/usc-ros-pkg/!svn/ver/205/trunk/OIT/pr2_finder/src
+END
+pr2_covar.cc
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/usc-ros-pkg/!svn/ver/205/trunk/OIT/pr2_finder/src/pr2_covar.cc
+END
+pr2_avg_odom.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/usc-ros-pkg/!svn/ver/205/trunk/OIT/pr2_finder/src/pr2_avg_odom.cc
+END
+pr2_target.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/usc-ros-pkg/!svn/ver/205/trunk/OIT/pr2_finder/src/pr2_target.cc
+END
+pr2_finder.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/usc-ros-pkg/!svn/ver/205/trunk/OIT/pr2_finder/src/pr2_finder.cc
+END

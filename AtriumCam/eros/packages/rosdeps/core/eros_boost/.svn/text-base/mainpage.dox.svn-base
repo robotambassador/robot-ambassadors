@@ -1,0 +1,30 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\section packageSummary Package Summary
+
+	This provides a source package for (cross) compiling a minimal boost ideally
+	targeted at embedded systems.
+	
+	Ordinarily this is not useful as you would install via your system's
+	installation method (e.g. apt-get for ubuntu), but for cross-compiling 
+    it provides the recipe needed to make a toolchain ros-ready.
+
+\section Notes
+
+	Currently the list of packages selected for install is very minimal and sufficient
+	for compiling a minimal set of packages inside ros for a working system. If more 
+	packages wish to be added to the set, we can add these later (with some testing as
+	some make cross-compiling complicated).
+
+\section potIssues Potential Issues
+
+    - Might need to check ros versions and install the boost to match the ros version 
+      - Refer to the ros rep for more information (http://www.ros.org/reps/rep-0003.html).
+
+\section ChangeLog
+
+	- <b>Oct 10</b> : Done and road tested.
+
+*/

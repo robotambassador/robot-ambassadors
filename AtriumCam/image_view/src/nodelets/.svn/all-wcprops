@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ros-pkg/!svn/ver/37370/stacks/image_pipeline/trunk/image_view/src/nodelets
+END
+window_thread.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ros-pkg/!svn/ver/35525/stacks/image_pipeline/trunk/image_view/src/nodelets/window_thread.cpp
+END
+disparity_nodelet.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ros-pkg/!svn/ver/36925/stacks/image_pipeline/trunk/image_view/src/nodelets/disparity_nodelet.cpp
+END
+window_thread.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ros-pkg/!svn/ver/35525/stacks/image_pipeline/trunk/image_view/src/nodelets/window_thread.h
+END
+image_nodelet.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ros-pkg/!svn/ver/37370/stacks/image_pipeline/trunk/image_view/src/nodelets/image_nodelet.cpp
+END

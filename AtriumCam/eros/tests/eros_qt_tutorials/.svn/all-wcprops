@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/eros/!svn/ver/344/trunk/tests/eros_qt_tutorials
+END
+rosbuild.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/eros/!svn/ver/329/trunk/tests/eros_qt_tutorials/rosbuild.cmake
+END
+qt.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/eros/!svn/ver/329/trunk/tests/eros_qt_tutorials/qt.cmake
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/eros/!svn/ver/266/trunk/tests/eros_qt_tutorials/.project
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/eros/!svn/ver/344/trunk/tests/eros_qt_tutorials/manifest.xml
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/eros/!svn/ver/256/trunk/tests/eros_qt_tutorials/.cproject
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/eros/!svn/ver/231/trunk/tests/eros_qt_tutorials/mainpage.dox
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/eros/!svn/ver/329/trunk/tests/eros_qt_tutorials/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/eros/!svn/ver/231/trunk/tests/eros_qt_tutorials/Makefile
+END

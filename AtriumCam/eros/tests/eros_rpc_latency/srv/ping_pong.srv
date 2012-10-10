@@ -1,0 +1,5 @@
+int32 ping_sec
+int32 ping_nsec
+---
+int32 pong_sec
+int32 pong_nsec

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/eros/!svn/ver/283/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/tools/roslaunch/src/roslaunch
+END
+core.py
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/eros/!svn/ver/282/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/tools/roslaunch/src/roslaunch/core.py
+END
+pmon.py
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/eros/!svn/ver/283/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/tools/roslaunch/src/roslaunch/pmon.py
+END
+node_args.py
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/eros/!svn/ver/282/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/tools/roslaunch/src/roslaunch/node_args.py
+END
+nodeprocess.py
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/eros/!svn/ver/282/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/tools/roslaunch/src/roslaunch/nodeprocess.py
+END

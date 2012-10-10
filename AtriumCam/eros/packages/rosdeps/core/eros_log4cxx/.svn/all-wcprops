@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/eros/!svn/ver/359/trunk/packages/rosdeps/core/eros_log4cxx
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/eros/!svn/ver/92/trunk/packages/rosdeps/core/eros_log4cxx/.project
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/eros/!svn/ver/92/trunk/packages/rosdeps/core/eros_log4cxx/manifest.xml
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/eros/!svn/ver/92/trunk/packages/rosdeps/core/eros_log4cxx/.cproject
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/eros/!svn/ver/327/trunk/packages/rosdeps/core/eros_log4cxx/mainpage.dox
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/eros/!svn/ver/359/trunk/packages/rosdeps/core/eros_log4cxx/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/eros/!svn/ver/169/trunk/packages/rosdeps/core/eros_log4cxx/Makefile
+END

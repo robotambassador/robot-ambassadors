@@ -1,0 +1,28 @@
+/**
+@page patchesGuide Patches
+
+@section Overview
+
+Whenever we have patches to be applied to the ros or ros' packages
+these will be committed upstream as soon as possible. While waiting
+for the fix to filter through however, eros will maintain the patches
+so that cross-compiling is as bug-free as possible.
+
+The patches will always gracefully default to normal behaviour if
+not cross-compiling.
+
+@section Applying
+
+The patches will be automatically applied to your version of ros
+whenever you run rostoolchain. It's all automatic and everything
+happens in the background....so nothing to see here!
+
+@section moreInfo More Information on the Patches
+
+If you wish to know more about the individual patches, refer to the 
+appropriate folder in eros_python_tools/patches. Each patch
+has an associated readme.txt which provides some brief information
+about the patch and a url to any tickets that have been submitted
+upstream.
+
+**/

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/eros/!svn/ver/367/trunk/tools/eros_python_tools/templates/qt
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/eros/!svn/ver/250/trunk/tools/eros_python_tools/templates/qt/manifest.xml
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/eros/!svn/ver/124/trunk/tools/eros_python_tools/templates/qt/CMakeLists.txt
+END

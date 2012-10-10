@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/eros/!svn/ver/94/trunk/packages/utilities/eros_gdbserver
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/eros/!svn/ver/89/trunk/packages/utilities/eros_gdbserver/.project
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/eros/!svn/ver/89/trunk/packages/utilities/eros_gdbserver/manifest.xml
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/eros/!svn/ver/89/trunk/packages/utilities/eros_gdbserver/.cproject
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/eros/!svn/ver/94/trunk/packages/utilities/eros_gdbserver/mainpage.dox
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/eros/!svn/ver/90/trunk/packages/utilities/eros_gdbserver/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/eros/!svn/ver/89/trunk/packages/utilities/eros_gdbserver/Makefile
+END

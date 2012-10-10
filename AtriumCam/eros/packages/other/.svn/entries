@@ -1,0 +1,37 @@
+10
+
+dir
+370
+https://code.ros.org/svn/eros/trunk/packages/other
+https://code.ros.org/svn/eros
+
+
+
+2011-01-16T23:06:28.702036Z
+153
+snorri
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e06aebad-a61f-4bce-bd80-11f738b071f2
+
+eros_opencv
+dir
+
+eros_zlib
+dir
+
+eros_bzip2
+dir
+

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/eros/!svn/ver/86/trunk/eros_license
+END
+ROS_NOBUILD
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/eros/!svn/ver/28/trunk/eros_license/ROS_NOBUILD
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/eros/!svn/ver/27/trunk/eros_license/.project
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/eros/!svn/ver/86/trunk/eros_license/manifest.xml
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/eros/!svn/ver/27/trunk/eros_license/.cproject
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/eros/!svn/ver/28/trunk/eros_license/mainpage.dox
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/eros/!svn/ver/28/trunk/eros_license/Makefile
+END

@@ -1,0 +1,9 @@
+<launch>
+  <node pkg="nodelet" type="nodelet" name="latency_test" args="manager" output="screen"/>
+  <node pkg="nodelet" type="nodelet" name="publisher"
+                args="load eros_nodelet_latency/Publisher latency_test" output="screen">
+  </node>
+  <node pkg="nodelet" type="nodelet" name="subscriber"
+                args="load eros_nodelet_latency/Subscriber latency_test" output="screen">
+  </node>
+</launch>

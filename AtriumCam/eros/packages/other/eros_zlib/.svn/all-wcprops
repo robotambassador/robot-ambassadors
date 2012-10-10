@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/eros/!svn/ver/139/trunk/packages/other/eros_zlib
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/eros/!svn/ver/111/trunk/packages/other/eros_zlib/.project
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/eros/!svn/ver/111/trunk/packages/other/eros_zlib/manifest.xml
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/eros/!svn/ver/111/trunk/packages/other/eros_zlib/.cproject
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/eros/!svn/ver/111/trunk/packages/other/eros_zlib/mainpage.dox
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/eros/!svn/ver/113/trunk/packages/other/eros_zlib/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/eros/!svn/ver/111/trunk/packages/other/eros_zlib/Makefile
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/eros/!svn/ver/47/trunk/tools/eros_python_tools/patches/cturtle/rosbuild
+END
+rostoolchain.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/eros/!svn/ver/43/trunk/tools/eros_python_tools/patches/cturtle/rosbuild/rostoolchain.cmake
+END
+private.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/eros/!svn/ver/47/trunk/tools/eros_python_tools/patches/cturtle/rosbuild/private.cmake
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/eros/!svn/ver/43/trunk/tools/eros_python_tools/patches/cturtle/rosbuild/readme.txt
+END

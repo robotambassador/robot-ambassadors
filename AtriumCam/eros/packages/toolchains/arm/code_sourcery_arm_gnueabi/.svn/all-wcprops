@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/eros/!svn/ver/263/trunk/packages/toolchains/arm/code_sourcery_arm_gnueabi
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/eros/!svn/ver/99/trunk/packages/toolchains/arm/code_sourcery_arm_gnueabi/.project
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/eros/!svn/ver/99/trunk/packages/toolchains/arm/code_sourcery_arm_gnueabi/manifest.xml
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/eros/!svn/ver/99/trunk/packages/toolchains/arm/code_sourcery_arm_gnueabi/.cproject
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/eros/!svn/ver/263/trunk/packages/toolchains/arm/code_sourcery_arm_gnueabi/mainpage.dox
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/eros/!svn/ver/258/trunk/packages/toolchains/arm/code_sourcery_arm_gnueabi/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/eros/!svn/ver/99/trunk/packages/toolchains/arm/code_sourcery_arm_gnueabi/Makefile
+END

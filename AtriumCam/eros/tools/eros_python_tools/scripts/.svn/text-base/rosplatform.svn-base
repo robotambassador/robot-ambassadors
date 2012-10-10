@@ -1,0 +1,4 @@
+#!/usr/bin/env python
+
+from ros import eros_python_tools
+eros_python_tools.platform.main()

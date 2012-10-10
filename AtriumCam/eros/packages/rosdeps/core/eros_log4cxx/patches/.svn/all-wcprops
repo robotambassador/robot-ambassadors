@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/eros/!svn/ver/328/trunk/packages/rosdeps/core/eros_log4cxx/patches
+END
+log4cxx-4-mingw.definitions.patch
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/eros/!svn/ver/328/trunk/packages/rosdeps/core/eros_log4cxx/patches/log4cxx-4-mingw.definitions.patch
+END
+log4cxx-1-gcc.4.4.patch
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/eros/!svn/ver/327/trunk/packages/rosdeps/core/eros_log4cxx/patches/log4cxx-1-gcc.4.4.patch
+END
+log4cxx-2-pkgconfig.patch
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/eros/!svn/ver/328/trunk/packages/rosdeps/core/eros_log4cxx/patches/log4cxx-2-pkgconfig.patch
+END
+log4cxx-3-warnings.patch
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/eros/!svn/ver/327/trunk/packages/rosdeps/core/eros_log4cxx/patches/log4cxx-3-warnings.patch
+END

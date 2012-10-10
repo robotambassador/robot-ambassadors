@@ -1,0 +1,19 @@
+<package>
+  <description brief="make/cmake utilities to assist 3rd party builds">
+
+     This includes both makefiles and cmake macro libraries to assist in the build
+     of 3rd party packages for use with a toolchain.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="experimental" notes=""/>
+  <url>http://ros.org/wiki/eros_build</url>
+  <depend package="eros_license"/>
+  <depend package="rosbuild"/>
+  <export>
+    <rosbuild cmake_directory="${prefix}/cmake/modules"/>
+  </export>
+</package>
+
+

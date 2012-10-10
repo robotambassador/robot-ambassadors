@@ -1,0 +1,50 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+@section Overview
+
+Eros platforms is a library of preconfigured cmake platform modules
+that define various characteristics of your target platform. 
+
+\section Arrangement
+
+The library of cmake modules is grouped firstly according to platform
+(aka family) and then by name (usually the platform tuple). 
+
+\section Anatomy
+ 
+Each platform provides the necessary cmake variables for configuring
+your platform and when installed using the 'rosplatform' tool, it will also
+append it with default configuration variables for your build environment
+that you can freely edit (or modify with other eros tools, e.g. build mode type).
+
+- Make sure the cross-compiler is in your PATH
+- By default, it will utilise only the sysroot's libs and headers. 
+- Some extra variables are set for convenience that merely uniquely identify the platform
+
+@code
+PLATFORM_FAMILY : the platform/group the platform belongs to (e.g. crossdev||ubuntu etc).
+PLATFORM_NAME : signature used for the cmake filename, by convention the cpu type.
+PLATFORM_COMPILE_FLAGS : cpu specific compile flags that get integrated into ROS_COMPILE_FLAGS.
+PLATFORM_LINK_FLAGS : cpu specific link flags that get integrated into ROS_COMPILE_FLAGS.
+@endcode
+
+To check in detail what's been configured, track down the platform in the
+eros_platforms package or your ros home (i.e. /home/<username>/.ros/platforms) and
+check out the contents. If it is the currently set platform, you can
+edit $ROS_ROOT/rosplatform.cmake for minor (temporary) modifications.
+
+\section Platforms
+
+The following is a list of currently preconfigured eros platforms.
+
+- generic/vanilla.cmake
+- generic/native.cmake
+- arm/arm1176jzf-s.cmake
+- intel/core2.cmake
+- intel/i5.cmake
+- intel/atomn270.cmake
+- intel/atom330.cmake
+
+*/

@@ -1,0 +1,37 @@
+- model: Follow
+  total_features: 12
+  features:
+    - id: 0
+      normalized: last
+    - id: 9
+      normalized: first
+    - id: 10
+      normalized: first
+    - id: 11
+      normalized: none
+  files:
+    - filename: 2011-05-23-16-16-45-goto.txt
+    - filename: 2011-05-23-16-17-12-goto.txt
+    - filename: 2011-05-23-16-17-34-goto.txt
+    - filename: 2011-05-23-16-17-55-goto.txt
+    - filename: 2011-05-23-16-20-40-goto.txt
+    - filename: 2011-05-23-16-21-08-goto.txt
+    - filename: 2011-05-23-16-21-48-goto.txt
+    - filename: 2011-05-23-16-22-09-goto.txt
+    - filename: 2011-05-23-16-22-40-goto.txt
+    - filename: 2011-05-23-16-23-34-goto.txt
+    - filename: 2011-05-23-16-24-36-goto.txt
+    - filename: 2011-05-23-16-29-10-goto.txt
+    - filename: 2011-05-23-16-29-40-goto.txt
+    - filename: 2011-05-23-16-30-09-goto.txt
+    - filename: 2011-05-23-16-30-39-goto.txt
+    - filename: 2011-05-23-16-31-17-goto.txt
+    - filename: 2011-05-23-16-31-34-goto.txt
+    - filename: 2011-05-23-16-32-19-goto.txt
+    - filename: 2011-05-23-16-32-39-goto.txt
+    - filename: 2011-05-23-16-33-23-goto.txt
+    - filename: 2011-05-23-16-33-54-goto.txt
+    - filename: 2011-05-23-16-34-11-goto.txt
+    - filename: 2011-05-23-16-34-29-goto.txt
+    - filename: 2011-05-23-16-35-19-goto.txt
+    

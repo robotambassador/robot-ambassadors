@@ -1,0 +1,11 @@
+===== rosboost_cfg.py =====
+
+URL: rosboost_cfg.py
+Revision: 12977
+Ticket: -
+Modification:
+    Fixes the ROS_BOOST_ROOT priority and also allows it to 
+    automatically find and classify system directories in the
+    toolchain root when a toolchain root is used (no more need
+    for ROS_BOOST_ROOT when cross compiling). Note, this won't be
+    ticketed as rosboost-cfg will phase out on rosbuild2.

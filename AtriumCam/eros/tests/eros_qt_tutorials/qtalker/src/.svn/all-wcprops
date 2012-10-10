@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/eros/!svn/ver/266/trunk/tests/eros_qt_tutorials/qtalker/src
+END
+main.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/eros/!svn/ver/231/trunk/tests/eros_qt_tutorials/qtalker/src/main.cpp
+END
+qnode.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/eros/!svn/ver/260/trunk/tests/eros_qt_tutorials/qtalker/src/qnode.cpp
+END
+main_window.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/eros/!svn/ver/266/trunk/tests/eros_qt_tutorials/qtalker/src/main_window.cpp
+END

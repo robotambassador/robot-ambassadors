@@ -1,0 +1,26 @@
+<package>
+  <description brief="oit_models">
+
+     oit_models
+
+  </description>
+  <author>David Feil-Seifer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/oit_models</url>
+
+  <depend package="roscpp"/>
+  <depend package="opencv2"/>
+	<depend package="geometry_msgs"/>
+	<depend package="p2os_driver"/>
+	<depend package="tf"/>
+
+	<depend package="yaml_cpp"/>
+
+  <export>
+    <cpp cflags="-I${prefix}/srv/cpp"/>
+  </export>
+
+</package>
+
+

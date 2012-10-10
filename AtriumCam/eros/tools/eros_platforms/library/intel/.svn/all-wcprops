@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/eros/!svn/ver/51/trunk/tools/eros_platforms/library/intel
+END
+atom330.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/eros/!svn/ver/51/trunk/tools/eros_platforms/library/intel/atom330.cmake
+END
+atomn270.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/eros/!svn/ver/51/trunk/tools/eros_platforms/library/intel/atomn270.cmake
+END
+core2.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/eros/!svn/ver/51/trunk/tools/eros_platforms/library/intel/core2.cmake
+END
+i5.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/eros/!svn/ver/51/trunk/tools/eros_platforms/library/intel/i5.cmake
+END

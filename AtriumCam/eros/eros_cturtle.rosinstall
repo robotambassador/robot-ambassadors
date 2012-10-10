@@ -1,0 +1,4 @@
+- svn:
+    uri: https://code.ros.org/svn/eros/tags/cturtle
+    local-name: eros
+

@@ -1,0 +1,8 @@
+===== Version 0.20 =====
+
+===== Version 0.13 =====
+
+ * Upgraded to work with ros diamondback.
+ * Mingw cross patches.
+ * Windows ros patches for roslib, rosout, roslaunch
+

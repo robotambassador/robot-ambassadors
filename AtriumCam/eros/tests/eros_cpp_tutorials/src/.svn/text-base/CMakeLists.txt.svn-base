@@ -1,0 +1,10 @@
+macro(add_cpp_test tgt)
+  rosbuild_add_executable(${tgt} ${ARGN})
+endmacro()
+
+add_cpp_test(talker talker.cpp common.cpp)
+add_cpp_test(listener listener.cpp common.cpp)
+add_cpp_test(nodelist nodelist.cpp common.cpp)
+add_cpp_test(rostimers rostime.cpp)
+add_cpp_test(add_server add_server.cpp common.cpp)
+add_cpp_test(add_client add_client.cpp common.cpp)

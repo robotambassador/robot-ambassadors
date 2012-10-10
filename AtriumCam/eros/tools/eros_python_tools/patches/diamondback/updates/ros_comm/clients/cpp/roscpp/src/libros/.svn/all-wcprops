@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/eros/!svn/ver/282/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/src/libros
+END
+xmlrpc_manager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/eros/!svn/ver/223/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/src/libros/xmlrpc_manager.cpp
+END
+file_log.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/eros/!svn/ver/223/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/src/libros/file_log.cpp
+END
+poll_set.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/eros/!svn/ver/282/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/src/libros/poll_set.cpp
+END
+init.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/eros/!svn/ver/236/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/src/libros/init.cpp
+END
+subscription.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/eros/!svn/ver/223/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/src/libros/subscription.cpp
+END
+io.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/eros/!svn/ver/253/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/src/libros/io.cpp
+END
+common.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/eros/!svn/ver/223/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/src/libros/common.cpp
+END
+header.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/eros/!svn/ver/223/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/src/libros/header.cpp
+END
+network.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/eros/!svn/ver/239/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/src/libros/network.cpp
+END
+rosout_appender.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/eros/!svn/ver/223/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/src/libros/rosout_appender.cpp
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/eros/!svn/ver/223/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/clients/cpp/roscpp/src/libros/CMakeLists.txt
+END

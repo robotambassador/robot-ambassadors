@@ -1,0 +1,20 @@
+This folder contains all the files needed to run the QT 2D Tracker.
+The system needs to have the following in order to compile and run the code.
+   - Qt (Tested only on version 4.6.2) 
+   - OpenCV (Tested only on version 2.0)
+   - Phonon module (It is needed to play the cricket calling song. Otherwise, comment out anything related to Phonon)
+
+By running the qTracker2D.pro with QT creator the project opens and can be then built.
+
+
+Running qTracker2D
+
+The initial dialog box asks for the camera settings. Usually the camera is the 0 (zero) or if more camera's are connected try other like 1,2 or 3.
+For linux the default resolution, that cannot be changed, is 640x480. 
+
+In order to start tracking you need to fill the tracker settings, first. 
+Then, when the tracking starts, you need to click on the object to select its template for the tracking.
+By pressing the keys 1-6, you can reselect the template of the corresponding object.
+
+
+

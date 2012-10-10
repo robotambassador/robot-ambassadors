@@ -1,0 +1,18 @@
+<package>
+  <description brief="Simple implementation of roscpp">
+    roscpplight is a simple implementation of a part of the ROS communication layer, allowing a component to publish and subscribe to ROS messages.
+    The purpose is to provide a library for interfacing simple nodes e.g. sensors, actuators or other robot control systems to ROS with a minimum set of dependencies and threading model constraints.
+    The current version is a test of the concept and thus not meant for serious use.
+    It uses boost asio for network communication to improve portability.
+    XmlRpc++ has been used for convenience, but a different xmlrpc implementation would improve the threading constraints.
+  </description>
+  <author>Morten Kjærgaard</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/roscpplight</url>
+  <depend package="xmlrpcpp"/>
+  <depend package="std_msgs"/>
+  <depend package="roscpp_serialization"/>
+</package>
+
+

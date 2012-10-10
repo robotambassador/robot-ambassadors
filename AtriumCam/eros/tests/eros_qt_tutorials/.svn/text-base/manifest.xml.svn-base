@@ -1,0 +1,33 @@
+<package>
+  <description brief="eros_qt_tutorials">
+
+     eros_qt_tutorials
+
+  </description>
+  <author>Daniel Stonier</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/eros_qt_tutorials</url>
+
+  <depend package="eros_build"/>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+  <rosdep name="qt4"/>
+
+  <!--
+    This needs to go in and work eventually in rosbuild2 as well
+    <depend package="eros_build"/>
+  -->
+  <!--
+  <rosbuild2>
+    <depend package="roscpp"/>
+    <depend package="std_msgs"/>
+    <rosdep name="qt4"/>
+
+    <srvs>srv/TwoInts.srv</srvs>
+  </rosbuild2>
+  -->
+
+</package>
+
+

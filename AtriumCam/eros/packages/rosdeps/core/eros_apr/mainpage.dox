@@ -1,0 +1,30 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\section packageSummary Package Summary
+
+	This provides a source package for compiling the apache runtime.
+	Ordinarily this is not useful as you would install via your system's
+	installation method (e.g. apt-get for ubuntu), but for cross-compiling 
+        it provides the recipe needed to make a toolchain ros-ready.
+
+\section potIssues Potential Issues
+  
+    - Downloads from one of korea's apache mirrors. Could be slow.
+    - Might need a check to properly evaluate ac_cv_sizeof_struct_iovec
+    
+\section Issues
+	
+\subsection mingwshared MingW Shared Libs
+
+Won't build shared libs using a mingw cross-compiler even if you set disable-static 
+and enable-shared. You get this error near the end of the build from libtool:
+
+libtool: link: warning: undefined symbols not allowed in i586-pc-mingw32msvc shared libraries
+
+\section ChangeLog
+
+	- <b>Sep 10</b> : Done and road tested.
+
+*/

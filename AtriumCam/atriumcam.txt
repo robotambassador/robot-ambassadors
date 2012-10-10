@@ -1,0 +1,32 @@
+THIS WORKS: 
+
+gst-launch souphttpsrc location=http://viewer:aibo@doric.inf.ed.ac.uk/axis-cgi/mjpg/video.cgi do-timestamp=true ! queue ! multipartdemux ! capsfilter \ caps = 'image/jpeg' ! jpegdec ! ffmpegcolorspace ! autovideosink
+
+How to combine with gscam node?
+
+Tried:
+
+export GSCAM_CONFIG="souphttpsrc location=http://viewer:aibo@doric.inf.ed.ac.uk/axis-cgi/mjpg/video.cgi do-timestamp=true ! queue ! multipartdemux ! capsfilter \ caps = 'image/jpeg' ! jpegdec ! ffmpegcolorspace ! video/x-raw-rgb ! identity name=ros ! fakesink"
+
+but get:
+
+ipab@ipab-desktop:~$ rosrun gscam gscam 
+Gstreamer Version: GStreamer 0.10.28
+**
+ERROR:/home/ipab/Desktop/MattROS/gscam/src/gscam.cpp:55:int main(int, char**): assertion failed: (outpad)
+Aborted
+ipab@ipab-desktop:~$
+
+Found a useful topic on ros.answers, suggested amending to this:
+
+export GSCAM_CONFIG="souphttpsrc location=http://viewer:aibo@doric.inf.ed.ac.uk/axis-cgi/mjpg/video.cgi do-timestamp=true ! queue ! multipartdemux ! capsfilter \ caps = 'image/jpeg' ! jpegdec ! ffmpegcolorspace"
+
+which WORKS! :)
+
+so:
+
+export GSCAM_CONFIG="souphttpsrc location=http://viewer:aibo@doric.inf.ed.ac.uk/axis-cgi/mjpg/video.cgi do-timestamp=true ! queue ! multipartdemux ! capsfilter \ caps = 'image/jpeg' ! jpegdec ! ffmpegcolorspace"
+
+rosrun gscam gscam
+
+rosrun image_view image_view image:=/gscam/image_raw

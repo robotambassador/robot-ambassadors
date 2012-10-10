@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/eros/!svn/ver/365/trunk/tools/eros_python_tools/templates/qt-ros/include/PACKAGE_NAME
+END
+main_window.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/eros/!svn/ver/365/trunk/tools/eros_python_tools/templates/qt-ros/include/PACKAGE_NAME/main_window.hpp
+END
+qnode.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/eros/!svn/ver/365/trunk/tools/eros_python_tools/templates/qt-ros/include/PACKAGE_NAME/qnode.hpp
+END

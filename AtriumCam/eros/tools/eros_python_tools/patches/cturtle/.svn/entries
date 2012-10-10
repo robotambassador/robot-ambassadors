@@ -1,0 +1,46 @@
+10
+
+dir
+370
+https://code.ros.org/svn/eros/trunk/tools/eros_python_tools/patches/cturtle
+https://code.ros.org/svn/eros
+
+
+
+2011-01-20T03:09:36.020862Z
+156
+snorri
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e06aebad-a61f-4bce-bd80-11f738b071f2
+
+genmsg_cpp
+dir
+
+rospack
+dir
+
+rosbuild
+dir
+
+roscpp
+dir
+
+message_filters
+dir
+
+topic_tools
+dir
+

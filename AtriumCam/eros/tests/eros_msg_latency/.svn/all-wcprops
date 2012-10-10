@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/eros/!svn/ver/84/trunk/tests/eros_msg_latency
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/eros/!svn/ver/13/trunk/tests/eros_msg_latency/.project
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/eros/!svn/ver/84/trunk/tests/eros_msg_latency/manifest.xml
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/eros/!svn/ver/13/trunk/tests/eros_msg_latency/.cproject
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/eros/!svn/ver/16/trunk/tests/eros_msg_latency/mainpage.dox
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/eros/!svn/ver/16/trunk/tests/eros_msg_latency/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/eros/!svn/ver/13/trunk/tests/eros_msg_latency/Makefile
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/eros/!svn/ver/317/trunk/tools/eros_toolchains/library/generic
+END
+arm-softfloat-linux-gnu.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/eros/!svn/ver/146/trunk/tools/eros_toolchains/library/generic/arm-softfloat-linux-gnu.cmake
+END
+arm-generic-linux-gnueabi.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/eros/!svn/ver/317/trunk/tools/eros_toolchains/library/generic/arm-generic-linux-gnueabi.cmake
+END

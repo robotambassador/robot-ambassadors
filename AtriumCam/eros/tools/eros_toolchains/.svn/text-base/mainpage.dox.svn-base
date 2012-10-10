@@ -1,0 +1,45 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+@section Overview
+
+Eros toolchains is a library of preconfigured cmake toolchain modules
+for popular/standard toolchain configurations on various platforms.
+
+\section Arrangement
+
+The library of cmake modules is grouped firstly according to platform
+(aka family) and then by name (usually the toolchain tuple). 
+
+\section Anatomy
+ 
+Each toolchain provides the necessary cmake variables for discovering
+your compiler, libs and headers. Some notes:
+
+- Make sure the cross-compiler is in your PATH
+- By default, it will utilise only the sysroot's libs and headers. 
+- Some extra variables are set for convenience that merely uniquely identify the toolchain
+
+@code
+TOOLCHAIN_FAMILY : the platform/group the toolchain belongs to (e.g. crossdev||ubuntu etc).
+TOOLCHAIN_TUPLE : signature identifying cpu-vendor-platform-clib.
+TOOLCHAIN_SYSROOT : root of the target development environment (libraries, headers etc).
+@endcode
+
+To check in detail what's been configured, track down the toolchain in the
+eros_toolchains package or your ros home (i.e. /home/<username>/.ros/toolchains) and
+check out the contents. If it is the currently set toolchain, you can
+edit $ROS_ROOT/rostoolchain.cmake for minor (temporary) modifications.
+
+\section Toolchains
+
+The following is a list of currently preconfigured eros toolchains.
+
+- code_sourcery/arm-none-linux-gnueabi.cmake
+- crossdev/arm-unknown-linux-gnueabi.cmake
+- crossdev/i686-pc-linux-gnu.cmake
+- crossdev/i686-pc-mingw32.cmake
+- ubuntu/i586-mingw32msvc.cmake
+
+*/

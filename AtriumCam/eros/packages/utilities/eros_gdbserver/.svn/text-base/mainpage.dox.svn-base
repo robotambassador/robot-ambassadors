@@ -1,0 +1,81 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\section packageSummary Package Summary
+
+	This provides a source package for cross-compiling a gdb/gdbserver combo.
+	
+	This pair of tools allows you to do remote debugging without having
+	to run the debugger itself (nor libs with debugging symbols) on the
+	target. Very useful for embedded boards with limited memory or oomph.
+
+\section Compiling
+
+    This actually absolutely needs an eros toolchain to enable it to extract
+    useful information from TOOLCHAIN_TUPLE and TOOLCHAIN_SYSROOT.
+    
+\section Usage
+
+\subsection Running
+
+Make sure you have copies of your binary both locally and on the embedded board. The embedded board copy may even be stripped, but the local one must absolutely be non-stripped and have debug symbols. 
+
+<b>Embedded Board</b>
+
+@code
+gdbserver 192.168.0.66:5200 ./hello
+@endcode
+
+Note that the ip is actually ignored, the port number is the only thing that is important. 
+
+<b>Build Platform</b>
+
+@code
+arm-samsung-linux-gnueabi-gdb ./hello
+(gdb) target remote 192.168.0.15:5200
+(gdb) break main
+(gdb) continue
+(gdb) continue
+@endcode
+
+\subsection Backtraces
+
+The first continue will stop at main, the second continue starts it running. After a segfault
+
+@code 
+(gdb) list
+(gdb) bt
+@endcode
+
+The first command shows the source location of the last frame before the crash. The latter, the backtrace (f full) provides the last chain of commands. 
+
+\section Issues
+
+If the backtrace doesn't provide any symbols (all you see is alot of ??'s), it means gdb isn't finding the debug symbols 
+in the appropriate code/libraries. I thought it was supposed to embed these in your build when you enable the 
+–with-build-sysroot command, but it seems that is only for the build process. So, to point your cross debugger 
+at the right place, you can either set some variables while running, or (more easily) create a config file to run with gdb
+on the build platform. The following is my iclebo.gdb file which sets directories to parse standard libraries in:
+
+@code 
+set solib-absolute-prefix /usr/arm-samsung-linux-gnueabi
+set solib-search-path /usr/arm-samsung-linux-gnueabi/lib:/usr/arm-samsung-linux-gnueabi/usr/lib
+@endcode
+
+You can then run it on something like a hellow world program as follows:
+
+@code 
+arm-samsung-linux-gnueabi-gdb --command=iclebo.gdb ./hello
+(gdb) target remote 192.168.0.15:5200
+(gdb) break main
+(gdb) continue
+(gdb) continue
+@encdoe
+
+Push this into a bash script to make it more convenient.
+
+\section ChangeLog
+
+	- <b>Oct 10</b> : Done and road tested.
+*/

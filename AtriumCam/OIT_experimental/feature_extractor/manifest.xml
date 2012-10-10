@@ -1,0 +1,17 @@
+<package>
+  <description brief="feature_extractor">
+
+     feature_extractor
+
+  </description>
+  <author>David Feil-Seifer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/feature_extractor</url>
+  <depend package="point_map"/>
+	<depend package="geometry_msgs"/>
+  <depend package="tf"/>
+
+</package>
+
+

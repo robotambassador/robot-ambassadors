@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/eros/!svn/ver/228/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/tools/rosconsole
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/eros/!svn/ver/228/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/tools/rosconsole/manifest.xml
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/eros/!svn/ver/228/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/tools/rosconsole/CMakeLists.txt
+END

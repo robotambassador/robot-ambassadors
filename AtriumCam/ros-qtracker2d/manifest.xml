@@ -1,0 +1,22 @@
+<package>
+  <description brief="ros-qtracker2d">
+
+     ros-qtracker2d
+
+  </description>
+  <author>IPAB</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ros-qtracker2d</url>
+
+
+  <depend package="eros_build"/>
+  <!-- 
+    Note, you can turn this into a pure qt app (no ros 
+    dependencies) by commenting the roscpp dependency.  
+  -->
+  <depend package="roscpp"/>
+  <depend package="geometry_msgs"/>
+  <rosdep name="qt4"/>
+  
+</package>

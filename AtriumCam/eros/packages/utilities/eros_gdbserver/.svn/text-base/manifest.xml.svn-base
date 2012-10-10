@@ -1,0 +1,19 @@
+<package>
+  <description brief="Build recipe for cross-compiling gdb/gdbserver">
+
+	This provides a source package for cross-compiling a gdb/gdbserver combo.
+	
+	This pair of tools allows you to do remote debugging without having
+	to run the debugger itself (nor libs with debugging symbols) on the
+	target. Very useful for embedded boards with limited memory or oomph.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="experimental" notes=""/>
+  <url>http://ros.org/wiki/eros_gdbserver</url>
+  <depend package="eros_license"/>
+  <depend package="eros_build"/>
+</package>
+
+

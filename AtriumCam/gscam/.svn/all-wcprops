@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1748/trunk/distribution/brown_perception/gscam
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/1748/trunk/distribution/brown_perception/gscam/manifest.xml
+END
+camera_parameters.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1748/trunk/distribution/brown_perception/gscam/camera_parameters.txt
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/1748/trunk/distribution/brown_perception/gscam/README.txt
+END
+rosdep.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/1748/trunk/distribution/brown_perception/gscam/rosdep.yaml
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/1748/trunk/distribution/brown_perception/gscam/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1748/trunk/distribution/brown_perception/gscam/Makefile
+END

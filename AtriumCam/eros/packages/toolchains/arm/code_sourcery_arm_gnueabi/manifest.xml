@@ -1,0 +1,18 @@
+<package>
+  <description brief="Build recipe to install code sourcery's g++ lite toolchain for arm-gnueabi">
+
+     Installer script for code sourcery's g++ lite arm-none-linux-gnueabi toolchain.
+     As this downloads a binary version of the toolchain, it only works on 
+     x86. To work for amd64, need to automate a download and compile of the toolchain's source.
+     for 64 bit machines.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="experimental" notes=""/>
+  <url>http://ros.org/wiki/code_sourcery</url>
+  <depend package="eros_license"/>
+  <depend package="eros_build"/>
+</package>
+
+

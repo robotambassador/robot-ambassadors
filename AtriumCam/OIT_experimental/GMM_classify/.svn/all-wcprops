@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/usc-ros-pkg/!svn/ver/169/trunk/OIT_experimental/GMM_classify
+END
+train.out
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/usc-ros-pkg/!svn/ver/168/trunk/OIT_experimental/GMM_classify/train.out
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/usc-ros-pkg/!svn/ver/168/trunk/OIT_experimental/GMM_classify/manifest.xml
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/usc-ros-pkg/!svn/ver/168/trunk/OIT_experimental/GMM_classify/mainpage.dox
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/usc-ros-pkg/!svn/ver/168/trunk/OIT_experimental/GMM_classify/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/usc-ros-pkg/!svn/ver/168/trunk/OIT_experimental/GMM_classify/Makefile
+END

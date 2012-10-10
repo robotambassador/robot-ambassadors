@@ -1,0 +1,61 @@
+====================== Roscpp ======================
+
+== Against ==
+
+Files: lots
+Ticket: https://code.ros.org/trac/ros/ticket/3424
+Ticket Status: pending
+Revision: 13526.
+
+== Summary ==
+
+Note, couldn't use service robotics socket stuff because the WSA calls only exist
+in windows vista onwards. Instead, using some old player code but probably needs an update.
+
+== Issue Tracking ==
+
+- init.cpp
+  - https://code.ros.org/trac/ros/ticket/3319 : moving the time init function.
+  
+== Eros ==
+
+It also overlays across patches from eros in diamondback to slow down timers (see
+the diffs there for details).
+
+== Mingw ==
+
+Lots of minor stuff from jeff and service robotics, kinda mixed in and bugfixed to work.
+  - Couldn't use alot of service robotic's code, it was vista++
+  - Built our own poll function, largely similar to ssh's poll.
+
+== Other ==
+
+  - roslib::Clock -> rosgraph_msgs::Clock
+  - manifest removed roslib dependency, added boost filesystem, system dependencies.
+  - in init.cpp, ros::shutdown() aborts if !initialized (otherwise global queue ptr throws).
+
+== Todo ==
+
+Jeff's and service robotic's ports both used the following code to decode 
+chars for msvc. Mingw didn't seem to need this, but we may need to introduce it later. 
+
+<code file_log.cpp>
+#ifdef WIN32
+	LOG4CXX_DECODE_CHAR(temp01, std::string("[%c] [%d] [thread %t]: [%p] %m\n"));
+	log4cxx::LayoutPtr layout = new log4cxx::PatternLayout(temp01);
+	LOG4CXX_DECODE_CHAR(temp02, log_file_name);
+	log4cxx::RollingFileAppenderPtr appender = new log4cxx::RollingFileAppender(layout, temp02, false);
+#else
+<endcode>
+
+Might also be a better way to do a poll, see my email from josh faust.
+    
+===== Features =====
+
+- Cross platform organisation of headers, macros, typedefs [io.h/io.cpp] 
+- Cross platform abstractions for low level functions (close_socket, last_socket_error, poll, signal_pair) [io.h/io.cpp]
+- Disable some signal functionality (check this!) [common.cpp, init.cpp]
+- Move Time::init() to a good place [init.cpp]
+- Utilise the cross platform socket_poll and signal_pair [poll_set.cpp]
+- Undef ERROR to avoid a bug caused by windows macro pollution [rosout_appender.cpp]
+- Utilise cross platform abstractions, also win32 send/recv socket code [transport_tcp/udp.cpp]

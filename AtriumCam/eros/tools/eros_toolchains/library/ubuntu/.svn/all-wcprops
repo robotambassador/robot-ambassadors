@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/eros/!svn/ver/172/trunk/tools/eros_toolchains/library/ubuntu
+END
+i586-mingw32msvc.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/eros/!svn/ver/172/trunk/tools/eros_toolchains/library/ubuntu/i586-mingw32msvc.cmake
+END

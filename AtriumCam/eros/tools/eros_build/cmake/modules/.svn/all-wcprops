@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/eros/!svn/ver/289/trunk/tools/eros_build/cmake/modules
+END
+eros_build_utilities.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/eros/!svn/ver/268/trunk/tools/eros_build/cmake/modules/eros_build_utilities.cmake
+END
+eros_package.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/eros/!svn/ver/289/trunk/tools/eros_build/cmake/modules/eros_package.cmake
+END

@@ -1,0 +1,34 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\section packageSummary Package Summary
+
+     Installer script for code sourcery's g++ lite toolchain for arm-gnueabi 
+     (arm-none-linux-gnueabi). As this downloads a binary version of the toolchain, 
+     it only works on x86. 
+     
+     This needs to be continually updated whenever a new toolchain is brought out by code sourcery.
+
+\section Usage
+     
+     Simply run the following commands.
+     
+     @code
+     roscd code_sourcery_arm_gnueabi
+     make
+     make install
+     @endcode
+     
+     It will install the toolchain in /usr/arm-unknown-linux-gnueabi
+     with sysroot /usr/arm-unknown-linux-gnueabi/libc.
+
+\section potIssues Potential Issues
+  
+    - To work for amd64, need to automate a download and compile of the toolchain's source.
+    
+\section ChangeLog
+
+	- <b>Oct 10</b> : Done and road tested.
+
+*/

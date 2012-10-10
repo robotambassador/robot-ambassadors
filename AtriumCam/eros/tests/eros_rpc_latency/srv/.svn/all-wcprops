@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/eros/!svn/ver/15/trunk/tests/eros_rpc_latency/srv
+END
+ping_pong.srv
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/eros/!svn/ver/15/trunk/tests/eros_rpc_latency/srv/ping_pong.srv
+END
+float_ping_pong.srv
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/eros/!svn/ver/15/trunk/tests/eros_rpc_latency/srv/float_ping_pong.srv
+END

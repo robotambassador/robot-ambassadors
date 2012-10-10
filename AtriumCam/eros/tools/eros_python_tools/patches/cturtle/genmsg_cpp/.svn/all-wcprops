@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/eros/!svn/ver/43/trunk/tools/eros_python_tools/patches/cturtle/genmsg_cpp
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/eros/!svn/ver/43/trunk/tools/eros_python_tools/patches/cturtle/genmsg_cpp/readme.txt
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/eros/!svn/ver/43/trunk/tools/eros_python_tools/patches/cturtle/genmsg_cpp/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/eros/!svn/ver/43/trunk/tools/eros_python_tools/patches/cturtle/genmsg_cpp/Makefile
+END

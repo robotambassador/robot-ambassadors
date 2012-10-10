@@ -1,0 +1,24 @@
+<package>
+  <description brief="Build recipe for cross-compiling a minimal boost for embedded systems">
+
+	This provides a source package for compiling a minimal boost ideally
+	targetting embedded systems.
+	
+	Ordinarily this is not useful as you would install via your system's
+	installation method (e.g. apt-get for ubuntu), but for cross-compiling 
+    it provides the recipe needed to make a toolchain ros-ready.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="experimental" notes=""/>
+  <url>http://ros.org/wiki/eros_boost</url>
+  <depend package="eros_license"/>
+  <depend package="eros_build"/>
+  <export>
+    <cpp cflags="-I${prefix}/build/fakeroot/include" lflags="-Wl,-rpath,${prefix}/build/fakeroot/lib -L${prefix}/build/fakeroot/lib -lboost_thread -lboost_date_time -lboost_iostreams -lboost_program_options -lboost_filesystem -lboost_signals -lboost_system"/>
+  </export>
+
+</package>
+
+

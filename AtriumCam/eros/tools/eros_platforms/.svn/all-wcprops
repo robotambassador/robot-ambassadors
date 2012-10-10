@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/eros/!svn/ver/317/trunk/tools/eros_platforms
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/eros/!svn/ver/3/trunk/tools/eros_platforms/.project
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/eros/!svn/ver/84/trunk/tools/eros_platforms/manifest.xml
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/eros/!svn/ver/3/trunk/tools/eros_platforms/.cproject
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/eros/!svn/ver/84/trunk/tools/eros_platforms/mainpage.dox
+END
+rosdoc.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/eros/!svn/ver/84/trunk/tools/eros_platforms/rosdoc.yaml
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/eros/!svn/ver/3/trunk/tools/eros_platforms/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/eros/!svn/ver/3/trunk/tools/eros_platforms/Makefile
+END

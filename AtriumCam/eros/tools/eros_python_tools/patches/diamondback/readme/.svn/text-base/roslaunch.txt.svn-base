@@ -1,0 +1,43 @@
+===== Console Output =====
+
+File: core.py
+Ticket: https://code.ros.org/trac/ros/ticket/3420
+Ticket Status: applied on trunk@13536
+Last Changed Rev: 13228
+
+Modifications:
+	Just edited the console output message to remove colour when printing on windows.
+	
+===== Execute Windows .py Files =====
+
+File: node_args.py
+Ticket: https://code.ros.org/trac/ros/ticket/3422
+Ticket Status: pending
+Last Changed Rev: 10269
+
+Modifications:
+     Makes up for windows not being able to recognize and launch python files as executables directly.
+     This recognises a .py extension and runs the python file with python.exe.
+
+===== Processes =====
+
+File: nodeprocess.py
+Ticket: not yet finalised
+Ticket Status: -
+Last Changed Rev: 13277
+
+Modifications:
+     - runs rosmaster if it is found in the path.
+     - subprocess.Popen calls can't do some things in windows (still not sure about this one)
+     - a _stop_win32 stub.
+
+===== Process Monitor =====
+
+File: pmon.py
+Ticket: https://code.ros.org/trac/ros/ticket/3421
+Ticket Status: applied on trunk@13534,13535
+Last Changed Rev: 10575
+
+Modifications:
+     - removes SIGHUPS in windows
+     - catches the exception thrown when windows' time.sleep is interrupted by a sig handler

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/eros/!svn/ver/361/trunk/tools/eros_python_tools/src/eros_python_tools
+END
+core.py
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/eros/!svn/ver/156/trunk/tools/eros_python_tools/src/eros_python_tools/core.py
+END
+prefix.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/eros/!svn/ver/104/trunk/tools/eros_python_tools/src/eros_python_tools/prefix.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/eros/!svn/ver/250/trunk/tools/eros_python_tools/src/eros_python_tools/__init__.py
+END
+protect.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/eros/!svn/ver/261/trunk/tools/eros_python_tools/src/eros_python_tools/protect.py
+END
+toolchain.py
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/eros/!svn/ver/361/trunk/tools/eros_python_tools/src/eros_python_tools/toolchain.py
+END
+create_qt_package.py
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/eros/!svn/ver/175/trunk/tools/eros_python_tools/src/eros_python_tools/create_qt_package.py
+END
+build_mode.py
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/eros/!svn/ver/61/trunk/tools/eros_python_tools/src/eros_python_tools/build_mode.py
+END
+platform.py
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/eros/!svn/ver/107/trunk/tools/eros_python_tools/src/eros_python_tools/platform.py
+END
+config.py
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/eros/!svn/ver/69/trunk/tools/eros_python_tools/src/eros_python_tools/config.py
+END
+create_qt_ros_package.py
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/eros/!svn/ver/250/trunk/tools/eros_python_tools/src/eros_python_tools/create_qt_ros_package.py
+END

@@ -1,0 +1,17 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\section packageSummary Package Summary
+
+	This provides a source package for (cross) compiling zlib (needed by boost).
+	
+	Ordinarily this is not useful as you would install via your system's
+	installation method (e.g. apt-get for ubuntu), but for cross-compiling 
+    it provides the recipe needed to make a toolchain ros-ready.
+
+\section ChangeLog
+
+	- <b>Oct 10</b> : Done and road tested.
+
+*/

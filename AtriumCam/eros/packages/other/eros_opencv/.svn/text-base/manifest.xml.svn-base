@@ -1,0 +1,22 @@
+<package>
+  <description brief="Embedded version of ros' opencv package">
+
+    This is the trimmed down version of ros' opencv we use for embedded boards.
+
+    Warning: this conflicts with ros' opencv2 package which builds the kitchen sink.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="experimental" notes=""/>
+  <url>http://ros.org/wiki/eros_opencv</url>
+  <depend package="eros_license"/>
+  <depend package="eros_build"/>
+  <versioncontrol type="svn" url="https://opencvlibrary.svn.sourceforge.net/svnroot/opencvlibrary/tags/latest_tested_snapshot/opencv"/>
+  <export>
+    <cpp cflags="-I${prefix}/build/fakeroot/include -I${prefix}/build/fakeroot/include/opencv" lflags="-Wl,-rpath,${prefix}/build/fakeroot/lib -L${prefix}/build/fakeroot/lib -lcvaux -lcv -lcxcore -lhighgui -lml"/>
+  </export>
+
+</package>
+
+

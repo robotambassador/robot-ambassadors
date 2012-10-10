@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/usc-ros-pkg/!svn/ver/200/trunk/OIT_experimental/oit_ekf
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/usc-ros-pkg/!svn/ver/200/trunk/OIT_experimental/oit_ekf/manifest.xml
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/usc-ros-pkg/!svn/ver/200/trunk/OIT_experimental/oit_ekf/mainpage.dox
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/usc-ros-pkg/!svn/ver/200/trunk/OIT_experimental/oit_ekf/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/usc-ros-pkg/!svn/ver/200/trunk/OIT_experimental/oit_ekf/Makefile
+END

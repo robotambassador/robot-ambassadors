@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/eros/!svn/ver/307/trunk/tools/eros_toolchains/library/redhat
+END
+armv5tel-redhat-linux-gnueabi.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/eros/!svn/ver/307/trunk/tools/eros_toolchains/library/redhat/armv5tel-redhat-linux-gnueabi.cmake
+END

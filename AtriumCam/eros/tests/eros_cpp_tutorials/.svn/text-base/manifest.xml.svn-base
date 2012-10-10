@@ -1,0 +1,13 @@
+<package>
+  <description brief="Simple cpp tests for cross-compiling">
+    This was primarily made for testing the mingw cross compiles.
+  </description>
+  <author>Daniel Stonier</author>
+  <license>BSD</license>
+  <review status="experimental" notes=""/>
+  <url>http://ros.org/wiki/eros_cpp_tutorials</url>
+  <depend package="roscpp"/>
+  <depend package="std_srvs"/>
+  <depend package="std_msgs"/>
+</package>
+

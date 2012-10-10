@@ -1,0 +1,19 @@
+<package>
+  <description brief="cmake modules for popular platform configurations">
+
+  eros_platforms is a library of preconfigured cmake modules
+  for popular platform/cpu configurations.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="experimental" notes=""/>
+  <url>http://ros.org/wiki/eros_platforms</url>
+  <depend package="eros_license"/>
+  <export>
+    <rosdoc config="rosdoc.yaml" />
+  </export>
+
+</package>
+
+

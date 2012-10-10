@@ -1,0 +1,30 @@
+<launch>
+	<!-- Atrium camera config -->
+	<env name="GSCAM_CONFIG" value="souphttpsrc location=http://viewer:aibo@doric.inf.ed.ac.uk/axis-cgi/mjpg/video.cgi do-timestamp=true ! queue ! multipartdemux ! capsfilter \ caps = 'image/jpeg' ! jpegdec ! ffmpegcolorspace"/>
+	
+	<!-- Topic remapping to make everything bind a bit better -->
+	<remap from="gscam/image_raw" to="image_raw"/>
+        <remap from="gscam/camera_info" to="camera_info"/>
+	<remap from="letterbox/image_raw" to="image"/>	
+
+	<!-- Gstreamer connection to Atrium camera -->
+	<node pkg="gscam" type="gscam" name="atrium_cam_stream"/>
+
+	<!-- OIT image letterboxer -->
+	<!-- <node pkg="image_letterboxer" type="image_letterboxer" name="OIT_letterboxer"/> -->
+
+	<!-- OIT colour picker -->
+	<!--<node pkg="color_picker" type="color_picker" name="OIT_color_picker"/>-->
+
+	<!-- <node pkg="color_blob_finder" type="color_blob_finder" name="OIT_color_blob_finder" output="screen">
+		<param name="image_transport" type="str" value="raw"/>
+		<param name="parent_hist" type="str" value="/home/ipab/Desktop/MattROS/godot_yellow.txt"/>
+		<param name="display" type="int" value="1"/>
+        	<remap from="image_color" to="/overhead_cam/image_raw"/>
+	</node> -->
+    	
+	<!-- <node pkg="ir_finder" type="ir_finder" name="OIT_ir_finder">
+                <param name="blob_dist_baseline" type="double" value="0.3" />
+                <param name="blob_dist_tolerance" type="double" value="0.25" />
+    	</node> -->
+</launch>

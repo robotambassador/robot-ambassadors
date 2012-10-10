@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/eros/!svn/ver/285/trunk/tests/eros_cpp_tutorials
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/eros/!svn/ver/230/trunk/tests/eros_cpp_tutorials/.project
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/eros/!svn/ver/230/trunk/tests/eros_cpp_tutorials/manifest.xml
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/eros/!svn/ver/229/trunk/tests/eros_cpp_tutorials/.cproject
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/eros/!svn/ver/259/trunk/tests/eros_cpp_tutorials/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/eros/!svn/ver/229/trunk/tests/eros_cpp_tutorials/Makefile
+END

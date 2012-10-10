@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/eros/!svn/ver/250/trunk/tools/eros_python_tools/scripts
+END
+rosprefix
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/eros/!svn/ver/74/trunk/tools/eros_python_tools/scripts/rosprefix
+END
+rosbuild
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/eros/!svn/ver/179/trunk/tools/eros_python_tools/scripts/rosbuild
+END
+rosprotect
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/eros/!svn/ver/35/trunk/tools/eros_python_tools/scripts/rosprotect
+END
+rostoolchain
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/eros/!svn/ver/38/trunk/tools/eros_python_tools/scripts/rostoolchain
+END
+roscreate-qt-pkg
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/eros/!svn/ver/123/trunk/tools/eros_python_tools/scripts/roscreate-qt-pkg
+END
+rosplatform
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/eros/!svn/ver/46/trunk/tools/eros_python_tools/scripts/rosplatform
+END
+roscreate-qt-ros-pkg
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/eros/!svn/ver/250/trunk/tools/eros_python_tools/scripts/roscreate-qt-ros-pkg
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/eros/!svn/ver/42/trunk/tools/eros_python_tools/scripts/CMakeLists.txt
+END

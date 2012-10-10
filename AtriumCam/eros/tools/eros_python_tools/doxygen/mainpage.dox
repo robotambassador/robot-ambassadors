@@ -1,0 +1,22 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\section Overview
+
+A collection of python tools to assist in embedded development. The tools
+can be called from the scripts in the scripts folder or alternatively the
+interfaces can be integrated directly into your own python scripts.
+
+@section list Tools List
+
+- rosbuild : conveniently setting/viewing the current global build mode (debug, release etc).
+- rosplatform : create, delete or select from existing platform configurations.
+- rosprotect : clean, build and protect parts or all of the ros core stack.
+- rostoolchain : create, delete or select from existing toolchain configurations.
+
+@section Other
+
+- @ref patchesGuide "Patching" : notes on how eros automagically applies and maintains patches the crossing the ros.
+
+*/

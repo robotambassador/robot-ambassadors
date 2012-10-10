@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="nodelet" type="nodelet" name="publisher" args="standalone eros_nodelet_latency/Publisher" output="screen"/>
+  <node pkg="nodelet" type="nodelet" name="subscriber" args="standalone eros_nodelet_latency/Subscriber" output="screen"/>
+</launch>

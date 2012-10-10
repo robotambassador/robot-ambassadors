@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/eros/!svn/ver/266/trunk/tests/eros_qt_tutorials/qadd_server/src
+END
+main.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/eros/!svn/ver/256/trunk/tests/eros_qt_tutorials/qadd_server/src/main.cpp
+END
+qnode.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/eros/!svn/ver/260/trunk/tests/eros_qt_tutorials/qadd_server/src/qnode.cpp
+END
+main_window.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/eros/!svn/ver/266/trunk/tests/eros_qt_tutorials/qadd_server/src/main_window.cpp
+END

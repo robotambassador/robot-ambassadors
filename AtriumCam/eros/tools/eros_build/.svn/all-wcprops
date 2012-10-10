@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/eros/!svn/ver/315/trunk/tools/eros_build
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/eros/!svn/ver/126/trunk/tools/eros_build/.project
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/eros/!svn/ver/84/trunk/tools/eros_build/manifest.xml
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/eros/!svn/ver/68/trunk/tools/eros_build/.cproject
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/eros/!svn/ver/66/trunk/tools/eros_build/mainpage.dox
+END
+.pydevproject
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/eros/!svn/ver/126/trunk/tools/eros_build/.pydevproject
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/eros/!svn/ver/66/trunk/tools/eros_build/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/eros/!svn/ver/66/trunk/tools/eros_build/Makefile
+END

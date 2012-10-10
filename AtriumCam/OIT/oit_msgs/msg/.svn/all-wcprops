@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/usc-ros-pkg/!svn/ver/116/trunk/OIT/oit_msgs/msg
+END
+ObstacleArray.msg
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/usc-ros-pkg/!svn/ver/116/trunk/OIT/oit_msgs/msg/ObstacleArray.msg
+END
+Obstacle.msg
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/usc-ros-pkg/!svn/ver/116/trunk/OIT/oit_msgs/msg/Obstacle.msg
+END
+BlobArray.msg
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/usc-ros-pkg/!svn/ver/78/trunk/OIT/oit_msgs/msg/BlobArray.msg
+END
+Blob.msg
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/usc-ros-pkg/!svn/ver/78/trunk/OIT/oit_msgs/msg/Blob.msg
+END

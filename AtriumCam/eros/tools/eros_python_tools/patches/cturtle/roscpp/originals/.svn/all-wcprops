@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/eros/!svn/ver/156/trunk/tools/eros_python_tools/patches/cturtle/roscpp/originals
+END
+spinner.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/eros/!svn/ver/156/trunk/tools/eros_python_tools/patches/cturtle/roscpp/originals/spinner.cpp
+END
+xmlrpc_manager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/eros/!svn/ver/156/trunk/tools/eros_python_tools/patches/cturtle/roscpp/originals/xmlrpc_manager.cpp
+END
+poll_manager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/eros/!svn/ver/156/trunk/tools/eros_python_tools/patches/cturtle/roscpp/originals/poll_manager.cpp
+END
+init.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/eros/!svn/ver/156/trunk/tools/eros_python_tools/patches/cturtle/roscpp/originals/init.cpp
+END

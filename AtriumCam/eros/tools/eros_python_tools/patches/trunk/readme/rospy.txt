@@ -1,0 +1,10 @@
+===== Windows Time.sleep =====
+
+File: client.py, core.py, rostime.py, timer.py
+Ticket: https://code.ros.org/trac/ros/ticket/3427
+Ticket Status: applied, r13635
+Last Changed Rev: 13530
+
+Modifications:
+	Windows exception throwing by time.sleep handled. Note that the diamondback patch 
+	is different to the trunk patch.

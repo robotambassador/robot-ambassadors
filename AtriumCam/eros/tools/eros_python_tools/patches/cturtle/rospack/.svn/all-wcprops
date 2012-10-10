@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/eros/!svn/ver/43/trunk/tools/eros_python_tools/patches/cturtle/rospack
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/eros/!svn/ver/43/trunk/tools/eros_python_tools/patches/cturtle/rospack/readme.txt
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/eros/!svn/ver/43/trunk/tools/eros_python_tools/patches/cturtle/rospack/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/eros/!svn/ver/43/trunk/tools/eros_python_tools/patches/cturtle/rospack/Makefile
+END

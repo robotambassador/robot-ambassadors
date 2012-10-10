@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/eros/!svn/ver/345/trunk/tools/eros_toolchains/library/mingw_cross
+END
+i686-pc-mingw32.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/eros/!svn/ver/345/trunk/tools/eros_toolchains/library/mingw_cross/i686-pc-mingw32.cmake
+END

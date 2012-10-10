@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/eros/!svn/ver/295/trunk/packages/rosdeps/core/roscpplight/src/roscpplight
+END
+headerpacket.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/eros/!svn/ver/295/trunk/packages/rosdeps/core/roscpplight/src/roscpplight/headerpacket.cpp
+END
+nodehandle.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/eros/!svn/ver/295/trunk/packages/rosdeps/core/roscpplight/src/roscpplight/nodehandle.cpp
+END
+nodexmlrpcserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/eros/!svn/ver/295/trunk/packages/rosdeps/core/roscpplight/src/roscpplight/nodexmlrpcserver.cpp
+END
+nodexmlrpcparser.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/eros/!svn/ver/295/trunk/packages/rosdeps/core/roscpplight/src/roscpplight/nodexmlrpcparser.cpp
+END
+nodexmlrpcclient.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/eros/!svn/ver/295/trunk/packages/rosdeps/core/roscpplight/src/roscpplight/nodexmlrpcclient.cpp
+END

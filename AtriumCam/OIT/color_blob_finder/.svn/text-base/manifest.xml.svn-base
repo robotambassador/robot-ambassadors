@@ -1,0 +1,21 @@
+<package>
+  <description brief="color_blob_finder">
+
+     color_blob_finder
+
+  </description>
+  <author>David Feil-Seifer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/color_blob_finder</url>
+  <depend package="opencv2"/>
+  <depend package="cv_bridge"/>
+  <depend package="sensor_msgs"/>
+  <depend package="image_transport"/>
+  <depend package="image_geometry"/>
+  <depend package="oit_msgs"/>
+  <depend package="tf"/>
+
+</package>
+
+

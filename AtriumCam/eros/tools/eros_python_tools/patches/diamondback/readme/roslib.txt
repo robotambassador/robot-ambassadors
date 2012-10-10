@@ -1,0 +1,22 @@
+
+===== Bugfixes =====
+
+File packages.py
+Ticket: https://code.ros.org/trac/ros/ticket/3415 && https://code.ros.org/trac/ros/ticket/3422
+Ticket Status : Applied to diamondback (r13547) and trunk (r13546)
+Last Changed Revision: 13509
+
+Modifications: 
+    At around line 504 in find_node:
+      test_path = os.path.join(p, node_type) -> test_path = os.path.join(p, m)
+
+===== Does not recognize .py as executable in Windoze =====
+
+File: packages.py
+Ticket: https://code.ros.org/trac/ros/ticket/3422
+Ticket Status: pending
+Last Changed Revision: 13509
+
+Modifications:
+
+    Let roslaunch and co handle .py files which aren't recognised as executable.

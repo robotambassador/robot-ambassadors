@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/eros/!svn/ver/153/trunk/packages/other/eros_opencv
+END
+cvcap_dshow.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/eros/!svn/ver/105/trunk/packages/other/eros_opencv/cvcap_dshow.cpp
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/eros/!svn/ver/93/trunk/packages/other/eros_opencv/.project
+END
+change_install_names_for_mac
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/eros/!svn/ver/98/trunk/packages/other/eros_opencv/change_install_names_for_mac
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/eros/!svn/ver/95/trunk/packages/other/eros_opencv/manifest.xml
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/eros/!svn/ver/93/trunk/packages/other/eros_opencv/.cproject
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/eros/!svn/ver/96/trunk/packages/other/eros_opencv/mainpage.dox
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/eros/!svn/ver/93/trunk/packages/other/eros_opencv/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/eros/!svn/ver/151/trunk/packages/other/eros_opencv/Makefile
+END

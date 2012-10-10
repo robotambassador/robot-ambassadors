@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/usc-ros-pkg/!svn/ver/192/trunk/OIT_experimental/oit_models/srv
+END
+LookupProb.srv
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/usc-ros-pkg/!svn/ver/192/trunk/OIT_experimental/oit_models/srv/LookupProb.srv
+END
+GMMClassify.srv
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/usc-ros-pkg/!svn/ver/192/trunk/OIT_experimental/oit_models/srv/GMMClassify.srv
+END

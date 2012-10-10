@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/usc-ros-pkg/!svn/ver/207/trunk/OIT_experimental/oit_models/src
+END
+test_gmm.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/usc-ros-pkg/!svn/ver/192/trunk/OIT_experimental/oit_models/src/test_gmm.cc
+END
+gmm.cc
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/usc-ros-pkg/!svn/ver/207/trunk/OIT_experimental/oit_models/src/gmm.cc
+END
+follow.cc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/usc-ros-pkg/!svn/ver/192/trunk/OIT_experimental/oit_models/src/follow.cc
+END
+gmm.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/usc-ros-pkg/!svn/ver/192/trunk/OIT_experimental/oit_models/src/gmm.h
+END
+gmm_yaml.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/usc-ros-pkg/!svn/ver/192/trunk/OIT_experimental/oit_models/src/gmm_yaml.cc
+END
+gmm_srv.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/usc-ros-pkg/!svn/ver/207/trunk/OIT_experimental/oit_models/src/gmm_srv.cc
+END
+test_oit.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/usc-ros-pkg/!svn/ver/192/trunk/OIT_experimental/oit_models/src/test_oit.cc
+END

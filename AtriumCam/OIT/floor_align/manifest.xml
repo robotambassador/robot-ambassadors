@@ -1,0 +1,17 @@
+<package>
+  <description brief="floor_align">
+
+     floor_align
+
+  </description>
+  <author>Edward</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/floor_align</url>
+  
+  <depend package="opencv2"/>
+  <depend package="tf"/>
+
+</package>
+
+

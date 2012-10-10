@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/eros/!svn/ver/14/trunk/tests/eros_nodelet_latency/src
+END
+subscriber.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/eros/!svn/ver/14/trunk/tests/eros_nodelet_latency/src/subscriber.cpp
+END
+latency_nodelets.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/eros/!svn/ver/14/trunk/tests/eros_nodelet_latency/src/latency_nodelets.xml
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/eros/!svn/ver/14/trunk/tests/eros_nodelet_latency/src/CMakeLists.txt
+END
+publisher.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/eros/!svn/ver/14/trunk/tests/eros_nodelet_latency/src/publisher.cpp
+END

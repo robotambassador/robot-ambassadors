@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/eros/!svn/ver/272/trunk/tools/eros_python_tools/patches/diamondback/updates/ros/tools/rospack
+END
+rospack.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/eros/!svn/ver/272/trunk/tools/eros_python_tools/patches/diamondback/updates/ros/tools/rospack/rospack.cpp
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/eros/!svn/ver/223/trunk/tools/eros_python_tools/patches/diamondback/updates/ros/tools/rospack/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/eros/!svn/ver/223/trunk/tools/eros_python_tools/patches/diamondback/updates/ros/tools/rospack/Makefile
+END

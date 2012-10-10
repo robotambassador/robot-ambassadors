@@ -1,0 +1,22 @@
+<package>
+  <description brief="oit_ekf">
+
+     oit_ekf
+
+  </description>
+  <author>David Feil-Seifer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/oit_ekf</url>
+  <depend package="roscpp"/>
+  <depend package="bfl"/>
+  <depend package="std_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="sensor_msgs"/>
+  <depend package="nav_msgs"/>
+  <depend package="robot_pose_ekf"/>
+  <depend package="tf"/>
+
+</package>
+
+

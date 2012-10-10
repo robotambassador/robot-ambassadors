@@ -1,0 +1,11 @@
+<stack>
+  <description brief="OIT_experimental">
+		OIT_experimental: experimental packages to accompany the Overhead Interaction Toolkit
+	</description>
+  <author>Maintained by David Feil-Seifer</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/OIT_experimental</url>
+  <depend stack="ros" />
+
+</stack>

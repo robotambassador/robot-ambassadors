@@ -1,0 +1,21 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\section packageSummary Package Summary
+
+	This provides a source package for compiling the apache runtime utilities.
+	Ordinarily this is not useful as you would install via your system's
+	installation method (e.g. apt-get for ubuntu), but for cross-compiling 
+    it provides the recipe needed to make a toolchain ros-ready.
+
+\section potIssues Potential Issues
+  
+    - Downloads from one of korea's apache mirrors. Not sure how to get it to automatically find a good mirror yet.
+    - Might need a check to properly evaluate ac_cv_sizeof_struct_iovec
+    
+\section ChangeLog
+
+	- <b>Oct 10</b> : Done and road tested.
+
+*/

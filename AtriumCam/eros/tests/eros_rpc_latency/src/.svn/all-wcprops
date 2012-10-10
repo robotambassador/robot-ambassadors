@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/eros/!svn/ver/15/trunk/tests/eros_rpc_latency/src
+END
+client.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/eros/!svn/ver/15/trunk/tests/eros_rpc_latency/src/client.cpp
+END
+float_client.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/eros/!svn/ver/15/trunk/tests/eros_rpc_latency/src/float_client.cpp
+END
+server.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/eros/!svn/ver/15/trunk/tests/eros_rpc_latency/src/server.cpp
+END
+float_server.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/eros/!svn/ver/15/trunk/tests/eros_rpc_latency/src/float_server.cpp
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/eros/!svn/ver/15/trunk/tests/eros_rpc_latency/src/CMakeLists.txt
+END

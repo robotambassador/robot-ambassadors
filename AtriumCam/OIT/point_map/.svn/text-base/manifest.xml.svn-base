@@ -1,0 +1,22 @@
+<package>
+  <description brief="point_map">
+
+     point_map
+
+  </description>
+  <author>David Feil-Seifer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/point_map</url>
+  <depend package="yaml_cpp"/>
+  <depend package="roscpp"/>
+  <depend package="nav_msgs"/>
+
+  <export>
+    <cpp cflags="-I${prefix}/srv/cpp"/>
+  </export>
+
+
+</package>
+
+

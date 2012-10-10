@@ -1,0 +1,20 @@
+<package>
+  <description brief="obstacle_avoidance">
+
+     obstacle_avoidance
+
+  </description>
+  <author>David Feil-Seifer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/obstacle_avoidance</url>
+  <depend package="oit_msgs"/>
+  <depend package="point_map"/>
+  <depend package="sensor_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="laser_geometry"/>
+  <depend package="tf"/>
+
+</package>
+
+

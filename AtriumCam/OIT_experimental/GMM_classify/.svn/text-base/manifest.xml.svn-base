@@ -1,0 +1,16 @@
+<package>
+  <description brief="GMM_classify">
+
+     GMM_classify
+
+  </description>
+  <author>David Feil-Seifer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/GMM_classify</url>
+  <depend package="feature_extractor"/>
+  <depend package="opencv2"/>
+
+</package>
+
+

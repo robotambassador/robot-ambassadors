@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/eros/!svn/ver/70/trunk/tools/eros_toolchains/library/code_sourcery
+END
+arm-none-linux-gnueabi.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/eros/!svn/ver/70/trunk/tools/eros_toolchains/library/code_sourcery/arm-none-linux-gnueabi.cmake
+END

@@ -1,0 +1,35 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\section Overview
+
+Ros' package for opencv basically builds the whole kitchen sink. We don't
+want most of it on an embedded board. So we turn off alot of flags. Currently
+this pulls the latest bugfix release from opencv's svn 2.1 tag.
+
+\section maintenance Maintenance
+
+This package will have to be revalidated every time ros updates the opencv - we
+should always try and sync our opencv package with theirs.
+
+\section Usage
+
+This package can either be used within the ros tree (appropriate exports are 
+configured) or or installed in a sysroot ('make install') which is useful for 
+traditional embedded development with a partial cross.
+
+\section Contents
+
+Opencv is compiled with all options turned off except JPEG and PNG. To modify the build,
+simply edit the appropriate section in the cmake/OpenCvBuild.cmake file.
+
+\section Links
+
+ -  http://opencvlibrary.sourceforge.net
+
+\section ChangeLog
+
+	- <b>Oct 10</b> : Done and road tested.
+
+*/

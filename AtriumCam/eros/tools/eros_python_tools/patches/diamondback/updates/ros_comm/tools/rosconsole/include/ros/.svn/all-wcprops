@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/eros/!svn/ver/223/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/tools/rosconsole/include/ros
+END
+assert.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/eros/!svn/ver/223/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/tools/rosconsole/include/ros/assert.h
+END
+console.h
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/eros/!svn/ver/223/trunk/tools/eros_python_tools/patches/diamondback/updates/ros_comm/tools/rosconsole/include/ros/console.h
+END

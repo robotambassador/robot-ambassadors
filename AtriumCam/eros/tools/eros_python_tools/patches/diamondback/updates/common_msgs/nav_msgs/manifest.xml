@@ -1,0 +1,28 @@
+<package>
+  <description brief="Messages for the navigation stack">
+
+    nav_msgs defines the common messages used to interact with the 
+<a href="http://ros.org/wiki/navigation">navigation</a> stack.
+
+  </description>
+  <author>Tully Foote</author>
+  <license>BSD</license>
+  <review status="doc reviewed" notes="http://www.ros.org/wiki/nav_msgs/Reviews/2009-09-30_Doc_Review"/>
+  <url>http://ros.org/wiki/nav_msgs</url>
+  <depend package="geometry_msgs"/>
+
+  <!--
+     Commented out by eros as it forces any msg package to try and 
+     build (and often fail) rosbag.
+     Its not actually a strict compilation dependency 
+  -->
+  <!-- <depend package="rosbagmigration"/> -->
+  <export>
+    <rosbagmigration rule_file="migration_rules/nav_msgs.bmr"/>
+  </export>
+  <platform os="ubuntu" version="9.04"/>
+  <platform os="ubuntu" version="9.10"/>
+  <platform os="ubuntu" version="10.04"/>
+</package>
+
+

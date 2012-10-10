@@ -1,0 +1,3 @@
+float64 ping_time
+---
+float64 pong_time

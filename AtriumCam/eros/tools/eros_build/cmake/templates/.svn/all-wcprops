@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/eros/!svn/ver/68/trunk/tools/eros_build/cmake/templates
+END
+uninstall.cmake.in
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/eros/!svn/ver/68/trunk/tools/eros_build/cmake/templates/uninstall.cmake.in
+END

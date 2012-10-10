@@ -1,0 +1,20 @@
+<package>
+  <description brief="Build recipe for cross-compiling the apache c++ logging library">
+
+	This provides a source package for compiling the apache c++ logging library.
+	Ordinarily this is not useful as you would install via your system's
+	installation method (e.g. apt-get for ubuntu), but for cross-compiling 
+    it provides the recipe needed to make a toolchain ros-ready.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="experimental" notes=""/>
+  <url>http://ros.org/wiki/eros_log4cxx</url>
+  <depend package="eros_license"/>
+  <depend package="eros_apr_util"/>
+  <depend package="eros_build"/>
+
+</package>
+
+

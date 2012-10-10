@@ -1,0 +1,37 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\section packageSummary Package Summary
+
+	This provides a source package for compiling the apache c++ logging library.
+	Ordinarily this is not useful as you would install via your system's
+	installation method (e.g. apt-get for ubuntu), but for cross-compiling 
+    it provides the recipe needed to make a toolchain ros-ready.
+
+\section Patches
+
+    gcc-4.4.patch
+  
+    Just adds includes that were no longer automagically added. Already fixed in trunk.
+
+    pkgconfig.patch
+
+    Properly references the apr-util pkg-config file (necessary for static builds).
+
+    warnings.patch
+
+    No idea on this one, but its an update that is in trunk.
+
+    mingw.patch
+
+    Fixes a problem with the mismatched calling conventions in apr and 
+    log4cxx. 
+
+       http://www.mail-archive.com/log4cxx-user@logging.apache.org/msg02671.html
+       
+\section ChangeLog
+
+	- <b>Oct 10</b> : Done and road tested.
+
+*/

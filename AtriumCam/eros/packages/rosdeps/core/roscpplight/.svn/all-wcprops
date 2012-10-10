@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/eros/!svn/ver/301/trunk/packages/rosdeps/core/roscpplight
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/eros/!svn/ver/301/trunk/packages/rosdeps/core/roscpplight/manifest.xml
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/eros/!svn/ver/295/trunk/packages/rosdeps/core/roscpplight/mainpage.dox
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/eros/!svn/ver/295/trunk/packages/rosdeps/core/roscpplight/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/eros/!svn/ver/295/trunk/packages/rosdeps/core/roscpplight/Makefile
+END

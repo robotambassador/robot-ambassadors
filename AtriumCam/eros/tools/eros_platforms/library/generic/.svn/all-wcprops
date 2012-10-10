@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/eros/!svn/ver/51/trunk/tools/eros_platforms/library/generic
+END
+native.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/eros/!svn/ver/51/trunk/tools/eros_platforms/library/generic/native.cmake
+END
+vanilla.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/eros/!svn/ver/50/trunk/tools/eros_platforms/library/generic/vanilla.cmake
+END

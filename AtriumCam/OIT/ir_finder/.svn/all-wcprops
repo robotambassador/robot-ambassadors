@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/usc-ros-pkg/!svn/ver/199/trunk/OIT/ir_finder
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/usc-ros-pkg/!svn/ver/199/trunk/OIT/ir_finder/manifest.xml
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/usc-ros-pkg/!svn/ver/80/trunk/OIT/ir_finder/mainpage.dox
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/usc-ros-pkg/!svn/ver/80/trunk/OIT/ir_finder/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/usc-ros-pkg/!svn/ver/80/trunk/OIT/ir_finder/Makefile
+END

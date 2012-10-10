@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/eros/!svn/ver/367/trunk/tools/eros_python_tools/templates
+END
+rosconfig.tail.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/eros/!svn/ver/190/trunk/tools/eros_python_tools/templates/rosconfig.tail.cmake
+END
+rosconfig.template.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/eros/!svn/ver/182/trunk/tools/eros_python_tools/templates/rosconfig.template.cmake
+END
+rostoolchain.template.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/eros/!svn/ver/309/trunk/tools/eros_python_tools/templates/rostoolchain.template.cmake
+END

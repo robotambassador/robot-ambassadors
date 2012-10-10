@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/eros/!svn/ver/142/trunk/tools/eros_toolchains/library/crossdev
+END
+i686-pc-linux-gnu.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/eros/!svn/ver/46/trunk/tools/eros_toolchains/library/crossdev/i686-pc-linux-gnu.cmake
+END
+i686-pc-mingw32.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/eros/!svn/ver/142/trunk/tools/eros_toolchains/library/crossdev/i686-pc-mingw32.cmake
+END
+arm-unknown-linux-gnueabi.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/eros/!svn/ver/46/trunk/tools/eros_toolchains/library/crossdev/arm-unknown-linux-gnueabi.cmake
+END

@@ -1,0 +1,10 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\section Overview
+
+This is a collection of make and cmake utilities to assist in the
+build of 3rd party packages for use with a toolchain.
+
+*/

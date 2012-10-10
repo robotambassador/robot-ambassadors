@@ -1,0 +1,23 @@
+
+===== CMakeLists.txt and Makefile =====
+
+URL: https://code.ros.org/svn/ros/stacks/ros/trunk/tools/rospack/CMakeLists.txt
+URL: https://code.ros.org/svn/ros/stacks/ros/trunk/tools/rospack/Makefile
+Last Changed Revision: 12987, 5350
+Ticket: https://code.ros.org/trac/ros/ticket/2803/
+
+Modification:
+    This patch provides two pass build support to rospack,
+    one for the native build environment and one for the cross-compiled
+    build environment. It wont be patched as rosbuild2 is coming.
+
+===== Rospack.cpp for Mingw =====
+
+URL: https://code.ros.org/svn/ros/stacks/ros/trunk/tools/rospack/rospack.cpp
+Last Changed Revision: 12987
+Ticket: https://code.ros.org/trac/ros/ticket/3409
+Ticket Status : patched on trunk@13584
+
+Modification:
+    Minor bugfixing to get rospack find xxx and python load_manifest support
+    on windows.
